@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Event {
 	
+	private Long id;
 	private String title;
 	private Host host; 
 	private Duration duration; 
@@ -15,7 +16,6 @@ public class Event {
 	
 	public Event() {}
 	
-	
 	public Event(String title, Host host, Duration duration, Genre genre, String date, Status status, String location) {
     this.title = title; 
     this.host  = host;
@@ -24,7 +24,44 @@ public class Event {
     this.date  = date; 
     this.status = status;
     this.location = location; 
-	
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public Host getHost() {
+		return host;
+	}
+
+	public Duration getDuration() {
+		return duration;
+	}
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public List<Talk> getTalks() {
+		return talks;
+	}
+	
+	
 	
 }
