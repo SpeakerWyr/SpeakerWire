@@ -1,4 +1,4 @@
-package Api.SpeakerWyr;
+package Api.SpeakerWyr.models;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ public class Genre {
 	private Long id;
 	private String name;
 	private List<Talk> talks;
+	private List<Event> events;
 	
 	public void Genre() {}
 	

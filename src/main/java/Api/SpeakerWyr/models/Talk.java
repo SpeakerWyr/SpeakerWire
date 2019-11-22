@@ -1,4 +1,4 @@
-package Api.SpeakerWyr;
+package Api.SpeakerWyr.models;
 
 import java.util.List;
 
