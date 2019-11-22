@@ -2,8 +2,15 @@ package Api.SpeakerWyr.models;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Speaker {
 	
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String name;
 	private String location;
@@ -11,9 +18,9 @@ public class Speaker {
 	private String headshotUrl;
 	private List<Talk> talks;
 
-	public void Speaker() {}
+	public Speaker() {}
 	
-	public void Speaker(String name, String location, String bio, String headshotUrl) {
+	public Speaker(String name, String location, String bio, String headshotUrl) {
 		this.name = name;
 		this.location = location;
 		this.bio = bio;
