@@ -118,6 +118,10 @@ public class Talk {
 		return "Talk [id=" + id + ", title=" + title + ", description=" + description + ", duration=" + duration
 				+ ", speaker=" + speaker + ", iFrame=" + iFrame + "]";
 	}
+
+	public void setIFrame(String iFrameToAdd) {
+		this.iFrame = iFrameToAdd;
+	}
 	
 	
 }

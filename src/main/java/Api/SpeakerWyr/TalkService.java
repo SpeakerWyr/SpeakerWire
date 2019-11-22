@@ -28,4 +28,9 @@ public class TalkService {
 		return retrievedTalk.get();
 	}
 
+	public void removeTalk(Talk talk) {
+		talkRepo.delete(talk);
+		
+	}
+
 }

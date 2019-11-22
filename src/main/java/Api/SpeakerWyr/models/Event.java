@@ -2,8 +2,15 @@ package Api.SpeakerWyr.models;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
+@Entity
 public class Event {
-	
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String title;
 	private Host host; 

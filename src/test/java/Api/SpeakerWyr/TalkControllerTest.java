@@ -1,14 +1,8 @@
 package Api.SpeakerWyr;
 
-import java.util.Collections;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -16,9 +10,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -76,6 +70,24 @@ public class TalkControllerTest {
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(jsonPath("$.title", is(equalTo("TalkTitle1"))));
 	}
+	
+	@Ignore
+	@Test
+	public void deleteTalkRemovesATalk() {
+		Speaker speaker1 = new Speaker("SpeakerName", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
+		Talk testTalk1 = new Talk("TalkTitle1", "TalkDescription1", Duration.MID, speaker1);
+		Talk testTalk2 = new Talk("TalkTitle2", "TalkDescription2", Duration.MID, speaker1);
+		Talk testTalk3 = new Talk("TalkTitle3", "TalkDescription3", Duration.MID, speaker1);
+//		mockMvc.perform(post("/api/talks/add-talk"))
+//				.content(asJsonString(new Talk("TalkTitle1", "TalkDescription1", Duration.MID, speaker1)))
+//				.contentType(MediaType.APPLICATION_JSON_UTF8);
+		
+		
+
+		
+	}
+	
+	
 	
 	
 }
