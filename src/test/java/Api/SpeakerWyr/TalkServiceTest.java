@@ -32,19 +32,6 @@ public class TalkServiceTest {
 		MockitoAnnotations.initMocks(this);
 	}
 
-	@Ignore
-	@Test
-	public void talkServiceShouldBeAbleToAddTalkToRepo1() {
-		TalkService underTest = new TalkService();
-		Speaker speaker1 = new Speaker("SpeakerName", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
-
-		Talk testTalk = new Talk("TalkTitle1", "TalkDescription1", Duration.MID, speaker1);
-		underTest.fetchTalks();
-		assertThat(underTest.fetchTalks(), contains(testTalk));
-			
-	}
-	
-
 	@Test
 	public void talkServiceShouldBeAbleToAddTalkToRepo2() throws Exception {
 		Speaker speaker1 = new Speaker("SpeakerName", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
@@ -54,16 +41,6 @@ public class TalkServiceTest {
 		assertThat(retrievedTalks, contains(talk1));
 	}
 	
-	@Ignore
-	@Test
-	public void talkServiceShouldBeAbleToAddTalkToRepo() throws Exception {
-		Speaker speaker1 = new Speaker("SpeakerName", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
-		Talk talk1 = new Talk("TalkTitle1", "TalkDescription1", Duration.MID, speaker1);
-
-		Speaker testSpeaker = speakerService.addSpeaker(speaker1);
-		Talk testTalk = underTest.addTalk(talk1);
-		List<Talk> talks = underTest.fetchTalks();
-
-		assertThat(talks, contains(testTalk));
-	}
 }
+
+	
