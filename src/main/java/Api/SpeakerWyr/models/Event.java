@@ -5,7 +5,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Event {
@@ -13,24 +14,27 @@ public class Event {
 	@GeneratedValue
 	private Long id;
 	private String title;
-	private Host host; 
-	private Duration duration; 
+	private Host host;
+	private Duration duration;
+	@ManyToOne
 	private Genre genre;
 	private String date;
 	private Status status;
 	private String location;
+//	@OneToOne
 	private List<Talk> talks;
-	
-	public Event() {}
-	
+
+	public Event() {
+	}
+
 	public Event(String title, Host host, Duration duration, Genre genre, String date, Status status, String location) {
-    this.title = title; 
-    this.host  = host;
-    this.duration = duration; 
-    this.genre = genre; 
-    this.date  = date; 
-    this.status = status;
-    this.location = location; 
+		this.title = title;
+		this.host = host;
+		this.duration = duration;
+		this.genre = genre;
+		this.date = date;
+		this.status = status;
+		this.location = location;
 	}
 
 	public Long getId() {
@@ -68,7 +72,5 @@ public class Event {
 	public List<Talk> getTalks() {
 		return talks;
 	}
-	
-	
-	
+
 }

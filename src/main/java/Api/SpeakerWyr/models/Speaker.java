@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Speaker {
@@ -16,6 +17,7 @@ public class Speaker {
 	private String location;
 	private String bio;
 	private String headshotUrl;
+	@OneToMany(mappedBy = "speaker")
 	private List<Talk> talks;
 
 	public Speaker() {}

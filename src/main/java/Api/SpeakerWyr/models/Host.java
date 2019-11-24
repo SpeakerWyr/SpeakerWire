@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 @Entity
 public class Host {
 	
@@ -15,6 +16,7 @@ public class Host {
 	private String location;
 	private String bio;
 	private String headshotUrl;
+	@OneToMany(mappedBy = "host")
 	private List<Event> events;
 	
 	public void Host() {}

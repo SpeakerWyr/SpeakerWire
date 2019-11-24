@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Talk {
@@ -16,7 +17,9 @@ public class Talk {
 	private String description;
 	private Duration duration;
 	private Speaker speaker;
+	@OneToMany(mappedBy = "talks")
 	private List<Genre> genres;
+	@OneToMany(mappedBy = "talks")
 	private List<Tag> tags;
 	private String iFrame;
 	
