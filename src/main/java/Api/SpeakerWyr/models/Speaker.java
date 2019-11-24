@@ -52,6 +52,10 @@ public class Speaker {
 	public List<Talk> getTalks() {
 		return talks;
 	}
+
+	public void setHeadShotUrl(String headshotUrl) {
+		this.headshotUrl = headshotUrl;
+	}
 	
 	
 	
