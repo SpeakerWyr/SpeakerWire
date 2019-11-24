@@ -2,11 +2,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import Api.SpeakerWyr.HostService;
 import Api.SpeakerWyr.SpeakerService;
 import Api.SpeakerWyr.TalkService;
 import Api.SpeakerWyr.models.Duration;
+import Api.SpeakerWyr.models.Event;
+import Api.SpeakerWyr.models.Host;
 import Api.SpeakerWyr.models.Speaker;
+import Api.SpeakerWyr.models.Status;
 import Api.SpeakerWyr.models.Talk;
+import Api.SpeakerWyr.services.EventService;
 
 @Component
 public class Populator implements CommandLineRunner {
@@ -15,6 +20,10 @@ public class Populator implements CommandLineRunner {
 	private TalkService talkService;
 	@Autowired
 	private SpeakerService speakerService;
+	@Autowired
+	private EventService eventService;
+	@Autowired
+	private HostService hostService;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -35,6 +44,21 @@ public class Populator implements CommandLineRunner {
 		talkService.addTalk(testTalk1);
 		talkService.addTalk(testTalk2);
 		talkService.addTalk(testTalk3);
+		
+		Host hostWCCI = new Host("WCCI", "WCCI Campus", "Bootcamp for full-stack devolpers", "insert Headshot");
+		
+		hostService.addHost(hostWCCI);
+		
+		
+		
+		Event eventCodeandCoffe = new Event("CodeandCoffe", hostWCCI ,Duration.MID, Java, "November 24th", Status.BOOKED, "WCCI");
+		Event eventCodeJam = new Event("CodeJam", WCCI, Duration.MID, "Java", "November 24th", Status.BOOKED, "WCCI" );
+		Event eventPairingWithPride = new Event("Pairing With Pride", WCCI, Duration.MID,"Java", "November 24th", Status.BOOKED, "WCCI");
+		
+		eventService.addEvent(eventCodeandCoffe);
+		eventService.addEvent(eventCodeJam);
+		eventService.addEvent(eventPairingWithPride);
+		
 		
 		}
 
