@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Event {
@@ -14,6 +14,7 @@ public class Event {
 	@GeneratedValue
 	private Long id;
 	private String title;
+	@ManyToOne
 	private Host host;
 	private Duration duration;
 	@ManyToOne
@@ -21,7 +22,7 @@ public class Event {
 	private String date;
 	private Status status;
 	private String location;
-//	@OneToOne
+	@OneToMany(mappedBy = "event")
 	private List<Talk> talks;
 
 	public Event() {
