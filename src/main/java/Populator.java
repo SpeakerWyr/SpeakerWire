@@ -19,19 +19,20 @@ public class Populator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Speaker speaker1 = new Speaker("SpeakerName", "SpeakerLocation", 
-				"SpeakerBio", "SpeakerHeadshotUrl");
+		Speaker speakerLindaLuikas = new Speaker("Linda-Luikas", "SpeakerLocation","SpeakerBio", "SpeakerHeadshotUrl");
+		Speaker speakerJimmyJohn = new Speaker("Jimmy-John", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl1");
+		Speaker speakerTalksAlot = new Speaker ("Talks-Alot", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl1");
 		
+		speakerService.addSpeaker(speakerLindaLuikas);
+		speakerService.addSpeaker(speakerJimmyJohn);
+		speakerService.addSpeaker(speakerTalksAlot);
+
 		
-		
-		
-		Talk testTalk1 = new Talk("TalkTitle1", "TalkDescription1", Duration.MID, speaker1);
-		Talk testTalk2 = new Talk("TalkTitle2", "TalkDescription2", Duration.MID, speaker1);
-		Talk testTalk3 = new Talk("TalkTitle3", "TalkDescription3", Duration.MID, speaker1);
-		
-		
-		
-		
-	}
+		}
 
 }
+
+//		Talk testTalk1 = new Talk("TalkTitle1", "TalkDescription1", Duration.MID, speaker1);
+//		Talk testTalk2 = new Talk("TalkTitle2", "TalkDescription2", Duration.MID, speaker1);
+//		Talk testTalk3 = new Talk("TalkTitle3", "TalkDescription3", Duration.MID, speaker1);
+//		
