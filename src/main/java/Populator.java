@@ -28,12 +28,13 @@ public class Populator implements CommandLineRunner {
 		speakerService.addSpeaker(speakerTalksAlot);
 
 		
-		Talk testTalk1 = new Talk("APIs", "The basics to APIs", Duration.LONG, Linda Luikas);
-		Talk testTalk2 = new Talk("Java", "Its like rosetta stone", Duration.SHORT, Jimmy John;
-		Talk testTalk3 = new Talk("Speaking with confidence", "Let your voice be heard, speak with confidence", Duration.LIGHTNING, Talks Alot);
+		Talk testTalk1 = new Talk("APIs", "The basics to APIs", Duration.LONG, speakerLindaLuikas);
+		Talk testTalk2 = new Talk("Java", "Its like rosetta stone", Duration.SHORT, speakerJimmyJohn);
+		Talk testTalk3 = new Talk("Speaking with confidence", "Let your voice be heard, speak with confidence", Duration.LIGHTNING, speakerTalksAlot);
 		
-		
-		
+		talkService.addTalk(testTalk1);
+		talkService.addTalk(testTalk2);
+		talkService.addTalk(testTalk3);
 		
 		}
 
