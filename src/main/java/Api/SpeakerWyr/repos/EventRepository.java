@@ -1,4 +1,4 @@
-package Api.SpeakerWyr.controllers;
+package Api.SpeakerWyr.repos;
 
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,4 +1,4 @@
-package Api.SpeakerWyr.controllers;
+package Api.SpeakerWyr.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Talk;
+import Api.SpeakerWyr.repos.EventRepository;
 
 @Service
 public class EventService {

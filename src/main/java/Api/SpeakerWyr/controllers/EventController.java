@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Status;
+import Api.SpeakerWyr.services.EventService;
 
 @CrossOrigin
 @RestController
