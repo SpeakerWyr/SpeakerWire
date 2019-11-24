@@ -74,4 +74,8 @@ public class Event {
 		return talks;
 	}
 
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 }
