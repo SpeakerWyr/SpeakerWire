@@ -15,7 +15,7 @@
         <article class="nameplate">
             <h1 th:text="${host.name}" class="nameplate__name">First Last</h1>
             <h6 th:text="${host.location}" class="nameplate__location">Location</h6>
-            <h4 th:text="${host.bio}" class="nameplate__description">Short Bio</h4>
+            <h4 th:text="${host.bio}" class="nameplate__bio">Short Bio</h4>
         </article>
         <article class="headshot-container">
             <img th:src="@{host.headshotUrl}" th:alt="${host.name}">
