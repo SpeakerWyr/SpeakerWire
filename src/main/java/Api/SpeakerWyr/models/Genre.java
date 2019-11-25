@@ -23,9 +23,9 @@ public class Genre {
 	@ManyToMany
 	private List<Event> events;
 	
-	public void Genre() {}
+	public Genre() {}
 	
-	public void Genre(String name) {
+	public Genre(String name) {
 		this.name = name;
 	}
 

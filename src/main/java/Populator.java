@@ -6,20 +6,13 @@ import Api.SpeakerWyr.HostService;
 import Api.SpeakerWyr.SpeakerService;
 import Api.SpeakerWyr.TalkService;
 import Api.SpeakerWyr.models.Duration;
-<<<<<<< Updated upstream
 import Api.SpeakerWyr.models.Event;
-=======
 import Api.SpeakerWyr.models.Genre;
->>>>>>> Stashed changes
 import Api.SpeakerWyr.models.Host;
 import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Status;
 import Api.SpeakerWyr.models.Talk;
-<<<<<<< Updated upstream
 import Api.SpeakerWyr.services.EventService;
-=======
-import antlr.debug.Event;
->>>>>>> Stashed changes
 
 @Component
 public class Populator implements CommandLineRunner {
@@ -57,15 +50,13 @@ public class Populator implements CommandLineRunner {
 		
 		hostService.addHost(hostWCCI);
 		
+		Genre java = new Genre("Java");
 		
 		
-<<<<<<< Updated upstream
-		Event eventCodeandCoffe = new Event("CodeandCoffe", hostWCCI ,Duration.MID, Java, "November 24th", Status.BOOKED, "WCCI");
-		Event eventCodeJam = new Event("CodeJam", WCCI, Duration.MID, "Java", "November 24th", Status.BOOKED, "WCCI" );
-		Event eventPairingWithPride = new Event("Pairing With Pride", WCCI, Duration.MID,"Java", "November 24th", Status.BOOKED, "WCCI");
-=======
-		Event eventWCCICoffeAndCode = new Event("WCCICoffeAndCode", WCCI wcci,  Duration.MID, Java, "November 24th", Status.BOOKED, "WCCI Campus");
->>>>>>> Stashed changes
+		Event eventCodeandCoffe = new Event("CodeandCoffe", hostWCCI ,Duration.MID, java, "November 24th", Status.BOOKED, "WCCI");
+		Event eventCodeJam = new Event("CodeJam", hostWCCI, Duration.MID, java, "November 24th", Status.BOOKED, "WCCI" );
+		Event eventPairingWithPride = new Event("Pairing With Pride", hostWCCI, Duration.MID, java, "November 24th", Status.BOOKED, "WCCI");
+		Event eventWCCICoffeAndCode = new Event("WCCICoffeAndCode", hostWCCI,  Duration.MID, java, "November 24th", Status.BOOKED, "WCCI Campus");
 		
 		eventService.addEvent(eventCodeandCoffe);
 		eventService.addEvent(eventCodeJam);
