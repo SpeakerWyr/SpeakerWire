@@ -76,7 +76,7 @@
 .wrapper {
     font-family: var(--roboto);
     display: grid;
-    margin: 5rem;
+    /* margin: 5rem; */
     background-color: var(--light-color);
     border:2px solid var(--dark-color);
     padding: 2rem ;

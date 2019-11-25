@@ -3,6 +3,8 @@ package Api.SpeakerWyr.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,22 +20,26 @@ import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.SpeakerService;
 
 @CrossOrigin
-@RestController
-@RequestMapping("/api/speakers")
+@Controller
+@RequestMapping("/speaker")
 public class SpeakerController {
 	
 	@Autowired
 	private SpeakerService speakerService;
 	
 	@GetMapping("")
-	public List<Speaker> getSpeakers() {
-		return speakerService.fetchSpeakers();
+	public String getSpeakers(Model model) {
+		model.addAttribute("speakers", speakerService.fetchSpeakers());
+		return "speaker-page";
 	}
 	
 	@GetMapping("/{id}")
-	public Speaker getSingleSpeaker(@PathVariable Long id) {
-		return speakerService.fetchSpeaker(id);
+	public String getSingleSpeaker(@PathVariable ("id") Long id, Model model) {
+		Speaker speaker = speakerService.fetchSpeaker(id);
+		model.addAttribute("speaker", speaker);
+		return "speaker-page";
 	}
+	
 	@PostMapping("/add-speaker")
 	public Speaker addSpeaker(@RequestBody Speaker speaker) {
 		return speakerService.addSpeaker(speaker);
@@ -60,5 +66,4 @@ public class SpeakerController {
 		return speakerService.addSpeaker(speaker);
 	}
 	
-	     
 }
