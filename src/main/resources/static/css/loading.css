@@ -47,7 +47,7 @@
 }
 
 .wrapper-image{
-    background-image: url("../../resources/images/mic.png");
+    background-image: url("/images/mic.png");
     background-position: left;
     background-repeat: no-repeat;
     background-size: auto;
