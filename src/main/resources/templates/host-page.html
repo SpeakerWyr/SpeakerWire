@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpeakerWire - Host Page</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/speakerwire.css">
-    <link rel="stylesheet" href="../css/host-page.css">
+    <link rel="stylesheet" href="/css/speakerwire.css"/>
+    <link rel="stylesheet" href="/css/host-page.css"/>
 </head>
 
 <body>
     <div class="wrapper">
         <article class="nameplate">
-            <h1 th:text="${speaker.name}" class="nameplate__name">First Last</h1>
-            <h6 th:text="${speaker.location}" class="nameplate__location">Location</h6>
-            <h4 th:text="${speaker.bio}" class="nameplate__description">Short Bio</h4>
+            <h1 th:text="${host.name}" class="nameplate__name">First Last</h1>
+            <h6 th:text="${host.location}" class="nameplate__location">Location</h6>
+            <h4 th:text="${host.bio}" class="nameplate__description">Short Bio</h4>
         </article>
         <article class="headshot-container">
-            <img th:src="@{speaker.headshotUrl}" alt="${speaker.name}">
+            <img th:src="@{host.headshotUrl}" th:alt="${host.name}">
         </article>
 
         <div class="hrule">
