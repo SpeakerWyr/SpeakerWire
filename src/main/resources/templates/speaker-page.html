@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpeakerWire - Speaker</title>
+    <link rel="stylesheet" href="./css/speaker-page.css" />
+    <link rel="stylesheet" href="./css/speakerwire.css" />
+    <link rel="stylesheet" href="./css/TalkCard-1.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <article class="nameplate">
+            <h1 class="nameplate__name" th:text="${speaker.name}">SpeakerName</h1>
+            <h4 class="nameplate__location" th:text="${speaker.location}">SpeakerLocation</h4>
+            <h4 class="nameplate__description" th:text="${speaker.bio}">
+                    Linda is the author and illustrator of Hello Ruby, 
+                    a children’s picture book about the whimsical world of computers, 
+                    as well as the founder of Rails Girls, a global movement to teach young 
+                    women programming in over 260 cities. She loves Muji, Zelda Fitzgerald, 
+                    software and sparkly things.
+            </h4>
+            <div class="button-container">
+                <button>Add Talk</button>
+                <button>Search</button>
+            </div>
+        </article>
+        <article class="headshot-container">
+            <img src="../resources/images/linda.PNG" alt="linda" />
+        </article>
+
+        <div class="hrule">
+            <hr />
+        </div>
+
+        <div class="talk-card-container">
+            <div class="talk-card">
+                <h1 class="title">The Poetry of Programming</h1>
+                <div class="description">Description-Linda Liukas believes that a movement in technology is already
+                    happening
+                    and that we need to engage everyone -- especially the next generation -- to take part. She wants to
+                    create a
+                    more diverse and colourful world of technology, starting with the poetry of
+                    code.</div>
+                <div class="length">Length-12:44</div>
+                <article class="speaker">
+                    <button>Linda Liukas</button>
+                </article>
+                <div class="genres">
+                    <p class="genre">tech</p>
+                    <p class="genre">start-up</p>
+                </div>
+                <div class="tags">
+                    <p class="tag">funny</p>
+                    <p class="tag">informational</p>
+                    <p class="tag">modern</p>
+                </div>
+                <div class="movie-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="talk-card">
+                    <h1 class="title">The Interpretive Dance of Programming</h1>
+                    <div class="description">Description-Linda Liukas believes that a movement in technology is already
+                        happening
+                        and that we need to engage everyone -- especially the next generation -- to take part. She wants to
+                        create a
+                        more diverse and colourful world of technology, starting with the poetry of
+                        code.</div>
+                    <div class="length">Length-15:00</div>
+                    <article class="speaker">
+                        <button>Linda Liukas</button>
+                    </article>
+                    <div class="genres">
+                        <p class="genre">tech</p>
+                        <p class="genre">start-up</p>
+                    </div>
+                    <div class="tags">
+                        <p class="tag">serious</p>
+                        <p class="tag">expressive</p>
+                        <p class="tag">post-modern</p>
+                    </div>
+                    <div class="movie-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+        </div>
+        <div class="upcoming-events-container">
+            <h2 class="upcoming-title">Upcoming Events</h2>
+            <div class="upcoming-card">
+                <h4 class="upcoming-card__event-name">Event: TEDXBillings</h4>
+                <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
+                <h4 class="upcoming-card__length">Duration: 12:44 minutes</h4>
+                <h4 class="upcoming-card__location">Location: Billings, MT</h4>
+                <h4 class="upcoming-card__date">Date: December 3, 2019</h4>
+                <h4 class="upcoming-card__host">Host: Billy Bigelow</h4>
+                <div class="upcoming-card__status-container">
+                    <h4>Status: </h4>
+                    <h4 class="upcoming-card__status-booked">Booked</h4>
+                </div>
+            </div>
+                <div class="upcoming-card">
+                    <h4 class="upcoming-card__event-name">Event: Hacker Conference</h4>
+                    <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
+                    <h4 class="upcoming-card__length">Duration: 12:44 minutes</h4>
+                    <h4 class="upcoming-card__location">Location: Billings, MT</h4>
+                    <h4 class="upcoming-card__date">Date: January 7, 2020</h4>
+                    <h4 class="upcoming-card__host">Host: Wayne Brady</h4>
+                    <div class="upcoming-card__status-container">
+                        <h4>Status: </h4>
+                        <h4 class="upcoming-card__status-pending">Pending</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+</body>
+
+<footer></footer>
+
+</html>
