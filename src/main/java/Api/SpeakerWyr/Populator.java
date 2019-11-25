@@ -33,15 +33,15 @@ public class Populator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Speaker speakerLindaLuikas = new Speaker("Linda-Luikas", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
+		Speaker speakerLindaLiukas = new Speaker("Linda-Liukas", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
 		Speaker speakerJimmyJohn = new Speaker("Jimmy-John", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl1");
 		Speaker speakerTalksAlot = new Speaker("Talks-Alot", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl1");
 
-		speakerService.addSpeaker(speakerLindaLuikas);
+		speakerService.addSpeaker(speakerLindaLiukas);
 		speakerService.addSpeaker(speakerJimmyJohn);
 		speakerService.addSpeaker(speakerTalksAlot);
 
-		Talk testTalk1 = new Talk("APIs", "The basics to APIs", Duration.LONG, speakerLindaLuikas);
+		Talk testTalk1 = new Talk("APIs", "The basics to APIs", Duration.LONG, speakerLindaLiukas);
 		Talk testTalk2 = new Talk("Java", "Its like rosetta stone", Duration.SHORT, speakerJimmyJohn);
 		Talk testTalk3 = new Talk("Speaking with confidence", "Let your voice be heard, speak with confidence",
 				Duration.LIGHTNING, speakerTalksAlot);

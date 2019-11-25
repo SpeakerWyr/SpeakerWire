@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpeakerWire - Speaker</title>
-    <link rel="stylesheet" href="../css/speaker-page.css" />
-    <link rel="stylesheet" href="../css/speakerwire.css" />
-    <link rel="stylesheet" href="../css/talkcard.css" />
+    <link rel="stylesheet" href="/css/speaker-page.css" />
+    <link rel="stylesheet" href="/css/speakerwire.css" />
+    <link rel="stylesheet" href="/css/talk-card.css" />
 </head>
 
 <body>
@@ -24,7 +24,7 @@
             </div>
         </article>
         <article class="headshot-container">
-            <img th:src="@{speaker.headshotUrl}" alt="${speaker.name}" />
+            <img th:src="@{speaker.headshotUrl}" th:alt="${speaker.name}" />
         </article>
 
         <div class="hrule">
@@ -33,12 +33,12 @@
 
         <div class="talk-card-container" th:each="talk : ${speaker.talks}">
             <div class="talk-card">
-                <h1 class="title"th:text="${speaker.talk.title}">TalkTitle</h1>
-                <div class="description" th:text="${speaker.talk.description}">Description</div>
-                <div class="length" th:text="${speaker.talk.duration}">Length-12:44</div>
-                <article class="speaker">
-                    <button th:text="${speaker.talk.speaker}">SpeakerName</button>
-                </article>
+                <h1 class="title" th:text="${talk.title}">TalkTitle</h1>
+                <div class="description" th:text="${talk.description}">Description</div>
+                <div class="length" th:text="${talk.duration}">Length-12:44</div>
+                <!-- <article class="speaker">
+                    <button th:text="${talk.speaker}">SpeakerName</button>
+                </article> -->
                 <div class="genres">
                     <p class="genre">tech</p>
                     <p class="genre">start-up</p>
