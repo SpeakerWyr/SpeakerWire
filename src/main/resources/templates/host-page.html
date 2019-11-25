@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpeakerWire - Host Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/speakerwire.css">
+    <link rel="stylesheet" href="../css/host-page.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <article class="nameplate">
+            <h1 class="nameplate__name">First Last</h1>
+            <h6 class="nameplate__location">Location</h6>
+            <h4 class="nameplate__description">This is where I would include all of the quick little bio things that I
+                want to have included in my profile.</h4>
+        </article>
+        <article class="headshot-container">
+            <img src="https://brianbross.github.io/images/BrossImage1.jpeg" alt="name-headshot">
+        </article>
+        
+        <div class="hrule"><hr></div>
+
+        <div class="action">
+            <section class="current-connections">
+                <h2 class="current-connections__header">Current Connections</h2>
+                <article class="current-connections__subject">Subject</article>
+                <article class="current-connections__body">Container holding talk cards, maybe?</article>
+            </section>
+
+            <section class="filter">
+                <h2 class="filter__header">Search and Filter for Talks</h2>
+                <article class="filter__genre">
+                    <select class="filter__genre-select">
+                        <option value="Genre1">Genre1</option>
+                        <option value="Genre2">Genre2</option>
+                        <option value="Genre3">Genre3</option>
+                        <option value="Genre4">Genre4</option>
+                    </select>
+                </article>
+                <article class="filter__tag">
+                    <select class="filter__tag-select">
+                        <option value="Tag1">Tag1</option>
+                        <option value="Tag2">Tag2</option>
+                        <option value="Tag3">Tag3</option>
+                        <option value="Tag4">Tag4</option>
+                    </select>
+                </article>
+                <article class="filter__duration">
+                    <select class="filter__duration-select">
+                        <option value="Duration1">10-20 mins</option>
+                        <option value="Duration2">20-30 mins</option>
+                        <option value="Duration3">30-60 mins</option>
+                        <option value="Duration4">over 1 hour</option>
+                    </select>
+                </article>
+                <article class="filter__speaker-search">
+                    <form>
+                        <input type="text" placeholder="Seach Speaker Name">
+                    </form>
+                </article>
+                <article class="filter__submit-button">
+                    <button>Submit</button>
+                </article>
+            </section>
+        </div>
+        <div class="upcoming-events-container">
+            <h2 class="upcoming-title">Upcoming Events</h2>
+            <div class="upcoming-card">
+                <h4 class="upcoming-card__event-name">Event: TEDXBillings</h4>
+                <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
+                <h4 class="upcoming-card__length">Duration: 12:44 minutes</h4>
+                <h4 class="upcoming-card__location">Location: Billings, MT</h4>
+                <h4 class="upcoming-card__date">Date: December 3, 2019</h4>
+                <h4 class="upcoming-card__host">Host: Billy Bigelow</h4>
+                <div class="upcoming-card__status-container">
+                    <h4>Status: </h4>
+                    <h4 class="upcoming-card__status-booked">Booked</h4>
+                </div>
+            </div>
+                <div class="upcoming-card">
+                    <h4 class="upcoming-card__event-name">Event: Hacker Conference</h4>
+                    <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
+                    <h4 class="upcoming-card__length">Duration: 12:44 minutes</h4>
+                    <h4 class="upcoming-card__location">Location: Billings, MT</h4>
+                    <h4 class="upcoming-card__date">Date: January 7, 2020</h4>
+                    <h4 class="upcoming-card__host">Host: Wayne Brady</h4>
+                    <div class="upcoming-card__status-container">
+                        <h4>Status: </h4>
+                        <h4 class="upcoming-card__status-pending">Pending</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
