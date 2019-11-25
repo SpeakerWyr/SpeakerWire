@@ -16,11 +16,7 @@
             <h1 class="nameplate__name" th:text="${speaker.name}">SpeakerName</h1>
             <h4 class="nameplate__location" th:text="${speaker.location}">SpeakerLocation</h4>
             <h4 class="nameplate__description" th:text="${speaker.bio}">
-                    Linda is the author and illustrator of Hello Ruby, 
-                    a children’s picture book about the whimsical world of computers, 
-                    as well as the founder of Rails Girls, a global movement to teach young 
-                    women programming in over 260 cities. She loves Muji, Zelda Fitzgerald, 
-                    software and sparkly things.
+                    Bio
             </h4>
             <div class="button-container">
                 <button>Add Talk</button>
@@ -28,25 +24,20 @@
             </div>
         </article>
         <article class="headshot-container">
-            <img src="../resources/images/linda.PNG" alt="linda" />
+            <img th:src="@{speaker.headshotUrl}" alt="${speaker.name}" />
         </article>
 
         <div class="hrule">
             <hr />
         </div>
 
-        <div class="talk-card-container">
+        <div class="talk-card-container" th:each="talk : ${speaker.talks}">
             <div class="talk-card">
-                <h1 class="title">The Poetry of Programming</h1>
-                <div class="description">Description-Linda Liukas believes that a movement in technology is already
-                    happening
-                    and that we need to engage everyone -- especially the next generation -- to take part. She wants to
-                    create a
-                    more diverse and colourful world of technology, starting with the poetry of
-                    code.</div>
-                <div class="length">Length-12:44</div>
+                <h1 class="title"th:text="${speaker.talk.title}">TalkTitle</h1>
+                <div class="description" th:text="${speaker.talk.description}">Description</div>
+                <div class="length" th:text="${speaker.talk.duration}">Length-12:44</div>
                 <article class="speaker">
-                    <button>Linda Liukas</button>
+                    <button th:text="${speaker.talk.speaker}">SpeakerName</button>
                 </article>
                 <div class="genres">
                     <p class="genre">tech</p>
@@ -63,33 +54,6 @@
                         allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="talk-card">
-                    <h1 class="title">The Interpretive Dance of Programming</h1>
-                    <div class="description">Description-Linda Liukas believes that a movement in technology is already
-                        happening
-                        and that we need to engage everyone -- especially the next generation -- to take part. She wants to
-                        create a
-                        more diverse and colourful world of technology, starting with the poetry of
-                        code.</div>
-                    <div class="length">Length-15:00</div>
-                    <article class="speaker">
-                        <button>Linda Liukas</button>
-                    </article>
-                    <div class="genres">
-                        <p class="genre">tech</p>
-                        <p class="genre">start-up</p>
-                    </div>
-                    <div class="tags">
-                        <p class="tag">serious</p>
-                        <p class="tag">expressive</p>
-                        <p class="tag">post-modern</p>
-                    </div>
-                    <div class="movie-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                </div>
         </div>
         <div class="upcoming-events-container">
             <h2 class="upcoming-title">Upcoming Events</h2>
