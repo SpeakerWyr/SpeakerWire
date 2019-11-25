@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Api.SpeakerWyr.SpeakerService;
 import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Talk;
+import Api.SpeakerWyr.services.SpeakerService;
 
 @CrossOrigin
 @RestController

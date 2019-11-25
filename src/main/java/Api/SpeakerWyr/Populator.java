@@ -11,6 +11,10 @@ import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Status;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.EventService;
+import Api.SpeakerWyr.services.GenreService;
+import Api.SpeakerWyr.services.HostService;
+import Api.SpeakerWyr.services.SpeakerService;
+import Api.SpeakerWyr.services.TalkService;
 
 @Component
 public class Populator implements CommandLineRunner {

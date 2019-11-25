@@ -17,6 +17,9 @@ import static org.mockito.Mockito.when;
 import Api.SpeakerWyr.models.Duration;
 import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Talk;
+import Api.SpeakerWyr.repos.TalkRepository;
+import Api.SpeakerWyr.services.SpeakerService;
+import Api.SpeakerWyr.services.TalkService;
 
 public class TalkServiceTest {
 
