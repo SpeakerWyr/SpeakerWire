@@ -1,0 +1,84 @@
+
+
+.description{
+    text-align: left;  
+    grid-column: 1 / span 2;
+    grid-row: 2; 
+    margin: 0 1rem 0 1rem;   
+}
+
+.genres {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    grid-column: 1 / span 2;
+    grid-row: 4;
+}
+
+.length {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    margin: 0 1rem 0 1rem;   
+}
+
+.movie-container {
+    text-align: center;
+    grid-column: 1 / span 2;
+    grid-row: 6;
+}
+
+.speaker {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    margin: 0.5rem 1rem;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: var(--montserrat);
+    grid-column: 1/ span 2;
+    background-color: var(--dark-color);
+    color: white;
+    margin: 0rem 0rem 1rem 0rem;
+}
+
+.talk-card {
+    margin: 1rem 0.5rem 0 0;
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: 6rem 6rem 2.5rem 3.5rem 3.5rem auto;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    box-shadow: 3px 3px var(--mid-color);
+}
+
+.tags {
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    grid-column: 1 / span 2;
+    grid-row: 5;
+}
+
+.wrapper {
+    font-family: var(--roboto);
+    display: grid;
+    margin: 5rem;
+    background-color: var(--light-color);
+    border:2px solid var(--dark-color);
+    padding: 2rem ;
+    width: 100%;
+}

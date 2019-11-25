@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merienda&display=swap');
+@import url('/docs/css/speakerwire.css');
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter&display=swap');
+
+.appname {
+    grid-column: 1/span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    font-family: Merienda;
+    font-size: 5rem;
+    color: black;
+}
+
+.blurb {
+    font-family: Architects Daughter;
+}
+
+.log-in__host {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.log-in__register {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.log-in__speaker {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    background-color: var(--mid-color);
+    min-height: 100vh; 
+}
+
+.wrapper-image{
+    background-image: url("../../resources/images/mic.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: auto;
+    position: relative;
+}
