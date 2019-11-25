@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Event {
 	@Id
@@ -22,6 +24,7 @@ public class Event {
 	private String date;
 	private Status status;
 	private String location;
+	@JsonIgnore
 	@OneToMany(mappedBy = "event")
 	private List<Talk> talks;
 

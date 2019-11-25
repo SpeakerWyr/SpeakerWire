@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Speaker {
 	
@@ -17,6 +19,7 @@ public class Speaker {
 	private String location;
 	private String bio;
 	private String headshotUrl;
+	@JsonIgnore
 	@OneToMany(mappedBy = "speaker")
 	private List<Talk> talks;
 
