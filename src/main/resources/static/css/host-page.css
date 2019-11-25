@@ -109,7 +109,7 @@
     justify-content: flex-start;
 }
 
-.filter__submit-button {
+.filter__submit-field {
     display: flex;
     padding: 1rem;
     align-items: flex-start;
