@@ -1,4 +1,4 @@
-package Api.SpeakerWyr;
+package Api.SpeakerWyr.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Api.SpeakerWyr.models.Host;
+import Api.SpeakerWyr.repos.HostRepository;
 @Service
 public class HostService {
 	
