@@ -20,9 +20,9 @@ public class Tag {
 	@ManyToMany
 	private List<Talk> talks;
 	
-	public void Tag() {}
+	public Tag() {}
 	
-	public void Tag(String name) {
+	public Tag(String name) {
 		this.name = name;
 	}
 
