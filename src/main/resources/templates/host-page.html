@@ -50,8 +50,8 @@
                     </article>
                     <article class="filter__duration">
                             <select class="filter__duration-select" name="durationId" id="durationId">
-                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).displayDuration.values()}"
-                                    th:value="${duration}" th:text="${duration}"></option>
+                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
                         <!-- <select class="filter__duration-select" name="durationId" id="durationId">
                             <option value=""></option>
                             <option value="LIGHTNING">Lightning (less than 15 mins)</option>
