@@ -15,8 +15,8 @@
     <div class="wrapper wrapper-image">
 
         <article class="log-in__host">
-            <button>Host</button>
-            <!-- redirects to host log in page -->
+            <button th:href="|/host/7|">Host</button>
+            <!-- redirects to host log in page th:href="|/host/${host.id}|" -->
         </article>
 
         <article class="log-in__register">
@@ -25,8 +25,8 @@
         </article>
 
         <article class="log-in__speaker">
-            <button>Speaker</button>
-            <!-- redirects to speaker log in page -->
+            <button th:href="|/speaker/1|">Speaker</button>
+            <!-- redirects to speaker log in page th:href="|/speaker/${speaker.id}|"-->
         </article>
         
         <h1 class="appname">SpeakerWire</h1>
