@@ -34,5 +34,13 @@ public class EventService {
 		eventRepo.delete(event);
 		
 	}
+	
+	public Event addTalkToEvent(long id, Talk talk) {
+		Optional<Event> retrievedEvent = eventRepo.findById(id);
+		retrievedEvent.get().addTalk(talk);
+		this.addEvent(retrievedEvent.get());
+		Optional<Event> retrievedEventAgain = eventRepo.findById(id);
+		return retrievedEventAgain.get();
+	}
 
 }

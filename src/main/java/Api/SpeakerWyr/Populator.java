@@ -70,6 +70,7 @@ public class Populator implements CommandLineRunner {
 		eventService.addEvent(eventCodeJam);
 		eventService.addEvent(eventPairingWithPride);
 
-	}
+		eventService.addTalkToEvent(eventCodeJam.getId(), testTalk1);
+		}
 
 }

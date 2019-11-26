@@ -80,5 +80,9 @@ public class Event {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+	
+	public void addTalk(Talk talk) {
+		this.talks.add(talk);
+	}
 
 }
