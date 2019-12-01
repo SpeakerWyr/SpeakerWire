@@ -57,10 +57,8 @@
         </div>
         <div class="upcoming-events-container">
             <h2 class="upcoming-title">Upcoming Events</h2>
-            <!-- get that darn list of events from the speaker service -->
-            <div class="upcoming-card" th:each="talk : ${speaker.talks}">
-                <h4 class="upcoming-card__event-name" th:text="${event.title}"
-                >Event</h4>
+            <div class="upcoming-card" th:each="event : ${eventsSpeaking}">
+                <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
                 <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
                 <h4 class="upcoming-card__length">Duration: 12:44 minutes</h4>
                 <h4 class="upcoming-card__location">Location: Billings, MT</h4>
