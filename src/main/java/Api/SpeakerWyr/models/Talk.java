@@ -72,6 +72,10 @@ public class Talk {
 	public Event getEvent() {
 		return event;
 	}
+	
+	public void setEvent(Event eventToAdd) {
+		this.event = eventToAdd;
+	}
 
 	public void setIFrame(String iFrameToAdd) {
 		this.iFrame = iFrameToAdd;

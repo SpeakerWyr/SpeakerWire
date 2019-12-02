@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.TalkService;
 
@@ -48,6 +49,13 @@ public class TalkController {
 	public Talk addVideo(@PathVariable long id, @RequestBody String iframe) {
 		Talk talk = talkService.fetchTalk(id);
 		talk.setIFrame(iframe);
+		return talkService.addTalk(talk);
+	}
+	
+	@PatchMapping("/{id}/add-event")
+	public Talk addEvent(@PathVariable long id, @RequestBody Event event) {
+		Talk talk = talkService.fetchTalk(id);
+		talk.setEvent(event);
 		return talkService.addTalk(talk);
 	}
 }
