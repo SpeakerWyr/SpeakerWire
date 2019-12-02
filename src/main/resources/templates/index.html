@@ -7,7 +7,9 @@
     <title>SpeakerWire</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/loading.css">
+    <link rel="stylesheet" href="../static/css/loading.css">
     <link rel="stylesheet" href="/css/speakerwire.css">
+    <link rel="stylesheet" href="../static/css/speakerwire.css">
 
 </head>
 
@@ -15,8 +17,27 @@
     <div class="wrapper wrapper-image">
 
         <article class="log-in__host">
-            <button>Host</button>
-            <!-- redirects to host log in page -->
+            <button><a href="#openHostModal">Host</a></button>
+            <!-- This is the modal for the host log in -->
+            <div id="openHostModal" class="modalDialog">
+                <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h2>Host Log In</h2>
+                    <form action="/host/7">
+                        <fieldset>
+                            <div class="hostID">
+                                <label>Host ID:</label>
+                                <input type="text"></input>
+                            </div><br>
+                            <div class="hostPassword">
+                                <label>Host Password:</label>
+                                <input type="text"></input>
+                            </div><br>
+                            <input type="submit" value="Log In" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </article>
 
         <article class="log-in__register">
@@ -25,10 +46,29 @@
         </article>
 
         <article class="log-in__speaker">
-            <button>Speaker</button>
-            <!-- redirects to speaker log in page -->
+            <button><a href="#openSpeakerModal">Speaker</a></button>
+            <!-- This is the modal for the speaker log in -->
+            <div id="openSpeakerModal" class="modalDialog">
+                <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h2>Speaker Log In</h2>
+                    <form action="/speaker/1">
+                        <fieldset>
+                            <div class="speakerID">
+                                <label>Speaker ID:</label>
+                                <input type="text"></input>
+                            </div><br>
+                            <div class="speakerPassword">
+                                <label>Speaker Password:</label>
+                                <input type="text"></input>
+                            </div><br>
+                            <input type="submit" value="Log In" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </article>
-        
+
         <h1 class="appname">SpeakerWire</h1>
         <div class="left-margin"></div>
         <div class="blurb">where speakers connect</div>
