@@ -15,6 +15,8 @@ public class EventService {
 
 	@Autowired
 	EventRepository eventRepo;
+	@Autowired
+	TalkService talkService;
 	
 	public Event addEvent(Event event) {
 		return eventRepo.save(event);
@@ -32,7 +34,15 @@ public class EventService {
 
 	public void removeEvent(Event event) {
 		eventRepo.delete(event);
-		
+	}
+	
+	public Event addTalkToEvent(long id, Talk talk) {
+		Event retrievedEvent = eventRepo.findById(id).get();
+		Talk retrievedTalk = talkService.fetchTalk(talk.getId());
+		retrievedTalk.assignEvent(retrievedEvent);
+		talkService.addTalk(retrievedTalk);
+		Event retrievedEventAgain = eventRepo.findById(id).get();
+		return retrievedEventAgain;
 	}
 
 }

@@ -24,7 +24,7 @@ public class Event {
 	private String date;
 	private Status status;
 	private String location;
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToMany(mappedBy = "event")
 	private List<Talk> talks;
 
@@ -79,6 +79,10 @@ public class Event {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+	
+	public void addTalk(Talk talk) {
+		talks.add(talk);
 	}
 
 }

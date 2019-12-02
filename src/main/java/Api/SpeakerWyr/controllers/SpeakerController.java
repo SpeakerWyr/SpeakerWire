@@ -1,5 +1,6 @@
 package Api.SpeakerWyr.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.SpeakerService;
@@ -36,7 +38,9 @@ public class SpeakerController {
 	@GetMapping("/{id}")
 	public String getSingleSpeaker(@PathVariable ("id") Long id, Model model) {
 		Speaker speaker = speakerService.fetchSpeaker(id);
+		List<Event> eventsSpeaking = speakerService.getEventsSpeakerIsBooked(id);
 		model.addAttribute("speaker", speaker);
+		model.addAttribute("events", eventsSpeaking);
 		return "speaker-page";
 	}
 	
@@ -65,5 +69,6 @@ public class SpeakerController {
 		existingTalks.add(talk);
 		return speakerService.addSpeaker(speaker);
 	}
+	
 	
 }
