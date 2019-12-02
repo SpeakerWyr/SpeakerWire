@@ -82,11 +82,7 @@ public class Event {
 	}
 	
 	public void addTalk(Talk talk) {
-		List<Talk> newList = this.getTalks();
-		newList.add(talk);
-		System.out.println("EventModel - addTalk");
-		this.talks = newList;
-		//this.talks.add(talk);
+		talks.add(talk);
 	}
 
 }

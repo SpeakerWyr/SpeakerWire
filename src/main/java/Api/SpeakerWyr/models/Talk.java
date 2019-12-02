@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Talk {
 	
@@ -25,6 +27,7 @@ public class Talk {
 	@OneToMany(mappedBy = "talks")
 	private List<Tag> tags;
 	private String iFrame;
+	@JsonIgnore
 	@ManyToOne
 	private Event event;
 	
@@ -147,12 +150,9 @@ public class Talk {
 		return true;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Talk [id=" + id + ", title=" + title + ", description=" + description + ", duration=" + duration
-//				+ ", speaker=" + speaker + ", genres=" + genres + ", tags=" + tags + ", iFrame=" + iFrame + ", event="
-//				+ event + "]";
-//	}
-	
+	public void assignEvent(Event event) {
+		this.event = event;
+	}
+
 }
 
