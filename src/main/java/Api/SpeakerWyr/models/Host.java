@@ -115,6 +115,10 @@ public class Host {
 		return "Host [id=" + id + ", name=" + name + ", location=" + location + ", bio=" + bio + ", headshotUrl="
 				+ headshotUrl + ", events=" + events + "]";
 	}
+
+	public void setHeadShotUrl(String headshotUrl) {
+		this.headshotUrl = headshotUrl;
+	}
 	
 	
 

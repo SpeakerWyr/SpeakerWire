@@ -1,11 +1,13 @@
 package Api.SpeakerWyr.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Host;
 import Api.SpeakerWyr.repos.HostRepository;
 @Service
@@ -13,6 +15,8 @@ public class HostService {
 	
 	@Autowired
 	HostRepository hostRepo;
+	@Autowired
+	EventService eventService;
 	
 	public Host addHost(Host host) {
 		return hostRepo.save(host);
@@ -31,6 +35,18 @@ public class HostService {
 	public void removeHost(Host host) {
 		hostRepo.delete(host);
 		
+	}
+
+	public List<Event> getEventsHostIsHosting(long id) {
+		List<Event> eventsHosting = new ArrayList<Event>();
+		Host thisHost = fetchHost(id);
+		List<Event> allEvents = eventService.fetchEvents();
+		for(Event event : allEvents) {
+			if(event.getHost() == thisHost) {
+				eventsHosting.add(event);
+			}
+		}
+		return eventsHosting;
 	}
 
 
