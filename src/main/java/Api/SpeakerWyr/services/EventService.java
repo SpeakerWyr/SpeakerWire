@@ -17,7 +17,6 @@ public class EventService {
 	EventRepository eventRepo;
 	
 	public Event addEvent(Event event) {
-		System.out.println("EventService - addEvent");
 		return eventRepo.save(event);
 	}
 	
