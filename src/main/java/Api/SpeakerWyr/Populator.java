@@ -35,7 +35,7 @@ public class Populator implements CommandLineRunner {
 
 		System.out.println("running populator");
 		Speaker speakerLindaLuikas = new Speaker("Linda-Luikas", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
-		Speaker speakerDrEugeniaCheng = new Speaker("DrEugeniaCheng", "Dublin,Ohio", "I am a British mathematician, pianist, Scientist-in-Residence at the School of the Art Institute of Chicago and an honorary fellow of pure mathematics at the University of Sheffield.My mathematical interests include higher-dimensional category theory, and as a pianist I specialises in lieder and art song. She is also passionate about explaining mathematics to non-mathematicians to rid the world of math phobia, often using entertaining analogies with food and baking.", "SpeakerHeadshotUrl1");
+		Speaker speakerDrEugeniaCheng = new Speaker("DrEugeniaCheng", "Dublin,Ohio", "I am a British mathematician, pianist, Scientist-in-Residence at the School of the Art Institute of Chicago", "SpeakerHeadshotUrl1");
 		Speaker speakerBrianEgan = new Speaker("Brian-Egan", "Grove City,Ohio", "I am a front-end developer with a rad company. I've designed a bunch of sites using a combination of sketching, mockup tools, and Photoshop (occasionally Fireworks), and personally converted every one to well-written HTML & CSS that works across all browsers. I also write JavaScript like Jagger (well, hopefully a bit better), and love geeking out about unit testing.", "SpeakerHeadshotUrl1");
 
 		speakerService.addSpeaker(speakerLindaLuikas);
