@@ -56,8 +56,8 @@ public class EventController {
 	//added this patch mapping to connect talk to event
 	@PatchMapping("/{id}/add-talk")
 	public Event addTalk(@PathVariable long id, @RequestBody Talk talk) {
-		//Event event = eventService.fetchEvent(id);
 		return eventService.addTalkToEvent(id, talk);
+		//Event event = eventService.fetchEvent(id);
 		//event.addTalk(talk);
 		//System.out.println("controller - add-talk");
 		//return eventService.addEvent(event);
