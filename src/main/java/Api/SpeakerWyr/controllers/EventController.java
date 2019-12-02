@@ -17,6 +17,7 @@ import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Status;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.EventService;
+import Api.SpeakerWyr.services.TalkService;
 
 @CrossOrigin
 @RestController
@@ -25,10 +26,17 @@ public class EventController {
 
 	@Autowired
 	private EventService eventService;
+	@Autowired
+	private TalkService talkService;
 	
 	@GetMapping("")
 	public List<Event> getEvents() {
 		return eventService.fetchEvents();
+	}
+	
+	@GetMapping("{id}/get-talks")
+	public List<Talk> getTalks(@PathVariable Long id) {
+		return talkService.fetchTalks();
 	}
 	
 	@GetMapping("/{id}")
