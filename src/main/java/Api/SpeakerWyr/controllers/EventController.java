@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Status;
+import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.EventService;
 
 @CrossOrigin
@@ -49,6 +50,14 @@ public class EventController {
 	public Event updateStatus(@PathVariable long id, @RequestBody Status status) {
 		Event event = eventService.fetchEvent(id);
 		event.setStatus(status);
+		return eventService.addEvent(event);
+	}
+	
+	//added this patch mapping to connect talk to event
+	@PatchMapping("/{id}/add-talk")
+	public Event addTalk(@PathVariable long id, @RequestBody Talk talk) {
+		Event event = eventService.fetchEvent(id);
+		event.addTalk(talk);
 		return eventService.addEvent(event);
 	}
 }
