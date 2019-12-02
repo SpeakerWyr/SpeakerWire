@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Host {
 	
@@ -16,10 +18,11 @@ public class Host {
 	private String location;
 	private String bio;
 	private String headshotUrl;
+	@JsonIgnore
 	@OneToMany(mappedBy = "host")
 	private List<Event> events;
 	
-	public void Host() {}
+	public Host() {}
 	
 	public Host(String name, String location, String bio, String headshotUrl) {
 		this.name = name;

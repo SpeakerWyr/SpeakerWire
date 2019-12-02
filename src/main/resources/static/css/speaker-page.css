@@ -1,0 +1,113 @@
+@import "speakerwire.css";
+
+.action {
+    grid-area: action;
+    column-span: 4;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.button-container {
+    margin-left: 1rem;
+}
+.current-connections {
+    border: 3px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 20rem .1rem 80rem auto;
+    grid-template-areas:"nameplate nameplate nameplate headshot headshot headshot"
+                        "hrule hrule hrule hrule hrule hrule"
+                        "talkcard talkcard talkcard talkcard schedule schedule"
+                        "result result result result result result";
+    min-width: 90vw;
+    min-height: 100vh;
+    margin: 0px;
+    background-color: var(--light-color);
+}
+
+.headshot-container {
+    grid-area: headshot;
+    column-span: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hrule {
+    grid-area: hrule;
+    column-span: 6;
+}
+
+.nameplate {
+    grid-area: nameplate;
+    column-span: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+}
+
+
+.nameplate__name {
+    margin: 1rem;
+}
+
+.nameplate__location {
+    margin: 1rem;
+}
+
+.nameplate__bio {
+    margin: 1rem;
+}
+
+.talk-card-container {
+    grid-area: talkcard;
+    column-span: 4;
+    margin: 1rem 0.5rem 0 0;
+}
+
+.upcoming-card {
+    border: 2px solid black;
+    margin: 0.5rem;
+    padding: 0.25rem;
+    background-color: var(--light-color);
+}
+
+.upcoming-card__status-booked {
+    color: var(--coral);
+    align-self: right;
+    margin-left: 1rem;
+    text-shadow: 1px 1px 1px black;
+}
+
+.upcoming-card__status-pending {
+    color: var(--gold);
+    align-self: right;
+    margin-left: 1rem;
+    text-shadow: 1px 1px 1px black;
+}
+
+.upcoming-card__status-container {
+    display: flex;
+}
+
+.upcoming-events-container {
+    display: flex;
+    flex-direction: column;
+    grid-area: schedule;
+    column-span: 2;
+    background-color: var(--mid-color);
+    margin: 2rem 0 0.5rem 0.5rem;
+    padding: 0.5rem;
+}
+
+.upcoming-title {
+    color: var(--light-color);
+    align-self: center;    
+}
+

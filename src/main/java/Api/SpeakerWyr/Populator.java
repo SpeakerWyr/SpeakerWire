@@ -11,6 +11,10 @@ import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Status;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.EventService;
+import Api.SpeakerWyr.services.GenreService;
+import Api.SpeakerWyr.services.HostService;
+import Api.SpeakerWyr.services.SpeakerService;
+import Api.SpeakerWyr.services.TalkService;
 
 @Component
 public class Populator implements CommandLineRunner {
@@ -28,6 +32,7 @@ public class Populator implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
 		System.out.println("running populator");
 		Speaker speakerLindaLuikas = new Speaker("Linda-Luikas", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
 		Speaker speakerDrEugeniaCheng = new Speaker("DrEugeniaCheng", "Dublin,Ohio", "I am a British mathematician, pianist, Scientist-in-Residence at the School of the Art Institute of Chicago and an honorary fellow of pure mathematics at the University of Sheffield.My mathematical interests include higher-dimensional category theory, and as a pianist I specialises in lieder and art song. She is also passionate about explaining mathematics to non-mathematicians to rid the world of math phobia, often using entertaining analogies with food and baking.", "SpeakerHeadshotUrl1");
@@ -44,10 +49,11 @@ public class Populator implements CommandLineRunner {
 		Talk testTalk1 = new Talk("APIs", "The basics to APIs", Duration.LONG, speakerLindaLuikas);
 		Talk testTalk2 = new Talk("Conveying the Power of Abstraction ", "A look at our relationship with abstraction and its potential for dramatically improving how we think if it is incorporated in different ways within education systems.", Duration.LONG, speakerDrEugeniaCheng);
 		Talk testTalk3 = new Talk(" Flutter with Streams and RxDart", "Lets skip the poltical talks about Rx and dive into its practical uses",Duration.MID, speakerBrianEgan);
+		
+	
 
-		talkService.addTalk(testTalk1);
-		talkService.addTalk(testTalk2);
-		talkService.addTalk(testTalk3);
+
+	
 
 		
 		

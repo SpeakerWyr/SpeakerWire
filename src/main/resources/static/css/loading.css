@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merienda&display=swap');
+@import url('/docs/css/speakerwire.css');
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter&display=swap');
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover, a:active
+{
+   color: white;
+   text-decoration: none;
+}
+
+.appname {
+    grid-column: 1/span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    font-family: Merienda;
+    font-size: 5rem;
+    color: black;
+}
+
+.blurb {
+    font-family: Architects Daughter;
+}
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover {
+    background: #00d9ff;
+}
+
+.log-in__host {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.log-in__register {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.log-in__speaker {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modalDialog {
+    opacity: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.6);
+    /* -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in; */
+    pointer-events: none;
+}
+
+.modalDialog>div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+
+.modalDialog:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    background-color: var(--mid-color);
+    min-height: 100vh; 
+}
+
+.wrapper-image{
+    background-image: url("/images/mic.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: auto;
+    position: relative;
+}

@@ -147,12 +147,12 @@ public class Talk {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Talk [id=" + id + ", title=" + title + ", description=" + description + ", duration=" + duration
-				+ ", speaker=" + speaker + ", genres=" + genres + ", tags=" + tags + ", iFrame=" + iFrame + ", event="
-				+ event + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Talk [id=" + id + ", title=" + title + ", description=" + description + ", duration=" + duration
+//				+ ", speaker=" + speaker + ", genres=" + genres + ", tags=" + tags + ", iFrame=" + iFrame + ", event="
+//				+ event + "]";
+//	}
 	
 }
 

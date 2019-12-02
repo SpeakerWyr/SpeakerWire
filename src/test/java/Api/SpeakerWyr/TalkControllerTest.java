@@ -27,6 +27,7 @@ import Api.SpeakerWyr.controllers.TalkController;
 import Api.SpeakerWyr.models.Duration;
 import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Talk;
+import Api.SpeakerWyr.services.TalkService;
 
 
 
