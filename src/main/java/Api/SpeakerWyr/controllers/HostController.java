@@ -64,7 +64,12 @@ public class HostController {
 		List<Event> existingEvents = host.getEvents();
 		existingEvents.add(event);
 		return hostService.addHost(host);
-		
-		
 	}
+	//remove event happens in event controller?
+//	@DeleteMapping("/{id}/delete-event")
+//	public void deleteEvent(@PathVariable long id) {
+//		Event event = eventService.fetchEvent(id);
+//		
+//	}
+	
 }

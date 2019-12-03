@@ -53,14 +53,6 @@ public class Populator implements CommandLineRunner {
 		talkService.addTalk(talkAPIs);
 		talkService.addTalk(talkConveyingthePowerofAbstraction);
 		talkService.addTalk(talkFlutterwithStreamsandRxDart);
-
-
-	
-
-		
-		
-		
-		
 		
 		Host hostArtInstituteofChicago = new Host("ArtInstituteofChicago", "Art Campus", "private university associated with the Art Institute of Chicago in Chicago, Illinois.", "insert Headshot");
 		Host hostWCCI = new Host("WCCI", "WCCI", "A bootcamp for full stack devolpers.", "insert Headshot");
@@ -69,19 +61,10 @@ public class Populator implements CommandLineRunner {
 		hostService.addHost(hostArtInstituteofChicago);
 		hostService.addHost(hostWCCI);
 		hostService.addHost(hostOhioStateUniversity);
-
-		
-		
-		
 		
 		Genre java = new Genre("Java");
 
 		genreService.addGenre(java);
-
-		
-		
-		
-		
 		
 		Event eventCodeandCoffe = new Event("CodeandCoffe", hostWCCI, Duration.MID, java, "November 24th",Status.BOOKED, "WCCI");
 		Event eventPowerofAbstraction = new Event("PowerofAbstraction", hostArtInstituteofChicago, Duration.LONG, java, "November 24th", Status.BOOKED, "ArtInstituteofChicago");
