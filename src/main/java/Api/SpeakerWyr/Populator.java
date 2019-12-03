@@ -33,22 +33,17 @@ public class Populator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Speaker speakerLindaLuikas = new Speaker("Linda-Luikas", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
+		Speaker speakerLindaLiukas = new Speaker("Linda-Liukas", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
 		Speaker speakerDrEugeniaCheng = new Speaker("DrEugeniaCheng", "Dublin,Ohio", "I am a British mathematician, pianist, Scientist-in-Residence at the School of the Art Institute of Chicago", "SpeakerHeadshotUrl1");
 		Speaker speakerBrianEgan = new Speaker("Brian-Egan", "Grove City,Ohio", "I am a front-end developer with a rad company.", "SpeakerHeadshotUrl1");
 
-		speakerService.addSpeaker(speakerLindaLuikas);
+		speakerService.addSpeaker(speakerLindaLiukas);
 		speakerService.addSpeaker(speakerDrEugeniaCheng);
 		speakerService.addSpeaker(speakerBrianEgan);
-
-		
-		
-		
 		
 		Talk talkAPIs = new Talk("APIs", "The basics to APIs", Duration.LONG, speakerLindaLuikas);
 		Talk talkConveyingthePowerofAbstraction = new Talk("ConveyingthePowerofAbstraction ", "A look at our relationship with abstraction and its potential for dramatically improving how we think if it is incorporated in different ways within education systems.", Duration.LONG, speakerDrEugeniaCheng);
 		Talk talkFlutterwithStreamsandRxDart = new Talk(" Flutter with Streams and RxDart", "Lets skip the poltical talks about Rx and dive into its practical uses",Duration.MID, speakerBrianEgan);
-		
 		
 		talkService.addTalk(talkAPIs);
 		talkService.addTalk(talkConveyingthePowerofAbstraction);
@@ -66,11 +61,11 @@ public class Populator implements CommandLineRunner {
 
 		genreService.addGenre(java);
 		
-		Event eventCodeandCoffe = new Event("CodeandCoffe", hostWCCI, Duration.MID, java, "November 24th",Status.BOOKED, "WCCI");
+		Event eventCodeandCoffee = new Event("CodeandCoffee", hostWCCI, Duration.MID, java, "November 24th",Status.BOOKED, "WCCI");
 		Event eventPowerofAbstraction = new Event("PowerofAbstraction", hostArtInstituteofChicago, Duration.LONG, java, "November 24th", Status.BOOKED, "ArtInstituteofChicago");
 		Event eventFlutterwithStreamsandRxDart = new Event("Flutter with Streams and RxDart", hostWCCI, Duration.MID, java, "November 24th",Status.BOOKED, "WCCI Campus");
 
-		eventService.addEvent(eventCodeandCoffe);
+		eventService.addEvent(eventCodeandCoffee);
 		eventService.addEvent(eventPowerofAbstraction);
 		eventService.addEvent(eventFlutterwithStreamsandRxDart);
 
