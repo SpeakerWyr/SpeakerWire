@@ -34,14 +34,16 @@ public class Populator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+
 		Speaker speakerLindaLiukas = new Speaker("Linda Liukas", "Columbus, Ohio",
-				"Linda is the author and illustrator of Hello Ruby, a children’s picture book about the whimsical world of computers, as well as the founder of Rails Girls, a global movement to teach young women programming in over 260 cities.",
+				"Linda is the author and illustrator of Hello Ruby, a childrenâ€™s picture book about the whimsical world of computers, as well as the founder of Rails Girls, a global movement to teach young women programming in over 260 cities.",
 				"https://upload.wikimedia.org/wikipedia/commons/3/35/Linda_Liukas_at_the_Data_of_Tomorrow_Conference_2017_%2823496747288%29_%28cropped%29.jpg");
 		Speaker speakerDrEugeniaCheng = new Speaker("Dr. Eugenia Cheng", "Dublin, Ohio",
 				"Dr. Cheng is a British mathematician, pianist, and Scientist-in-Residence at the School of the Art Institute of Chicago.",
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/EugeniaCheng_PhiBetaKappa_EnLightningTalksChicago2016_%28cropped%29.jpg/440px-EugeniaCheng_PhiBetaKappa_EnLightningTalksChicago2016_%28cropped%29.jpg");
 		Speaker speakerBrianEgan = new Speaker("Brian Egan", "Grove City, Ohio",
-				"Brian is a front-end developer with a rad company.", "SpeakerHeadshotUrl1");
+				"Brian is a front-end developer with a rad company.", "/images/BrianEgan.jpg");
+
 
 		speakerService.addSpeaker(speakerLindaLiukas);
 		speakerService.addSpeaker(speakerDrEugeniaCheng);

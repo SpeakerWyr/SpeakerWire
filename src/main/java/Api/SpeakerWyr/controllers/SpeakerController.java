@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Talk;
+import Api.SpeakerWyr.services.GenreService;
 import Api.SpeakerWyr.services.SpeakerService;
+import Api.SpeakerWyr.services.TagService;
 
 @CrossOrigin
 @Controller
@@ -25,6 +27,11 @@ public class SpeakerController {
 	
 	@Autowired
 	private SpeakerService speakerService;
+	@Autowired
+	private TagService tagService; 
+	@Autowired
+	private GenreService genreService;
+	
 	
 	@GetMapping("")
 	public String getSpeakers(Model model) {
@@ -38,7 +45,11 @@ public class SpeakerController {
 		List<Event> eventsSpeaking = speakerService.getEventsSpeakerIsBooked(id);
 		model.addAttribute("speaker", speaker);
 		model.addAttribute("events", eventsSpeaking);
+		model.addAttribute("genres", genreService.fetchGenres());
+		model.addAttribute("tags", tagService.fetchTags());
 		return "speaker-page";
+
+			
 	}
 	
 	@PostMapping("/add-speaker") //add to host 

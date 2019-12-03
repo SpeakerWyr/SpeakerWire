@@ -11,6 +11,10 @@
     --open-sans: 'Open Sans', sans-serif;
 }
 
+.aligner {
+    display:flex;
+}
+
 html {
     font: 20px/1;
 }
@@ -74,8 +78,8 @@ input {
 }
 
 img {
-    width: 15rem;
-    height: 15rem;
+    max-width: 25rem;
+    max-height: 15rem;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6), 0 6px 20px 0 rgba(0,0,0,0.6);
 }
