@@ -11,6 +11,10 @@
     --open-sans: 'Open Sans', sans-serif;
 }
 
+.aligner {
+    display:flex;
+}
+
 html {
     font: 20px/1;
 }

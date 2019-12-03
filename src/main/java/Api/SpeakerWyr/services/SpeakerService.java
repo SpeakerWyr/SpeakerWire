@@ -6,9 +6,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-
 import Api.SpeakerWyr.models.Duration;
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Genre;
@@ -48,17 +45,15 @@ public class SpeakerService {
 		List<Talk> theseTalks = thisSpeaker.getTalks();
 		
 		for(Talk talk : theseTalks) {
-			if(!(talk.getEvent() == null)) {
-				eventsSpeaking.add(talk.getEvent());
-			} else {
+//			if(!(talk.getEvent() == null)) {
+//				eventsSpeaking.add(talk.getEvent());
+//			} else {
 				Host testHost = new Host("testName", "testLocation", "testBio", "testHeadshot");
 				Genre java = new Genre("Java");
 				Event event = new Event("testtitle", testHost, Duration.MID, java, "testDate", Status.PENDING, "testlocation");
 				eventsSpeaking.add(event);
 			}
-		}
+//		}
 		return eventsSpeaking;
 	}
-
-	
 }

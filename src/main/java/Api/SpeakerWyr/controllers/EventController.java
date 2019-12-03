@@ -1,5 +1,6 @@
 package Api.SpeakerWyr.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Api.SpeakerWyr.models.Event;
+import Api.SpeakerWyr.models.Genre;
 import Api.SpeakerWyr.models.Status;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.EventService;
@@ -65,4 +67,15 @@ public class EventController {
 	public Event addTalk(@PathVariable long id, @RequestBody Talk talk) {
 		return eventService.addTalkToEvent(id, talk);
 	}
+	
+	@PatchMapping("/{id}/add-genre")
+	public void addGenre(@PathVariable long id, @RequestBody Genre genre) {
+		Talk thisTalk = talkService.fetchTalk(id);
+		List<Genre> thisTalkGenre = new ArrayList <>(thisTalk.getGenres());
+		thisTalkGenre.add(genre);
+		talkService.addTalk(thisTalk);
+	}
+	
+	
+	
 }
