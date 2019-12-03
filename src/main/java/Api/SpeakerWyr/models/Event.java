@@ -31,7 +31,8 @@ public class Event {
 	public Event() {
 	}
 
-	public Event(String title, Host host, Duration duration, Genre genre, String date, Status status, String location) {
+	public Event(String title, Host host, Duration duration, Genre genre, 
+			String date, Status status, String location) {
 		this.title = title;
 		this.host = host;
 		this.duration = duration;
