@@ -57,6 +57,7 @@ public class SpeakerController {
 		thisSpeaker.setLocation(location);
 		thisSpeaker.setBio(bio);
 		thisSpeaker.setHeadShotUrl(headshotUrl);
+//		this needs to be a redirect to the speaker-page with id
 		return speakerService.addSpeaker(thisSpeaker);
 	}
 	

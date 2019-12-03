@@ -41,7 +41,7 @@ public class Populator implements CommandLineRunner {
 		speakerService.addSpeaker(speakerDrEugeniaCheng);
 		speakerService.addSpeaker(speakerBrianEgan);
 		
-		Talk talkAPIs = new Talk("APIs", "The basics to APIs", Duration.LONG, speakerLindaLuikas);
+		Talk talkAPIs = new Talk("APIs", "The basics to APIs", Duration.LONG, speakerLindaLiukas);
 		Talk talkConveyingthePowerofAbstraction = new Talk("ConveyingthePowerofAbstraction ", "A look at our relationship with abstraction and its potential for dramatically improving how we think if it is incorporated in different ways within education systems.", Duration.LONG, speakerDrEugeniaCheng);
 		Talk talkFlutterwithStreamsandRxDart = new Talk(" Flutter with Streams and RxDart", "Lets skip the poltical talks about Rx and dive into its practical uses",Duration.MID, speakerBrianEgan);
 		
