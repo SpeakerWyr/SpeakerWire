@@ -1,6 +1,5 @@
 package Api.SpeakerWyr.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Talk;
+import Api.SpeakerWyr.services.GenreService;
 import Api.SpeakerWyr.services.SpeakerService;
+import Api.SpeakerWyr.services.TagService;
 
 @CrossOrigin
 @Controller
@@ -28,6 +27,11 @@ public class SpeakerController {
 	
 	@Autowired
 	private SpeakerService speakerService;
+	@Autowired
+	private TagService tagService; 
+	@Autowired
+	private GenreService genreService;
+	
 	
 	@GetMapping("")
 	public String getSpeakers(Model model) {
@@ -41,7 +45,11 @@ public class SpeakerController {
 		List<Event> eventsSpeaking = speakerService.getEventsSpeakerIsBooked(id);
 		model.addAttribute("speaker", speaker);
 		model.addAttribute("events", eventsSpeaking);
+		model.addAttribute("genres", genreService.fetchGenres());
+		model.addAttribute("tags", tagService.fetchTags());
 		return "speaker-page";
+
+			
 	}
 	
 	@PostMapping("/add-speaker")
