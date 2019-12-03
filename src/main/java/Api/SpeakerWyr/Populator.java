@@ -41,7 +41,7 @@ public class Populator implements CommandLineRunner {
 				"Dr. Cheng is a British mathematician, pianist, and Scientist-in-Residence at the School of the Art Institute of Chicago.",
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/EugeniaCheng_PhiBetaKappa_EnLightningTalksChicago2016_%28cropped%29.jpg/440px-EugeniaCheng_PhiBetaKappa_EnLightningTalksChicago2016_%28cropped%29.jpg");
 		Speaker speakerBrianEgan = new Speaker("Brian Egan", "Grove City, Ohio",
-				"Brian is a front-end developer with a rad company.", "SpeakerHeadshotUrl1");
+				"Brian is a front-end developer with a rad company.", "/images/BrianEgan.jpg");
 
 		speakerService.addSpeaker(speakerLindaLiukas);
 		speakerService.addSpeaker(speakerDrEugeniaCheng);
