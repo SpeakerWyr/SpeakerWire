@@ -48,17 +48,15 @@ public class SpeakerService {
 		List<Talk> theseTalks = thisSpeaker.getTalks();
 		
 		for(Talk talk : theseTalks) {
-			if(!(talk.getEvent() == null)) {
-				eventsSpeaking.add(talk.getEvent());
-			} else {
+//			if(!(talk.getEvent() == null)) {
+//				eventsSpeaking.add(talk.getEvent());
+//			} else {
 				Host testHost = new Host("testName", "testLocation", "testBio", "testHeadshot");
 				Genre java = new Genre("Java");
 				Event event = new Event("testtitle", testHost, Duration.MID, java, "testDate", Status.PENDING, "testlocation");
 				eventsSpeaking.add(event);
 			}
-		}
+//		}
 		return eventsSpeaking;
 	}
-
-	
 }
