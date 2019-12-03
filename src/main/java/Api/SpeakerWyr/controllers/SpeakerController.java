@@ -52,9 +52,21 @@ public class SpeakerController {
 			
 	}
 	
-	@PostMapping("/add-speaker")
-	public Speaker addSpeaker(@RequestBody Speaker speaker) {
-		return speakerService.addSpeaker(speaker);
+	@PostMapping("/add-speaker") //add to host 
+	public Speaker addSpeaker(String name, String location, String bio, String headshotUrl) {
+		Speaker newSpeaker = new Speaker(name, location, bio, headshotUrl);
+		return speakerService.addSpeaker(newSpeaker);
+	}
+	
+	@PatchMapping("/{id}/edit-speaker") //add to host  
+	public Speaker editSpeaker(@PathVariable Long id, String name, String location, String bio, String headshotUrl) {
+		Speaker thisSpeaker = speakerService.fetchSpeaker(id);
+		thisSpeaker.setName(name);
+		thisSpeaker.setLocation(location);
+		thisSpeaker.setBio(bio);
+		thisSpeaker.setHeadShotUrl(headshotUrl);
+//		this needs to be a redirect to the speaker-page with id
+		return speakerService.addSpeaker(thisSpeaker);
 	}
 	
 	@DeleteMapping("/{id}/remove-speaker")

@@ -36,6 +36,18 @@ public class Speaker {
 		return id;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -120,5 +132,9 @@ public class Speaker {
 		return "Speaker [id=" + id + ", name=" + name + ", location=" + location + ", bio=" + bio + ", headshotUrl="
 				+ headshotUrl + ", talks=" + talks + "]";
 	}
+
+	
+	
+	
 	
 }

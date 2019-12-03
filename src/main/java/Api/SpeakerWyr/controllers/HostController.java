@@ -41,8 +41,9 @@ public class HostController {
 	}
 	
 	@PostMapping("/add-host")
-	public Host addHost(@RequestBody Host host) {
-		return hostService.addHost(host);
+	public Host addHost(String name , String location , String bio , String headshotUrl){
+		Host newHost = new Host(name, location, bio, headshotUrl);
+		return hostService.addHost(newHost);
 	}
 	
 	@DeleteMapping("/{id}/remove-host")
@@ -50,6 +51,21 @@ public class HostController {
 		Host host = hostService.fetchHost(id);
 		hostService.removeHost(host);
 	}
+	
+	@PatchMapping("/{id}/edit-host")
+	public Host editHost(@PathVariable Long id, String name, String location, String bio, String headshotUrl) { 
+		Host thisHost = hostService.fetchHost(id); 
+		thisHost.setName(name);
+		thisHost.setLocation(location);
+		thisHost.setBio(bio);
+		thisHost.setHeadShotUrl(headshotUrl);
+		return hostService.addHost(thisHost);
+	}
+	
+	
+	
+	
+	
 	
 	@PatchMapping("/{id}/add-headshot")
 	public Host addHeadShot(@PathVariable long id, @RequestBody String headshotUrl) {

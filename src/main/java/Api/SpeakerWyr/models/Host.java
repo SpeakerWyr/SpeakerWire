@@ -116,10 +116,26 @@ public class Host {
 				+ headshotUrl + ", events=" + events + "]";
 	}
 
+	public void setName(String Name) {
+		this.name = name;
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+	
 	public void setHeadShotUrl(String headshotUrl) {
 		this.headshotUrl = headshotUrl;
 	}
 	
 	
-
 }
+	
+	
+	
+	
+
