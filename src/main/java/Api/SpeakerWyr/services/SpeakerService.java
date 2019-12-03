@@ -40,7 +40,6 @@ public class SpeakerService {
 
 	public void removeSpeaker(Speaker speaker) {
 		speakerRepo.delete(speaker);
-		
 	}
 	
 	public List<Event> getEventsSpeakerIsBooked(long id) {
