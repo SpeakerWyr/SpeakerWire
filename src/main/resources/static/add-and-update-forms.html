@@ -186,14 +186,10 @@
                         <div class="talkDuration">
                             <label for="talkDuration" class="addTalk__form-field-label">Duration:</label>
                             <select class="addTalk__form-field-dropdown" name="talkDuration" id="duration">
-                                    <option value=""></option>
-                                    <!-- <option value="Duration.LIGHTNING">less than 15minutes</option>
-                                    <option value="Duration.SHORT">15 to 30minutes</option>
-                                    <option value="Duration.MID">30 to 60minutes</option>
-                                    <option value="Duration.LONG">more than 60minutes</option> -->
-                                    <option th:each="durationOpt : ${T(Api.SpeakerWyr.models.Duration).values()}"
-                                        th:value="${durationOpt}" th:text="${durationOpt}"></option>
-                                </select>
+                                <option value=""></option>
+                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                            </select>
                         </div>
                         <div class="talkGenre">
                             <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
@@ -223,68 +219,125 @@
         </div>
     </article>
 
-    <article class="edit-talk-form">
-            <a href="#openEditTalkModal">Edit Talk</a>
-            <!-- This is the modal for editing a talk-->
-            <div id="openEditTalkModal" class="modalEditTalkDialog">
-                <div>
-                    <a href="#close" title="Close" class="close">X</a>
-                    <h2>Edit Talk</h2>
-                    <form class="editTalk" action="/edit-talk" method="POST">
-                        <fieldset>
-                            <div class="talkTitle">
-                                <label for="talkTitle" class="addTalk__form-field-label">Title:</label>
-                                <input class="addTalk__form-field-input" type="text" id="talkTitle" name="title" />
-                            </div><br>
-                            <div class="talkSpeaker">
-                                <label for="talkSpeaker" class="addTalk__form-field-label">Speaker Name:</label>
-                                <input class="addTalk__form-field-input" type="text" id="talkSpeakerID" name="speaker"
-                                    th:placeholder="#{speaker.name}" readonly />
-                            </div><br>
-                            <div class="talkDescription">
-                                <label for="talkDescription" class="addTalk__form-field-label">Short Description:</label>
-                                <input class="addTalk__form-field-input" type="text" id="talkDescription"
-                                    name="description" />
-                            </div><br>
-                            <div class="talkDuration">
-                                <label for="talkDuration" class="addTalk__form-field-label">Duration:</label>
-                                <select class="addTalk__form-field-dropdown" name="talkDuration" id="duration">
-                                    <option value=""></option>
-                                    <!-- <option value="Duration.LIGHTNING">less than 15minutes</option>
-                                    <option value="Duration.SHORT">15 to 30minutes</option>
-                                    <option value="Duration.MID">30 to 60minutes</option>
-                                    <option value="Duration.LONG">more than 60minutes</option> -->
-                                    <option th:each="durationOpt : ${T(Api.SpeakerWyr.models.Duration).values()}"
-                                        th:value="${durationOpt}" th:text="${durationOpt}"></option>
-                                </select>
-                            </div>
-                            <div class="talkGenre">
-                                <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
-                                <select class="addTalk__form-field-dropdown" name="genreId" id="genreId">
-                                    <option value=""></option>
-                                    <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
-                                    </option>
-                                </select>
-                            </div><br>
-                            <div class="talkTag">
-                                <label for="talkTag" class="addTalk__form-field-label">Tag:</label>
-                                <select class="addTalk__form-field-dropdown" name="tagId" id="tagId">
-                                    <option value=""></option>
-                                    <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}"></option>
-                                </select>
-                            </div><br>
-                            <div class="talkiFrame">
-                                <label for="talkiFrame" class="addTalk__form-field-label">Video URL:</label>
-                                <input class="addTalk__form-field-input" type="text" id="talkiFrame" name="iFrame" />
-                            </div><br>
-                            <div class="addTalkButtonContainer">
-                                <button class="addTalkButton" type="submit" name="submit" value="Add Talk">SUBMIT</button>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
+    <article class="add-event-form">
+        <a href="#openAddEventModal">Add Event</a>
+        <!-- This is the modal for adding an event-->
+        <div id="openAddEventModal" class="modalAddEventDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Add Event</h2>
+                <form class="addEvent" action="/add-event" method="POST">
+                    <fieldset>
+                        <div class="eventTitle">
+                            <label for="eventTitle" class="addEvent__form-field-label">Title:</label>
+                            <input class="addEvent__form-field-input" type="text" id="eventTitle" name="title" />
+                        </div><br>
+                        <div class="eventHost">
+                            <label for="eventHost" class="addEvent__form-field-label">Host Name:</label>
+                            <input class="addEvent__form-field-input" type="text" id="eventHostID" name="host"
+                                th:placeholder="#{host.name}" readonly />
+                        </div><br>
+                        <div class="eventDate">
+                            <label for="eventDate" class="addEvent__form-field-label">Date:</label>
+                            <input class="addEvent__form-field-input" type="text" id="eventDate" name="date" />
+                        </div><br>
+                        <div class="eventLocation">
+                            <label for="eventLocation" class="addEvent__form-field-label">Location:</label>
+                            <input class="addEvent__form-field-input" type="text" id="eventLocation" name="location" />
+                        </div><br>
+                        <div class="eventDuration">
+                            <label for="eventDuration" class="addEvent__form-field-label">Duration:</label>
+                            <select class="addEvent__form-field-dropdown" name="eventDuration" id="duration">
+                                <option value=""></option>
+                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                            </select>
+                        </div>
+                        <div class="eventGenre">
+                            <label for="eventGenre" class="addEvent__form-field-label">Genre:</label>
+                            <select class="addEvent__form-field-dropdown" name="genreId" id="genreId">
+                                <option value=""></option>
+                                <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                                </option>
+                            </select>
+                        </div><br>
+                        <div class="eventStatus">
+                            <label for="eventStatus" class="addEvent__form-field-label">Status:</label>
+                            <select class="addEvent__form-field-dropdown" name="eventStatus" id="status">
+                                <option value=""></option>
+                                <option th:each="status : ${T(Api.SpeakerWyr.models.Status).values()}"
+                                    th:value="${status}" th:text="${status.displayStatus}"></option>
+                            </select>
+                        </div><br>
+                        <div class="addEventButtonContainer">
+                            <button class="addEventButton" type="submit" name="submit" value="Add Event">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
-        </article>
+        </div>
+    </article>
+
+    <article class="edit-talk-form">
+        <a href="#openEditTalkModal">Edit Talk</a>
+        <!-- This is the modal for editing a talk-->
+        <div id="openEditTalkModal" class="modalEditTalkDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Edit Talk</h2>
+                <form class="editTalk" action="/edit-talk" method="PATCH">
+                    <fieldset>
+                        <div class="talkTitle">
+                            <label for="talkTitle" class="editTalk__form-field-label">Title:</label>
+                            <input class="editTalk__form-field-input" type="text" id="talkTitle" name="title"
+                                th:placeholder="#{talk.title}" />
+                        </div><br>
+                        <div class="talkSpeaker">
+                            <label for="talkSpeaker" class="editTalk__form-field-label">Speaker Name:</label>
+                            <input class="editTalk__form-field-input" type="text" id="talkSpeakerID" name="speaker"
+                                th:placeholder="#{speaker.name}" readonly />
+                        </div><br>
+                        <div class="talkDescription">
+                            <label for="talkDescription" class="editTalk__form-field-label">Short Description:</label>
+                            <input class="editTalk__form-field-input" type="text" id="talkDescription"
+                                name="description" th:placeholder="#{talk.description}" />
+                        </div><br>
+                        <div class="talkDuration">
+                            <label for="talkDuration" class="editTalk__form-field-label">Duration:</label>
+                            <select class="editTalk__form-field-dropdown" name="talkDuration" id="duration">
+                                <option value=""></option>
+                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                            </select>
+                        </div>
+                        <div class="talkGenre">
+                            <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
+                            <select class="addTalk__form-field-dropdown" name="genreId" id="genreId">
+                                <option value=""></option>
+                                <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                                </option>
+                            </select>
+                        </div><br>
+                        <div class="talkTag">
+                            <label for="talkTag" class="addTalk__form-field-label">Tag:</label>
+                            <select class="addTalk__form-field-dropdown" name="tagId" id="tagId">
+                                <option value=""></option>
+                                <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}"></option>
+                            </select>
+                        </div><br>
+                        <div class="talkiFrame">
+                            <label for="talkiFrame" class="addTalk__form-field-label">Video URL:</label>
+                            <input class="addTalk__form-field-input" type="text" id="talkiFrame" name="iFrame"
+                                th:placeholder="#{talk.iFrame}" />
+                        </div><br>
+                        <div class="addTalkButtonContainer">
+                            <button class="addTalkButton" type="submit" name="submit" value="Add Talk">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
 </body>
 
 <footer>
