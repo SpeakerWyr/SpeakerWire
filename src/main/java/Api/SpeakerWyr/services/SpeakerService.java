@@ -6,9 +6,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-
 import Api.SpeakerWyr.models.Duration;
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Genre;

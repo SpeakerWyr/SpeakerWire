@@ -1,6 +1,5 @@
 package Api.SpeakerWyr.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Talk;
@@ -44,13 +41,13 @@ public class SpeakerController {
 		return "speaker-page";
 	}
 	
-	@PostMapping("/add-speaker")
+	@PostMapping("/add-speaker") //add to host 
 	public Speaker addSpeaker(String name, String location, String bio, String headshotUrl) {
 		Speaker newSpeaker = new Speaker(name, location, bio, headshotUrl);
 		return speakerService.addSpeaker(newSpeaker);
 	}
 	
-	@PatchMapping("/{id}/edit-speaker")
+	@PatchMapping("/{id}/edit-speaker") //add to host  
 	public Speaker editSpeaker(@PathVariable Long id, String name, String location, String bio, String headshotUrl) {
 		Speaker thisSpeaker = speakerService.fetchSpeaker(id);
 		thisSpeaker.setName(name);
