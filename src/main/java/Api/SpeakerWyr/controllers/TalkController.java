@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Api.SpeakerWyr.models.Event;
+import Api.SpeakerWyr.models.Genre;
 import Api.SpeakerWyr.models.Tag;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.TalkService;
@@ -70,9 +71,15 @@ public class TalkController {
 		talkService.addTalk(thisTalk);
 	}
 		
-		
-		
-		
+	@PatchMapping("/{id}/add-genre")
+	public void addGenre(@PathVariable long id, @RequestBody Genre genre) {
+		Talk thisTalk = talkService.fetchTalk(id);
+		List<Genre> thisTalkGenre = new ArrayList <>(thisTalk.getGenres());
+		thisTalkGenre.add(genre);
+		talkService.addTalk(thisTalk);
+	}
+	
+	
 }
 		
 	
