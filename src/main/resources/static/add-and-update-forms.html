@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpeakerWire</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <article class="add-speaker-form">
+        <a href="#openAddSpeakerModal">Add Speaker</a>
+        <!-- This is the modal for adding a speaker-->
+        <div id="openAddSpeakerModal" class="modalAddSpeakerDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Add Speaker</h2>
+                <form class="addSpeaker" action="/add-speaker" method="POST">
+                    <fieldset>
+                        <div class="speakerName">
+                            <label for="speakerName" class="addSpeaker__form-field-label">Name:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerName" name="name" />
+                        </div><br>
+                        <div class="speakerLocation">
+                            <label for="speakerLocation" class="addSpeaker__form-field-label">Location:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerLocation"
+                                name="location" />
+                        </div><br>
+                        <div class="speakerBio">
+                            <label for="speakerBio" class="addSpeaker__form-field-label">Short Bio:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerBio" name="bio" />
+                        </div><br>
+                        <div class="speakerHeadShotUrl">
+                            <label for="speakerHeadShotUrl" class="addSpeaker__form-field-label">Headshot URL:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerHeadShotUrl"
+                                name="headshotUrl" />
+                        </div>
+                        <div class="addSpeakerButtonContainer">
+                            <button class="addSpeakerButton" type="submit" name="submit"
+                                value="Add Speaker">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="add-host-form">
+        <a href="#openAddHostModal">Add Host</a>
+        <!-- This is the modal for adding a host-->
+        <div id="openAddHostModal" class="modalAddHostDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Add Host</h2>
+                <form class="addHost" action="/add-host" method="POST">
+                    <fieldset>
+                        <div class="hostName">
+                            <label for="hostName" class="addHost__form-field-label">Name:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostName" name="name" />
+                        </div><br>
+                        <div class="hostLocation">
+                            <label for="hostLocation" class="addHost__form-field-label">Location:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostLocation"
+                                name="location" />
+                        </div><br>
+                        <div class="hostBio">
+                            <label for="hostBio" class="addHost__form-field-label">Short Bio:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostBio" name="bio" />
+                        </div><br>
+                        <div class="hostHeadShotUrl">
+                            <label for="hostHeadShotUrl" class="addHost__form-field-label">Headshot URL:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostHeadShotUrl"
+                                name="headshotUrl" />
+                        </div>
+                        <div class="addHostButtonContainer">
+                            <button class="addHostButton" type="submit" name="submit"
+                                value="Add Host">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="edit-speaker-form">
+        <a href="#openEditSpeakerModal">Edit Speaker</a>
+        <!-- This is the modal for editting a speaker-->
+        <div id="openEditSpeakerModal" class="modalEditSpeakerDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Edit Speaker</h2>
+                <form class="editSpeaker" action="/edit-speaker" method="PATCH">
+                    <fieldset>
+                        <div class="speakerName">
+                            <label for="speakerName" class="editSpeaker__form-field-label">Name:</label>
+                            <input class="editSpeaker__form-field-input" type="text" id="speakerName" name="name" th:placeholder="#{speaker.name}"/>
+                        </div><br>
+                        <div class="speakerLocation">
+                            <label for="speakerLocation" class="editSpeaker__form-field-label">Location:</label>
+                            <input class="editSpeaker__form-field-input" type="text" id="speakerLocation"
+                                name="location" th:placeholder="#{speaker.location}"/>
+                        </div><br>
+                        <div class="speakerBio">
+                            <label for="speakerBio" class="editSpeaker__form-field-label">Short Bio:</label>
+                            <input class="editSpeaker__form-field-input" type="text" id="speakerBio" name="bio" th:placeholder="#{speaker.bio}"/>
+                        </div><br>
+                        <div class="speakerHeadShotUrl">
+                            <label for="speakerHeadShotUrl" class="editSpeaker__form-field-label">Headshot URL:</label>
+                            <input class="editSpeaker__form-field-input" type="text" id="speakerHeadShotUrl"
+                                name="headshotUrl" th:placeholder="#{speaker.headshotUrl}"/>
+                        </div>
+                        <div class="editSpeakerButtonContainer">
+                            <button class="editSpeakerButton" type="submit" name="submit"
+                                value="Edit Speaker">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="edit-host-form">
+        <a href="#openEditHostModal">Edit Host</a>
+        <!-- This is the modal for editting a host-->
+        <div id="openEditHostModal" class="modalEditHostDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Edit Host</h2>
+                <form class="editHost" action="/edit-host" method="PATCH">
+                    <fieldset>
+                        <div class="hostName">
+                            <label for="hostName" class="editHost__form-field-label">Name:</label>
+                            <input class="editHost__form-field-input" type="text" id="hostName" name="name" th:placeholder="#{host.name}"/>
+                        </div><br>
+                        <div class="hostLocation">
+                            <label for="hostLocation" class="editHost__form-field-label">Location:</label>
+                            <input class="editHost__form-field-input" type="text" id="hostLocation"
+                                name="location" th:placeholder="#{host.location}"/>
+                        </div><br>
+                        <div class="hostBio">
+                            <label for="hostBio" class="editHost__form-field-label">Short Bio:</label>
+                            <input class="editHost__form-field-input" type="text" id="hostBio" name="bio" th:placeholder="#{host.bio}"/>
+                        </div><br>
+                        <div class="hostHeadShotUrl">
+                            <label for="hostHeadShotUrl" class="editHost__form-field-label">Headshot URL:</label>
+                            <input class="editHost__form-field-input" type="text" id="hostHeadShotUrl"
+                                name="headshotUrl" th:placeholder="#{host.headshotUrl}"/>
+                        </div>
+                        <div class="editHostButtonContainer">
+                            <button class="editHostButton" type="submit" name="submit"
+                                value="Edit Host">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>
