@@ -33,7 +33,7 @@ public class Populator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Speaker speakerLindaLuikas = new Speaker("Linda-Luikas", "SpeakerLocation", "SpeakerBio", "SpeakerHeadshotUrl");
+		Speaker speakerLindaLuikas = new Speaker("Linda-Luikas", "Speaker Location", "Speaker Bio", "SpeakerHeadshotUrl");
 		Speaker speakerDrEugeniaCheng = new Speaker("DrEugeniaCheng", "Dublin,Ohio", "I am a British mathematician, pianist, Scientist-in-Residence at the School of the Art Institute of Chicago", "SpeakerHeadshotUrl1");
 		Speaker speakerBrianEgan = new Speaker("Brian-Egan", "Grove City,Ohio", "I am a front-end developer with a rad company.", "SpeakerHeadshotUrl1");
 
