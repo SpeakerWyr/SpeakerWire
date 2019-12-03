@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpeakerWire</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/loading.css">
+    <link rel="stylesheet" href="../static/css/loading.css">
+    <link rel="stylesheet" href="/css/speakerwire.css">
+    <link rel="stylesheet" href="../static/css/speakerwire.css">
+
+</head>
+
+<body>
+    <article class="add-speaker-form">
+        <a href="#openAddSpeakerModal">Add Speaker</a>
+        <!-- This is the modal for adding a speaker-->
+        <div id="openAddSpeakerModal" class="modalAddSpeakerDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Add/Edit Speaker</h2>
+                <form class="addSpeaker" action="/add-speaker" method="POST">
+                    <fieldset>
+                        <div class="speakerName">
+                            <label for="speakerName" class="addSpeaker__form-field-label">Name:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerName" name="name" />
+                        </div><br>
+                        <div class="speakerLocation">
+                            <label for="speakerLocation" class="addSpeaker__form-field-label">Location:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerLocation"
+                                name="location" />
+                        </div><br>
+                        <div class="speakerBio">
+                            <label for="speakerBio" class="addSpeaker__form-field-label">Short Bio:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerBio" name="bio" />
+                        </div><br>
+                        <div class="speakerHeadShotUrl">
+                            <label for="speakerHeadShotUrl" class="addSpeaker__form-field-label">Headshot URL:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerHeadShotUrl"
+                                name="headshotUrl" />
+                        </div>
+                        <div class="addSpeakerButtonContainer">
+                            <button class="addSpeakerButton" type="submit" name="submit"
+                                value="Add Speaker">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="add-host-form">
+        <a href="#openAddHostModal">Add Host</a>
+        <!-- This is the modal for adding a host-->
+        <div id="openAddHostModal" class="modalAddHostDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Add/Edit Host</h2>
+                <form class="addHost" action="/add-host" method="POST">
+                    <fieldset>
+                        <div class="hostName">
+                            <label for="hostName" class="addHost__form-field-label">Name:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostName" name="name" />
+                        </div><br>
+                        <div class="hostLocation">
+                            <label for="hostLocation" class="addHost__form-field-label">Location:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostLocation"
+                                name="location" />
+                        </div><br>
+                        <div class="hostBio">
+                            <label for="hostBio" class="addHost__form-field-label">Short Bio:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostBio" name="bio" />
+                        </div><br>
+                        <div class="hostHeadShotUrl">
+                            <label for="hostHeadShotUrl" class="addHost__form-field-label">Headshot URL:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostHeadShotUrl"
+                                name="headshotUrl" />
+                        </div>
+                        <div class="addHostButtonContainer">
+                            <button class="addHostButton" type="submit" name="submit"
+                                value="Add Host">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+</body>
+
+<footer>
+
+</footer>
+
+</html>

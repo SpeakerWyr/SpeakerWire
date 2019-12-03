@@ -45,8 +45,19 @@ public class SpeakerController {
 	}
 	
 	@PostMapping("/add-speaker")
-	public Speaker addSpeaker(@RequestBody Speaker speaker) {
-		return speakerService.addSpeaker(speaker);
+	public Speaker addSpeaker(String name, String location, String bio, String headshotUrl) {
+		Speaker newSpeaker = new Speaker(name, location, bio, headshotUrl);
+		return speakerService.addSpeaker(newSpeaker);
+	}
+	
+	@PatchMapping("/{id}/edit-speaker")
+	public Speaker editSpeaker(@PathVariable Long id, String name, String location, String bio, String headshotUrl) {
+		Speaker thisSpeaker = speakerService.fetchSpeaker(id);
+		thisSpeaker.setName(name);
+		thisSpeaker.setLocation(location);
+		thisSpeaker.setBio(bio);
+		thisSpeaker.setHeadShotUrl(headshotUrl);
+		return speakerService.addSpeaker(thisSpeaker);
 	}
 	
 	@DeleteMapping("/{id}/remove-speaker")
