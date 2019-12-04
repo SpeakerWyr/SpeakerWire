@@ -6,12 +6,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import Api.SpeakerWyr.models.Duration;
+
 import Api.SpeakerWyr.models.Event;
-import Api.SpeakerWyr.models.Genre;
-import Api.SpeakerWyr.models.Host;
 import Api.SpeakerWyr.models.Speaker;
-import Api.SpeakerWyr.models.Status;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.repos.SpeakerRepository;
 
@@ -47,18 +44,17 @@ public class SpeakerService {
 		List<Talk> theseTalks = thisSpeaker.getTalks();
 		
 		for(Talk talk : theseTalks) {
+			eventsSpeaking.add(talk.getEvent());
 //			if(!(talk.getEvent() == null)) {
 //				eventsSpeaking.add(talk.getEvent());
 //			} else {
-				Host testHost = new Host("testName", "testLocation", "testBio", "testHeadshot");
-				Genre java = new Genre("Java");
-				Event event = new Event("testtitle", testHost, Duration.MID, java, "testDate", Status.PENDING, "testlocation");
-				Talk testTalk = new Talk("Talk title", "talk description", Duration.LONG, thisSpeaker);
-				eventService.addEvent(event);
-				event.addTalk(testTalk);
-				eventsSpeaking.add(event);
-			}
-//		}
+
+//				Host testHost = new Host("testName", "testLocation", "testBio", "testHeadshot");
+//				Genre java = new Genre("Java");
+//				Event event = new Event("testtitle", testHost, Duration.MID, java, "testDate", Status.PENDING, "testlocation");
+//				eventsSpeaking.add(event);
+//			}
+		}
 		return eventsSpeaking;
 	}
 }
