@@ -40,7 +40,7 @@ public class SpeakerController {
 	}
 	
 	@GetMapping("/{id}")
-	public String getSingleSpeaker(@PathVariable ("id") Long id, Model model) {
+	public String getSingleSpeaker(@PathVariable Long id, Model model) {
 		model.addAttribute("speaker", speakerService.fetchSpeaker(id));
 		model.addAttribute("events", speakerService.getEventsSpeakerIsBooked(id));
 		model.addAttribute("genres", genreService.fetchGenres());
@@ -76,14 +76,14 @@ public class SpeakerController {
 	}
 	
 	@PatchMapping("/{id}/add-headshot")
-	public Speaker addHeadShot(@PathVariable long id, @RequestBody String headshotUrl) {
+	public Speaker addHeadShot(@PathVariable Long id, @RequestBody String headshotUrl) {
 		Speaker speaker = speakerService.fetchSpeaker(id);
 		speaker.setHeadShotUrl(headshotUrl);
 		return speakerService.addSpeaker(speaker);
 	}
 	
 	@PatchMapping("/{id}/add-talk")
-	public Speaker addTalk(@PathVariable long id, @RequestBody Talk talk) {
+	public Speaker addTalk(@PathVariable Long id, @RequestBody Talk talk) {
 		Speaker speaker = speakerService.fetchSpeaker(id);
 		List<Talk> existingTalks = speaker.getTalks();
 		existingTalks.add(talk);
