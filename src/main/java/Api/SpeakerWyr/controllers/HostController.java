@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Host;
+import Api.SpeakerWyr.services.GenreService;
 import Api.SpeakerWyr.services.HostService;
+import Api.SpeakerWyr.services.TagService;
 
 @CrossOrigin
 @Controller
@@ -25,6 +27,10 @@ public class HostController {
 
 	@Autowired
 	private HostService hostService;
+	@Autowired
+	private GenreService genreService;
+	@Autowired
+	private TagService tagService;
 	
 	@GetMapping("")
 	public String getHosts(Model model) {
@@ -36,6 +42,9 @@ public class HostController {
 	public String getHost(@PathVariable("id") long id, Model model) {
 		model.addAttribute("host", hostService.fetchHost(id));
 		model.addAttribute("eventsHosting", hostService.getEventsHostIsHosting(id));
+		model.addAttribute("genres", genreService.fetchGenres());
+		model.addAttribute("tags", tagService.fetchTags());
+		model.addAttribute("durations", )
 		return "host-page";
 	}
 	
