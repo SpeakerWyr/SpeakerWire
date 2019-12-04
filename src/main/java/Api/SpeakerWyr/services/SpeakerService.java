@@ -45,15 +45,6 @@ public class SpeakerService {
 		
 		for(Talk talk : theseTalks) {
 			eventsSpeaking.add(talk.getEvent());
-//			if(!(talk.getEvent() == null)) {
-//				eventsSpeaking.add(talk.getEvent());
-//			} else {
-
-//				Host testHost = new Host("testName", "testLocation", "testBio", "testHeadshot");
-//				Genre java = new Genre("Java");
-//				Event event = new Event("testtitle", testHost, Duration.MID, java, "testDate", Status.PENDING, "testlocation");
-//				eventsSpeaking.add(event);
-//			}
 		}
 		return eventsSpeaking;
 	}
