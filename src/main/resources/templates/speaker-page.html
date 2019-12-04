@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/speaker-page.css" />
     <link rel="stylesheet" href="/css/speakerwire.css" />
     <link rel="stylesheet" href="/css/talk-card.css" />
-    <link rel="stylesheet" href="/css/event-card.css"/>
+    <link rel="stylesheet" href="/css/event-card.css" />
 </head>
 
 <body>
@@ -17,7 +17,7 @@
             <h1 class="nameplate__name" th:text="${speaker.name}">SpeakerName</h1>
             <h4 class="nameplate__location" th:text="${speaker.location}">SpeakerLocation</h4>
             <h4 class="nameplate__bio" th:text="${speaker.bio}">
-                    Bio
+                Bio
             </h4>
             <div class="button-container">
                 <button>Add Talk</button>
@@ -35,8 +35,8 @@
         <div class="talk-card-container" th:each="talk : ${speaker.talks}">
             <div class="talk-card">
                 <h1 class="title" th:text="${talk.title}">TalkTitle</h1>
-                <div class="description" th:text="${talk.description}">Description</div>
-                <div class="length" th:text="${talk.duration.displayDuration}">Length-12:44</div>
+                <h3>Talk Description: </h3><h3 class="description" th:text="${talk.description}">Description</h3>
+                <h4>Talk Duration: </h4><h4 class="length" th:text="${talk.duration.displayDuration}">Length-12:44</h4>
                 <!-- <article class="speaker">
                     <button th:text="${talk.speaker}">SpeakerName</button>
                 </article> -->
@@ -49,11 +49,10 @@
                     <p class="tag">informational</p>
                     <p class="tag">modern</p>
                 </div>
-                <div class="movie-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
+                <article class="movie-container" th:text="${talk.iFrame}"></article>
+                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
+                        allowfullscreen></iframe> -->
             </div>
         </div>
         <div class="upcoming-events-container">
@@ -70,7 +69,7 @@
                     <h4 class="upcoming-card__status-booked" th:text="${event.status}">Status</h4> -->
                 </div>
             </div>
-                <!-- <div class="upcoming-card">
+            <!-- <div class="upcoming-card">
                     <h4 class="upcoming-card__event-name">Event: Hacker Conference</h4>
                     <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
                     <h4 class="upcoming-card__length">Duration: 12:44 minutes</h4>
@@ -81,10 +80,10 @@
                         <h4>Status: </h4>
                         <h4 class="upcoming-card__status-pending">Pending</h4>
                     </div> -->
-                </div>
-            </div>
-
         </div>
+    </div>
+
+    </div>
 </body>
 
 <footer></footer>

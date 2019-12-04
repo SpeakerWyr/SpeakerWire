@@ -44,7 +44,6 @@ public class Populator implements CommandLineRunner {
 		Speaker speakerBrianEgan = new Speaker("Brian Egan", "Grove City, Ohio",
 				"Brian is a front-end developer with a rad company.", "/images/BrianEgan.jpg");
 
-
 		speakerService.addSpeaker(speakerLindaLiukas);
 		speakerService.addSpeaker(speakerDrEugeniaCheng);
 		speakerService.addSpeaker(speakerBrianEgan);
@@ -53,11 +52,15 @@ public class Populator implements CommandLineRunner {
 				"Linda Liukas wants to create a more diverse and colourful world of technology, starting with the poetry of code.",
 				Duration.LIGHTNING, speakerLindaLiukas);
 		Talk talkConveyingthePowerofAbstraction = new Talk("Conveying the Power of Abstraction",
-				"A look at our relationship with abstraction and its potential for dramatically improving how we think if it is incorporated into our educational systems.",
+				"A look at our relationship with abstraction and its potential for dramatically improving how we think.",
 				Duration.MID, speakerDrEugeniaCheng);
 		Talk talkDevelopNativeAppsWithFlutter = new Talk("Develop Native Apps with Flutter",
 				"Brian discusses Flutter, an open-source UI software development kit created by Google, which runs in the Dart virtual machine featuring a just-in-time execution engine.",
-				Duration.SHORT, speakerBrianEgan);
+				Duration.LIGHTNING, speakerBrianEgan);
+		
+		talkPoetryOfProgramming.setIFrame("<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/-jRREn6ifEQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+		talkConveyingthePowerofAbstraction.setIFrame("<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/PvSpyhm6TUU\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+		talkDevelopNativeAppsWithFlutter.setIFrame("<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/e7GWuWjBrm0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
 
 		talkService.addTalk(talkPoetryOfProgramming);
 		talkService.addTalk(talkConveyingthePowerofAbstraction);
