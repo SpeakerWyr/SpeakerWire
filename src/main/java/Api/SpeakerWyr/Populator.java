@@ -42,13 +42,13 @@ public class Populator implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		Speaker speakerLindaLiukas = new Speaker("Linda Liukas", "Columbus, Ohio",
-				"Linda is the author and illustrator of Hello Ruby, a children's picture book about the whimsical world of computers.",
+				"Linda is the author and illustrator of Hello Ruby, a children's picture book about the whimsical world of computers",
 				"https://upload.wikimedia.org/wikipedia/commons/3/35/Linda_Liukas_at_the_Data_of_Tomorrow_Conference_2017_%2823496747288%29_%28cropped%29.jpg");
 		Speaker speakerDrEugeniaCheng = new Speaker("Dr. Eugenia Cheng", "Dublin, Ohio",
-				"Dr. Cheng is a British mathematician, pianist, and Scientist-in-Residence at the School of the Art Institute of Chicago.",
+				"Dr. Cheng is a British mathematician, pianist, and Scientist-in-Residence at the School of the Art Institute of Chicago",
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/EugeniaCheng_PhiBetaKappa_EnLightningTalksChicago2016_%28cropped%29.jpg/440px-EugeniaCheng_PhiBetaKappa_EnLightningTalksChicago2016_%28cropped%29.jpg");
 		Speaker speakerBrianEgan = new Speaker("Brian Egan", "Grove City, Ohio",
-				"Brian is a front-end developer with a rad company.", "/images/BrianEgan.jpg");
+				"Brian is a front-end developer with a rad company", "/images/BrianEgan.jpg");
 		
 		speakerService.addSpeaker(speakerLindaLiukas);
 		speakerService.addSpeaker(speakerDrEugeniaCheng);
@@ -59,10 +59,29 @@ public class Populator implements CommandLineRunner {
 				Duration.LIGHTNING, speakerLindaLiukas);
 		//talkPoetryOfProgramming.setGenres(genreList1);
 		
+		Talk talkSoftwareAndStorytelling = new Talk("Software & Storytelling, One Nordic Childhood", 
+				"Linda Liukas, Founder of Rails Girls and Hello Ruby: Software & Storytelling: One Nordic Childhood at Slush 2014.",
+				Duration.SHORT, speakerLindaLiukas);
+		
+		Talk talkADelightfulWayToTeachKids = new Talk("A Delightful Way To Teach Kids About Computers", "Imagine a world where the Ada Lovelaces of tomorrow grow up to be optimistic and brave about technology and use it to create a new world that is wonderful, whimsical and a tiny bit weird.", 
+				Duration.LIGHTNING, speakerLindaLiukas);
+		
 		Talk talkConveyingthePowerofAbstraction = new Talk("Conveying the Power of Abstraction",
 				"A look at our relationship with abstraction and its potential for dramatically improving how we think.",
 				Duration.MID, speakerDrEugeniaCheng);
 		//talkConveyingthePowerofAbstraction.setGenres(genreList2);
+		
+		Talk talkTheArtOfLogic = new Talk("The Art of Logic: How to Make Sense in a World that Doesn't", " Eugenia has set out to show how mathematical logic can help us see things more clearly - and know when politicians and companies are trying to mislead us.",
+				Duration.LONG, speakerDrEugeniaCheng);
+		
+		Talk talkWhatIfMathematicsIsTheAnswer = new Talk("What if mathematics is the answer for progress?", "Mathematics is easy and fun to understand. Wait, what? Experience how playing the piano can help you understand the complexity of mathematics.",
+				Duration.SHORT, speakerDrEugeniaCheng);
+		
+		Talk talkWhyUseFlutter = new Talk("Why use Flutter?", "Brian Egan takes you through the actual benefits of Flutter in development.",
+				Duration.MID, speakerBrianEgan);
+		
+		Talk talkKeepItSimple = new Talk("Keep it Simple, State: Architecture for Flutter Apps", "Let's go on a journey! In this video, we'll start with a basic Counter Widget, building up to a complex app with shared state across multiple screens.", 
+				Duration.MID, speakerBrianEgan);
 		
 		Talk talkDevelopNativeAppsWithFlutter = new Talk("Develop Native Apps with Flutter",
 				"Brian discusses Flutter, an open-source UI software development kit created by Google, which runs in the Dart virtual machine featuring a just-in-time execution engine.",
@@ -70,12 +89,26 @@ public class Populator implements CommandLineRunner {
 		//talkConveyingthePowerofAbstraction.setGenres(genreList3);
 		
 		talkPoetryOfProgramming.setIFrame("https://www.youtube.com/embed/-jRREn6ifEQ");
+		talkSoftwareAndStorytelling.setIFrame("https://www.youtube.com/embed/-AcT34zDGVw");
+		talkADelightfulWayToTeachKids.setIFrame("https://www.ted.com/talks/linda_liukas_a_delightful_way_to_teach_kids_about_computers?utm_campaign=tedspread&utm_medium=referral&utm_source=tedcomshare");
+		
 		talkConveyingthePowerofAbstraction.setIFrame("https://www.youtube.com/embed/PvSpyhm6TUU");
+		talkTheArtOfLogic.setIFrame("https://www.youtube.com/embed/YHZKX0H6cUE");
+		talkWhatIfMathematicsIsTheAnswer.setIFrame("https://www.youtube.com/embed/CfdFw3hXkf0");
+		
 		talkDevelopNativeAppsWithFlutter.setIFrame("https://www.youtube.com/embed/e7GWuWjBrm0");
+		talkKeepItSimple.setIFrame("https://www.youtube.com/embed/zKXz3pUkw9A");
+		talkWhyUseFlutter.setIFrame("https://www.youtube.com/embed/UD5uF5-w_fw");
 		
 		talkService.addTalk(talkPoetryOfProgramming);
+		talkService.addTalk(talkSoftwareAndStorytelling);
+		talkService.addTalk(talkADelightfulWayToTeachKids);
 		talkService.addTalk(talkConveyingthePowerofAbstraction);
+		talkService.addTalk(talkTheArtOfLogic);
+		talkService.addTalk(talkWhatIfMathematicsIsTheAnswer);
 		talkService.addTalk(talkDevelopNativeAppsWithFlutter);
+		talkService.addTalk(talkKeepItSimple);
+		talkService.addTalk(talkWhyUseFlutter);
 		
 		Genre java = new Genre("Java");
 		Genre technology = new Genre("Technology");
@@ -142,12 +175,12 @@ public class Populator implements CommandLineRunner {
 		hostService.addHost(hostWCCI);
 		hostService.addHost(hostTheOhioStateUniversity);
 
-		Event eventCodeAndCoffee = new Event("Code and Coffee", hostWCCI, Duration.MID, coding,
+		Event eventCodeAndCoffee = new Event("Code and Coffee", hostWCCI, "2 hours", coding,
 				"December 21, 2019", Status.BOOKED, "Columbus, OH");
 		Event eventPowerOfAbstraction = new Event("Art, Mathematics, and Logic", hostArtInstituteofChicago,
-				Duration.LONG, technology, "January 24, 2020", Status.BOOKED, "Chicago, IL");
+				"3 hours", technology, "January 24, 2020", Status.BOOKED, "Chicago, IL");
 		Event eventFlutterAndDart = new Event("Flutter and Dart: Developing Beautiful Mobile Apps",
-				hostTheOhioStateUniversity, Duration.LONG, mobileApps, "March 22, 2020", Status.BOOKED, "Columbus, OH");
+				hostTheOhioStateUniversity, "2 hours", mobileApps, "March 22, 2020", Status.BOOKED, "Columbus, OH");
 
 		eventService.addEvent(eventCodeAndCoffee);
 		eventService.addEvent(eventPowerOfAbstraction);

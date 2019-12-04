@@ -19,7 +19,7 @@ public class Event {
 	private String title;
 	@ManyToOne
 	private Host host;
-	private Duration duration;
+	private String duration;
 	@ManyToOne
 	private Genre genre;
 	private String date;
@@ -32,7 +32,7 @@ public class Event {
 	public Event() {
 	}
 
-	public Event(String title, Host host, Duration duration, Genre genre, 
+	public Event(String title, Host host, String duration, Genre genre, 
 			String date, Status status, String location) {
 		this.title = title;
 		this.host = host;
@@ -55,7 +55,7 @@ public class Event {
 		return host;
 	}
 
-	public Duration getDuration() {
+	public String getDuration() {
 		return duration;
 	}
 
