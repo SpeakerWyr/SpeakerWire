@@ -1,5 +1,6 @@
 package Api.SpeakerWyr.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Api.SpeakerWyr.models.Talk;
+import Api.SpeakerWyr.models.TalkFilter;
 import Api.SpeakerWyr.repos.TalkRepository;
 
 @Service
@@ -34,4 +36,9 @@ public class TalkService {
 		
 	}
 
+	public List<Talk> filterTalks(TalkFilter filter){
+		List<Talk> filteredTalks = new ArrayList<>();
+		List<Talk> allTalks = fetchTalks();
+		return filteredTalks;
+	}
 }
