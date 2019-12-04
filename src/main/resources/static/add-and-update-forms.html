@@ -187,11 +187,11 @@
                         </div><br>
                         <div class="talkDuration">
                             <label for="talkDuration" class="addTalk__form-field-label">Duration:</label>
-                            <select class="addTalk__form-field-dropdown" name="talkDuration" id="duration">
-                                <option value=""></option>
-                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
-                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
-                            </select>
+                            <select class="editTalk__form-field-dropdown" name="talkDuration" id="duration">
+                                    <option value=""></option>
+                                    <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                        th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                                </select>
                         </div><br>
                         <div class="talkGenre">
                             <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
@@ -249,11 +249,8 @@
                         </div><br>
                         <div class="eventDuration">
                             <label for="eventDuration" class="addEvent__form-field-label">Duration:</label>
-                            <select class="addEvent__form-field-dropdown" name="eventDuration" id="duration">
-                                <option value=""></option>
-                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
-                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
-                            </select>
+                            <input class="addTalk__form-field-input" type="text" id="talkDuration"
+                            name="duration" />
                         </div><br>
                         <div class="eventGenre">
                             <label for="eventGenre" class="addEvent__form-field-label">Genre:</label>
@@ -369,11 +366,8 @@
                             </div><br>
                             <div class="eventDuration">
                                 <label for="eventDuration" class="editEvent__form-field-label">Duration:</label>
-                                <select class="editEvent__form-field-dropdown" name="eventDuration" id="duration">
-                                    <option value=""></option>
-                                    <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
-                                        th:value="${duration}" th:text="${duration.displayDuration}"></option>
-                                </select>
+                                <input class="addEvent__form-field-input" type="text" id="eventDuration"
+                                name="duration" />
                             </div><br>
                             <div class="eventGenre">
                                 <label for="eventGenre" class="editEvent__form-field-label">Genre:</label>
