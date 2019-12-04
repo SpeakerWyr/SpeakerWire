@@ -152,6 +152,10 @@ public class Populator implements CommandLineRunner {
 		eventService.addEvent(eventCodeAndCoffee);
 		eventService.addEvent(eventPowerOfAbstraction);
 		eventService.addEvent(eventFlutterAndDart);
+		
+		eventService.addTalkToEvent(eventPowerOfAbstraction.getId(), talkPoetryOfProgramming);
+		
+		
 
 	}
 

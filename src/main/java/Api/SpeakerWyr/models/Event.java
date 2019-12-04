@@ -1,5 +1,6 @@
 package Api.SpeakerWyr.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ public class Event {
 	private String location;
 	@JsonIgnore
 	@OneToMany(mappedBy = "event")
-	private List<Talk> talks;
+	private List<Talk> talks = new ArrayList<>();
 
 	public Event() {
 	}
