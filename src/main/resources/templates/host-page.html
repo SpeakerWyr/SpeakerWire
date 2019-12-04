@@ -4,21 +4,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SpeakerWire - Host Page</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/speakerwire.css"/>
-    <link rel="stylesheet" href="/css/host-page.css"/>
+    <title>SpeakerWire - Host</title>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet"> -->
+    
+    <link rel="stylesheet" href="/css/host-page.css" />
+    <link rel="stylesheet" href="/css/speakerwire.css" />
+    <link rel="stylesheet" href="/css/talk-card.css" />
+    <link rel="stylesheet" href="/css/event-card.css" />
     <link rel="stylesheet" href="/css/event-card.css"/>
-    <link rel="stylesheet" href="../static/css/forms.css">
+    <link rel="stylesheet" href="../static/css/forms.css"> 
     <link rel="stylesheet" href="/css/forms.css">
 </head>
 
 <body>
     <div class="wrapper">
         <article class="nameplate">
-            <h1 th:text="${host.name}" class="nameplate__name">First Last</h1>
-            <h6 th:text="${host.location}" class="nameplate__location">Location</h6>
-            <h4 th:text="${host.bio}" class="nameplate__bio">Short Bio</h4>
+            <h1 class="nameplate__name" th:text="${host.name}">HostName</h1>
+            <h3 class="nameplate__location" th:text="${host.location}">HostLocation</h3>
+            <h2 class="nameplate__bio" th:text="${host.bio}">HostBio</h2>
         </article>
         <article class="headshot-container">
             <img th:src="${host.headshotUrl}" th:alt="${host.name}">
@@ -29,7 +32,7 @@
         </div>
 
         <div class="action">
-            
+
             <!-- <section class="current-connections">
                 <h2 class="current-connections__header">Current Connections</h2>
                 <article class="current-connections__subject">Subject</article>
@@ -39,70 +42,71 @@
             <section class="filter">
                 <h2 class="filter__header">Search and Filter for Talks</h2>
                 <!-- <fieldset> -->
-                    <article class="filter__genre">
-                        <select class="filter__genre-select" name="genreId" id="genreId">
-                            <option value=""></option>
-                            <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">Genre
-                            </option>
-                        </select>
-                    </article>
-                    <article class="filter__tag">
-                        <select class="filter__tag-select" name="filterId" id="filterId">
-                            <option value=""></option>
-                            <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}">Tag</option>
-                        </select>
-                    </article>
-                    <article class="filter__duration">
-                            <select class="filter__duration-select" name="durationId" id="durationId">
-                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
-                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
-                            </select>
-                        <!-- <select class="filter__duration-select" name="durationId" id="durationId">
+                <article class="filter__genre">
+                    <select class="filter__genre-select" name="genreId" id="genreId">
+                        <option value=""></option>
+                        <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">Genre
+                        </option>
+                    </select>
+                </article>
+                <article class="filter__tag">
+                    <select class="filter__tag-select" name="filterId" id="filterId">
+                        <option value=""></option>
+                        <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}">Tag</option>
+                    </select>
+                </article>
+                <article class="filter__duration">
+                    <select class="filter__duration-select" name="durationId" id="durationId">
+                        <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                            th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                    </select>
+                    <!-- <select class="filter__duration-select" name="durationId" id="durationId">
                             <option value=""></option>
                             <option value="LIGHTNING">Lightning (less than 15 mins)</option>
                             <option value="SHORT">Short (20-30 mins)</option>
                             <option value="MID">Mid (30-60 mins)</option>
                             <option value="LONG">Long (over 1 hour)</option>
                         </select> -->
-                    </article>
-                    <article class="filter__speaker-search">
-                        <form>
-                            <input type="text" placeholder="Seach Speaker Name">
-                        </form>
-                    </article>
-                    <article class="filter__submit-field">
-                        <button class="filter__submit-button" type="submit" name="submit" value="Filter Talks">Submit</button>
-                    </article>
+                </article>
+                <article class="filter__speaker-search">
+                    <form>
+                        <input type="text" placeholder="Seach Speaker Name">
+                    </form>
+                </article>
+                <article class="filter__submit-field">
+                    <button class="filter__submit-button" type="submit" name="submit"
+                        value="Filter Talks">Submit</button>
+                </article>
                 <!-- </fieldset> -->
             </section>
         </div>
         <div class="upcoming-events-container">
             <h2 class="upcoming-title">Upcoming Events</h2>
             <div class="upcoming-card" th:each="event: ${eventsHosting}">
-                <div class="aligner">                  
+                <div class="aligner">
                     <label for="upcoming-card__event-name">Event: </label>
                     <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
-                </div> 
-                <div class="aligner">                  
+                </div>
+                <div class="aligner">
                     <label for="upcoming-card__talk-title">Title: </label>
                     <!-- <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk</h4> -->
-                </div> 
-                <div class="aligner">                  
+                </div>
+                <div class="aligner">
                     <label for="upcoming-card__duration">Duration: </label>
                     <h4 class="upcoming-card__duration" th:text="${event.duration}">Duration</h4>
-                </div> 
-                <div class="aligner">                  
+                </div>
+                <div class="aligner">
                     <label for="upcoming-card__location">Location: </label>
                     <h4 class="upcoming-card__location" th:text="${event.location}">Location</h4>
-                </div> 
-                <div class="aligner">                  
+                </div>
+                <div class="aligner">
                     <label for="upcoming-card__date">Date: </label>
                     <h4 class="upcoming-card__date" th:text="${event.date}">Date</h4>
-                </div> 
-                <div class="aligner">                  
+                </div>
+                <div class="aligner">
                     <label for="upcoming-card__host">Host: </label>
                     <h4 class="upcoming-card__host" th:text="${host.name}">Host</h4>
-                </div> 
+                </div>
                 <div class="upcoming-card__status-container">
                     <h4>Status: </h4>
                     <h4 class="upcoming-card__status-booked" th:text="${event.status}">Booked</h4>

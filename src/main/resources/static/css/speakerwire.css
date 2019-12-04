@@ -86,7 +86,6 @@ img {
 
 iframe {
     width: 60%;
-    
 }
 
 select {
@@ -110,5 +109,4 @@ select {
     color: var(--dark-color);
     height: 2rem;
     width: 7rem;
-
 }

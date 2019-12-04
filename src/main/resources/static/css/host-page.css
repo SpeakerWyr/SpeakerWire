@@ -17,7 +17,6 @@
     border: 2px solid var(--dark-color);
     margin: 1rem;
     box-shadow: 3px 3px var(--mid-color);
-
 }
 
 .current-connections__header {
@@ -58,7 +57,6 @@
     border: 2px solid var(--dark-color);
     margin: 1rem;
     box-shadow: 3px 3px var(--mid-color);
-
 }
 
 .filter__duration {
@@ -90,8 +88,6 @@
     background-color: var(--mid-color);
 }
 
-
-
 .filter__tag {
     grid-area: tagfilter;
     grid-column: 1 / span 2;
@@ -119,20 +115,20 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 20rem .1rem 80rem auto;
+    grid-template-rows: 20rem .1rem auto auto;
     grid-template-areas:"nameplate nameplate nameplate headshot headshot headshot"
                         "hrule hrule hrule hrule hrule hrule"
                         "action action action action schedule schedule"
                         "result result result result result result";
     min-width: 90vw;
     min-height: 100vh;
-    margin: 1rem;
+    margin: 0px;
     background-color: var(--light-color);
 }
 
 .headshot-container {
     grid-area: headshot;
-    grid-column: 4 / span 3;
+    column-span: 3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,24 +141,27 @@
 
 .nameplate {
     grid-area: nameplate;
-    grid-column: 1 / span 3;
+    column-span: 3;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 1rem;
+    margin: 0 0 0 1rem;
 }
 
 .nameplate__name {
-    margin: 1rem;
+    margin: 1rem 0 1rem 0;
+    font-size: 40px;
+    font-weight: 900;
 }
 
 .nameplate__location {
-    margin: 1rem;
+    margin: 0.5rem 0 0.5rem 0;
 }
 
 .nameplate__bio {
-    margin: 1rem;
+    margin: 0.5rem 0 1rem 0;
 }
 
 
