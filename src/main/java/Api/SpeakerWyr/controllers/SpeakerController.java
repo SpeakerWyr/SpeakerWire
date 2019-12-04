@@ -41,10 +41,8 @@ public class SpeakerController {
 	
 	@GetMapping("/{id}")
 	public String getSingleSpeaker(@PathVariable ("id") Long id, Model model) {
-		Speaker speaker = speakerService.fetchSpeaker(id);
-		List<Event> eventsSpeaking = speakerService.getEventsSpeakerIsBooked(id);
-		model.addAttribute("speaker", speaker);
-		model.addAttribute("events", eventsSpeaking);
+		model.addAttribute("speaker", speakerService.fetchSpeaker(id));
+		model.addAttribute("events", speakerService.getEventsSpeakerIsBooked(id));
 		model.addAttribute("genres", genreService.fetchGenres());
 		model.addAttribute("tags", tagService.fetchTags());
 		return "speaker-page";
@@ -52,21 +50,23 @@ public class SpeakerController {
 			
 	}
 	
-	@PostMapping("/add-speaker") //add to host 
-	public Speaker addSpeaker(String name, String location, String bio, String headshotUrl) {
+	@PostMapping("/add-speaker") 
+	public String addSpeaker(String name, String location, String bio, String headshotUrl) {
 		Speaker newSpeaker = new Speaker(name, location, bio, headshotUrl);
-		return speakerService.addSpeaker(newSpeaker);
+		speakerService.addSpeaker(newSpeaker); //return speakerService.addSpeaker(newSpeaker);
+		return "redirect: index";
 	}
 	
 	@PatchMapping("/{id}/edit-speaker") //add to host  
-	public Speaker editSpeaker(@PathVariable Long id, String name, String location, String bio, String headshotUrl) {
+	public String editSpeaker(@PathVariable Long id, String name, String location, String bio, String headshotUrl) {
 		Speaker thisSpeaker = speakerService.fetchSpeaker(id);
 		thisSpeaker.setName(name);
 		thisSpeaker.setLocation(location);
 		thisSpeaker.setBio(bio);
 		thisSpeaker.setHeadShotUrl(headshotUrl);
 //		this needs to be a redirect to the speaker-page with id
-		return speakerService.addSpeaker(thisSpeaker);
+		//return speakerService.addSpeaker(thisSpeaker);
+		return "redirect:/speaker/" + id;
 	}
 	
 	@DeleteMapping("/{id}/remove-speaker")
