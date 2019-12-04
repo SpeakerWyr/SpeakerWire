@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpeakerWire</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="/css/speakerwire.css"/>
+    <link rel="stylesheet" href="../static/css/forms.css">
+    <link rel="stylesheet" href="/css/forms.css">
 
 </head>
 
 <body>
     <article class="add-speaker-form">
-        <a href="#openAddSpeakerModal">Add Speaker</a>
+        <button><a href="#openAddSpeakerModal">Add Speaker</a></button>
         <!-- This is the modal for adding a speaker-->
-        <div id="openAddSpeakerModal" class="modalAddSpeakerDialog">
+        <div id="openAddSpeakerModal" class="modalDialog">
             <div>
                 <a href="#close" title="Close" class="close">X</a>
                 <h2>Add Speaker</h2>
@@ -37,7 +39,7 @@
                             <label for="speakerHeadShotUrl" class="addSpeaker__form-field-label">Headshot URL:</label>
                             <input class="addSpeaker__form-field-input" type="text" id="speakerHeadShotUrl"
                                 name="headshotUrl" />
-                        </div>
+                        </div><br>
                         <div class="addSpeakerButtonContainer">
                             <button class="addSpeakerButton" type="submit" name="submit"
                                 value="Add Speaker">SUBMIT</button>
@@ -49,9 +51,9 @@
     </article>
 
     <article class="add-host-form">
-        <a href="#openAddHostModal">Add Host</a>
+        <button><a href="#openAddHostModal">Add Host</a></button>
         <!-- This is the modal for adding a host-->
-        <div id="openAddHostModal" class="modalAddHostDialog">
+        <div id="openAddHostModal" class="modalDialog">
             <div>
                 <a href="#close" title="Close" class="close">X</a>
                 <h2>Add Host</h2>
@@ -73,7 +75,7 @@
                             <label for="hostHeadShotUrl" class="addHost__form-field-label">Headshot URL:</label>
                             <input class="addHost__form-field-input" type="text" id="hostHeadShotUrl"
                                 name="headshotUrl" />
-                        </div>
+                        </div><br>
                         <div class="addHostButtonContainer">
                             <button class="addHostButton" type="submit" name="submit" value="Add Host">SUBMIT</button>
                         </div>
@@ -84,9 +86,9 @@
     </article>
 
     <article class="edit-speaker-form">
-        <a href="#openEditSpeakerModal">Edit Speaker</a>
+        <button><a href="#openEditSpeakerModal">Edit Speaker</a></button>
         <!-- This is the modal for editting a speaker-->
-        <div id="openEditSpeakerModal" class="modalEditSpeakerDialog">
+        <div id="openEditSpeakerModal" class="modalDialog">
             <div>
                 <a href="#close" title="Close" class="close">X</a>
                 <h2>Edit Speaker</h2>
@@ -111,7 +113,7 @@
                             <label for="speakerHeadShotUrl" class="editSpeaker__form-field-label">Headshot URL:</label>
                             <input class="editSpeaker__form-field-input" type="text" id="speakerHeadShotUrl"
                                 name="headshotUrl" th:placeholder="#{speaker.headshotUrl}" />
-                        </div>
+                        </div><br>
                         <div class="editSpeakerButtonContainer">
                             <button class="editSpeakerButton" type="submit" name="submit"
                                 value="Edit Speaker">SUBMIT</button>
@@ -123,9 +125,9 @@
     </article>
 
     <article class="edit-host-form">
-        <a href="#openEditHostModal">Edit Host</a>
+        <button><a href="#openEditHostModal">Edit Host</a></button>
         <!-- This is the modal for editting a host-->
-        <div id="openEditHostModal" class="modalEditHostDialog">
+        <div id="openEditHostModal" class="modalDialog">
             <div>
                 <a href="#close" title="Close" class="close">X</a>
                 <h2>Edit Host</h2>
@@ -150,7 +152,7 @@
                             <label for="hostHeadShotUrl" class="editHost__form-field-label">Headshot URL:</label>
                             <input class="editHost__form-field-input" type="text" id="hostHeadShotUrl"
                                 name="headshotUrl" th:placeholder="#{host.headshotUrl}" />
-                        </div>
+                        </div><br>
                         <div class="editHostButtonContainer">
                             <button class="editHostButton" type="submit" name="submit" value="Edit Host">SUBMIT</button>
                         </div>
@@ -161,9 +163,9 @@
     </article>
 
     <article class="add-talk-form">
-        <a href="#openAddTalkModal">Add Talk</a>
+        <button><a href="#openAddTalkModal">Add Talk</a></button>
         <!-- This is the modal for adding a talk-->
-        <div id="openAddTalkModal" class="modalAddTalkDialog">
+        <div id="openAddTalkModal" class="modalDialog">
             <div>
                 <a href="#close" title="Close" class="close">X</a>
                 <h2>Add Talk</h2>
@@ -190,7 +192,7 @@
                                 <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
                                     th:value="${duration}" th:text="${duration.displayDuration}"></option>
                             </select>
-                        </div>
+                        </div><br>
                         <div class="talkGenre">
                             <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
                             <select class="addTalk__form-field-dropdown" name="genreId" id="genreId">
@@ -220,9 +222,9 @@
     </article>
 
     <article class="add-event-form">
-        <a href="#openAddEventModal">Add Event</a>
+        <button><a href="#openAddEventModal">Add Event</a></button>
         <!-- This is the modal for adding an event-->
-        <div id="openAddEventModal" class="modalAddEventDialog">
+        <div id="openAddEventModal" class="modalDialog">
             <div>
                 <a href="#close" title="Close" class="close">X</a>
                 <h2>Add Event</h2>
@@ -252,7 +254,7 @@
                                 <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
                                     th:value="${duration}" th:text="${duration.displayDuration}"></option>
                             </select>
-                        </div>
+                        </div><br>
                         <div class="eventGenre">
                             <label for="eventGenre" class="addEvent__form-field-label">Genre:</label>
                             <select class="addEvent__form-field-dropdown" name="genreId" id="genreId">
@@ -279,9 +281,9 @@
     </article>
 
     <article class="edit-talk-form">
-        <a href="#openEditTalkModal">Edit Talk</a>
+        <button><a href="#openEditTalkModal">Edit Talk</a></button>
         <!-- This is the modal for editing a talk-->
-        <div id="openEditTalkModal" class="modalEditTalkDialog">
+        <div id="openEditTalkModal" class="modalDialog">
             <div>
                 <a href="#close" title="Close" class="close">X</a>
                 <h2>Edit Talk</h2>
@@ -309,7 +311,7 @@
                                 <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
                                     th:value="${duration}" th:text="${duration.displayDuration}"></option>
                             </select>
-                        </div>
+                        </div><br>
                         <div class="talkGenre">
                             <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
                             <select class="addTalk__form-field-dropdown" name="genreId" id="genreId">
@@ -340,9 +342,9 @@
     </article>
 
     <article class="edit-event-form">
-            <a href="#openEditEventModal">Add Event</a>
+            <button><a href="#openEditEventModal">Edit Event</a></button>
             <!-- This is the modal for editting an event-->
-            <div id="openEditEventModal" class="modalEditEventDialog">
+            <div id="openEditEventModal" class="modalDialog">
                 <div>
                     <a href="#close" title="Close" class="close">X</a>
                     <h2>Edit Event</h2>
@@ -372,7 +374,7 @@
                                     <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
                                         th:value="${duration}" th:text="${duration.displayDuration}"></option>
                                 </select>
-                            </div>
+                            </div><br>
                             <div class="eventGenre">
                                 <label for="eventGenre" class="editEvent__form-field-label">Genre:</label>
                                 <select class="editEvent__form-field-dropdown" name="genreId" id="genreId">
