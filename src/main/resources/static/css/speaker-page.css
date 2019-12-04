@@ -9,8 +9,10 @@
 }
 
 .button-container {
+    margin-top: 1.5rem;
     margin-left: 1rem;
 }
+
 .current-connections {
     border: 3px;
 }
@@ -48,21 +50,22 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 1rem;
 }
 
-
 .nameplate__name {
-    margin: 1rem;
+    margin: 1rem 0 1rem 0;
+    font-size: 40px;
+    font-weight: 900;
 }
 
 .nameplate__location {
-    margin: 1rem;
+    margin: 0.5rem 0 0.5rem 0;
 }
 
 .nameplate__bio {
-    margin: 1rem;
+    margin: 0.5rem 0 1rem 0;
 }
 
 .talk-card-container {

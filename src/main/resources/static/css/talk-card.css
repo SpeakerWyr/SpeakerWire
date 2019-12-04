@@ -4,7 +4,7 @@
     text-align: left;  
     grid-column: 1 / span 2;
     grid-row: 2; 
-    margin: 0 1rem 0 1rem;   
+    margin: 1rem;   
 }
 
 .genres {
@@ -25,13 +25,14 @@
     grid-column-end: 1;
     grid-row-start: 3;
     grid-row-end: 3;
-    margin: 0 1rem 0 1rem;   
+    margin: 0 1rem 1rem 1rem;   
 }
 
 .movie-container {
     text-align: center;
     grid-column: 1 / span 2;
     grid-row: 6;
+    margin: 1rem 0 2rem 0;
 }
 
 .speaker {
@@ -59,7 +60,8 @@
     margin: 1rem 0.5rem 0 0;
     border: 2px solid black;
     display: grid;
-    grid-template-rows: 6rem 6rem 2.5rem 3.5rem 3.5rem auto;
+    grid-template-rows: 6rem auto auto auto auto auto;
+    /* grid-template-rows: 6rem 6rem 2.5rem 3.5rem 3.5rem auto; */
     grid-template-columns: 1fr 1fr;
     text-align: center;
     box-shadow: 3px 3px var(--mid-color);

@@ -3,10 +3,10 @@ package Api.SpeakerWyr.models;
 
 public enum Duration {
 	
-	LIGHTNING ("Less than 15 minutes"),
+	LIGHTNING ("15 minutes or less"),
 	SHORT ("15 to 30 minutes"),
 	MID ("30 to 60 minutes"),
-	LONG ("More than 60 minutes");
+	LONG ("60 minutes or more");
 	
 	private final String displayDuration;
 	

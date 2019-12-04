@@ -15,10 +15,10 @@
     <div class="wrapper">
         <article class="nameplate">
             <h1 class="nameplate__name" th:text="${speaker.name}">SpeakerName</h1>
-            <h4 class="nameplate__location" th:text="${speaker.location}">SpeakerLocation</h4>
-            <h4 class="nameplate__bio" th:text="${speaker.bio}">
+            <h3 class="nameplate__location" th:text="${speaker.location}">SpeakerLocation</h3>
+            <h2 class="nameplate__bio" th:text="${speaker.bio}">
                 Bio
-            </h4>
+            </h2>
             <div class="button-container">
                 <button>Add Talk</button>
                 <button>Search</button>
@@ -35,21 +35,31 @@
         <div class="talk-card-container" th:each="talk : ${speaker.talks}">
             <div class="talk-card">
                 <h1 class="title" th:text="${talk.title}">TalkTitle</h1>
-                <h3>Talk Description: </h3><h3 class="description" th:text="${talk.description}">Description</h3>
-                <h4>Talk Duration: </h4><h4 class="length" th:text="${talk.duration.displayDuration}">Length-12:44</h4>
+                <h2 class="description" th:text="${talk.description}">TalkDescription</h2>
+                <h3 class="length" th:text="${talk.duration.displayDuration}">TalkDuration</h3>
                 <!-- <article class="speaker">
                     <button th:text="${talk.speaker}">SpeakerName</button>
                 </article> -->
-                <div class="genres">
-                    <p class="genre">tech</p>
-                    <p class="genre">start-up</p>
+                <div class="genres" th:each="genre : ${genres}">
+                    <p class="genre" th:text="${genre.name}"></p>
                 </div>
+
+                <!-- <div class="genres">
+                    <p class="genre">Coding</p>
+                    <p class="genre">Philosophy</p>
+                </div> -->
+
+
                 <div class="tags">
                     <p class="tag">funny</p>
                     <p class="tag">informational</p>
                     <p class="tag">modern</p>
                 </div>
-                <article class="movie-container" th:text="${talk.iFrame}"></article>
+                <div class="movie-container">
+                    <iframe th:src="${talk.iFrame}" width="560" height="315" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
                 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe> -->
