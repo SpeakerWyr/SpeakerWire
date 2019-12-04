@@ -338,6 +338,65 @@
             </div>
         </div>
     </article>
+
+    <article class="edit-event-form">
+            <a href="#openEditEventModal">Add Event</a>
+            <!-- This is the modal for editting an event-->
+            <div id="openEditEventModal" class="modalEditEventDialog">
+                <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h2>Edit Event</h2>
+                    <form class="editEvent" action="/edit-event" method="PATCH">
+                        <fieldset>
+                            <div class="eventTitle">
+                                <label for="eventTitle" class="editEvent__form-field-label">Title:</label>
+                                <input class="editEvent__form-field-input" type="text" id="eventTitle" name="title" th:placeholder="#{event.title}" />
+                            </div><br>
+                            <div class="eventHost">
+                                <label for="eventHost" class="editEvent__form-field-label">Host Name:</label>
+                                <input class="editEvent__form-field-input" type="text" id="eventHostID" name="host"
+                                    th:placeholder="#{host.name}" readonly />
+                            </div><br>
+                            <div class="eventDate">
+                                <label for="eventDate" class="editEvent__form-field-label">Date:</label>
+                                <input class="editEvent__form-field-input" type="text" id="eventDate" name="date" th:placeholder="#{event.date}"/>
+                            </div><br>
+                            <div class="eventLocation">
+                                <label for="eventLocation" class="editEvent__form-field-label">Location:</label>
+                                <input class="editEvent__form-field-input" type="text" id="eventLocation" name="location" th:placeholder="#{event.location}"/>
+                            </div><br>
+                            <div class="eventDuration">
+                                <label for="eventDuration" class="editEvent__form-field-label">Duration:</label>
+                                <select class="editEvent__form-field-dropdown" name="eventDuration" id="duration">
+                                    <option value=""></option>
+                                    <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                        th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                                </select>
+                            </div>
+                            <div class="eventGenre">
+                                <label for="eventGenre" class="editEvent__form-field-label">Genre:</label>
+                                <select class="editEvent__form-field-dropdown" name="genreId" id="genreId">
+                                    <option value=""></option>
+                                    <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                                    </option>
+                                </select>
+                            </div><br>
+                            <div class="eventStatus">
+                                <label for="eventStatus" class="editEvent__form-field-label">Status:</label>
+                                <select class="editEvent__form-field-dropdown" name="eventStatus" id="status">
+                                    <option value=""></option>
+                                    <option th:each="status : ${T(Api.SpeakerWyr.models.Status).values()}"
+                                        th:value="${status}" th:text="${status.displayStatus}"></option>
+                                </select>
+                            </div><br>
+                            <div class="editEventButtonContainer">
+                                <button class="editEventButton" type="submit" name="submit" value="Edit Event">SUBMIT</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </article>
 </body>
 
 <footer>
