@@ -20,6 +20,8 @@ public class SpeakerService {
 
 	@Autowired
 	SpeakerRepository speakerRepo;
+	@Autowired
+	EventService eventService;
 	
 	public Speaker addSpeaker(Speaker speaker) {
 		return speakerRepo.save(speaker);
@@ -51,6 +53,9 @@ public class SpeakerService {
 				Host testHost = new Host("testName", "testLocation", "testBio", "testHeadshot");
 				Genre java = new Genre("Java");
 				Event event = new Event("testtitle", testHost, Duration.MID, java, "testDate", Status.PENDING, "testlocation");
+				Talk testTalk = new Talk("Talk title", "talk description", Duration.LONG, thisSpeaker);
+				eventService.addEvent(event);
+				event.addTalk(testTalk);
 				eventsSpeaking.add(event);
 			}
 //		}

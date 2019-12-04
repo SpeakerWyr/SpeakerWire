@@ -73,11 +73,13 @@
             <h2 class="upcoming-title">Upcoming Events</h2>
             <div class="upcoming-card" th:each="event : ${events}">
                 <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
-                <!-- <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk title</h4> -->
+                <div class="talk-title-iterator" th:each="talk : ${event.talks}">
+                    <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk title</h4>
+                </div>
                 <h4 class="upcoming-card__length" th:text="${event.duration}">Duration</h4>
                 <h4 class="upcoming-card__location" th:text="${event.location}">Location</h4>
                 <h4 class="upcoming-card__date" th:text="${event.date}">Date</h4>
-                <!-- <h4 class="upcoming-card__host" th:text="${host.name}">Host name</h4> -->
+                <h4 class="upcoming-card__host" th:text="${event.host.name}">Host name</h4>
                 <div class="upcoming-card__status-container">
                     <h4>Status: </h4>
                     <h4 class="upcoming-card__status-booked" th:text="${event.status}">Status</h4> -->
