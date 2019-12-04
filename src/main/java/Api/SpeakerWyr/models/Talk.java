@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -22,9 +23,9 @@ public class Talk {
 	private Duration duration;
 	@OneToOne
 	private Speaker speaker;
-	@OneToMany(mappedBy = "talks")
+	@ManyToMany
 	private List<Genre> genres;
-	@OneToMany(mappedBy = "talks")
+	@ManyToMany
 	private List<Tag> tags;
 	private String iFrame;
 	@JsonIgnore
@@ -78,6 +79,10 @@ public class Talk {
 	
 	public void setEvent(Event eventToAdd) {
 		this.event = eventToAdd;
+	}
+	
+	public void setGenres(List<Genre> genreList) {
+		this.genres = genreList;
 	}
 
 	public void setIFrame(String iFrameToAdd) {

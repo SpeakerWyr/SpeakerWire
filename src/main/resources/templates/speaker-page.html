@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="/css/speaker-page.css" />
     <link rel="stylesheet" href="/css/speakerwire.css" />
     <link rel="stylesheet" href="/css/talk-card.css" />
+    <link rel="stylesheet" href="/css/event-card.css" />
     <link rel="stylesheet" href="/css/event-card.css"/>
     <link rel="stylesheet" href="../static/css/forms.css"> 
     <link rel="stylesheet" href="/css/forms.css">
+
 </head>
 
 <body>
     <div class="wrapper">
         <article class="nameplate">
             <h1 class="nameplate__name" th:text="${speaker.name}">SpeakerName</h1>
-            <h4 class="nameplate__location" th:text="${speaker.location}">SpeakerLocation</h4>
-            <h4 class="nameplate__bio" th:text="${speaker.bio}">
-                    Bio
-            </h4>
+            <h3 class="nameplate__location" th:text="${speaker.location}">SpeakerLocation</h3>
+            <h2 class="nameplate__bio" th:text="${speaker.bio}">
+                Bio
+            </h2>
             <div class="button-container">
                 <button>Add Talk</button>
                 <button>Search</button>
@@ -37,25 +39,34 @@
         <div class="talk-card-container" th:each="talk : ${speaker.talks}">
             <div class="talk-card">
                 <h1 class="title" th:text="${talk.title}">TalkTitle</h1>
-                <div class="description" th:text="${talk.description}">Description</div>
-                <div class="length" th:text="${talk.duration.displayDuration}">Length-12:44</div>
+                <h2 class="description" th:text="${talk.description}">TalkDescription</h2>
+                <h3 class="length" th:text="${talk.duration.displayDuration}">TalkDuration</h3>
                 <!-- <article class="speaker">
                     <button th:text="${talk.speaker}">SpeakerName</button>
                 </article> -->
-                <div class="genres">
-                    <p class="genre">tech</p>
-                    <p class="genre">start-up</p>
+                <div class="genres" th:each="genre : ${genres}">
+                    <p class="genre" th:text="${genre.name}"></p>
                 </div>
+
+                <!-- <div class="genres">
+                    <p class="genre">Coding</p>
+                    <p class="genre">Philosophy</p>
+                </div> -->
+
+
                 <div class="tags">
                     <p class="tag">funny</p>
                     <p class="tag">informational</p>
                     <p class="tag">modern</p>
                 </div>
                 <div class="movie-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
+                    <iframe th:src="${talk.iFrame}" width="560" height="315" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
+                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe> -->
             </div>
         </div>
         <div class="upcoming-events-container">
@@ -72,7 +83,7 @@
                     <h4 class="upcoming-card__status-booked" th:text="${event.status}">Status</h4> -->
                 </div>
             </div>
-                <!-- <div class="upcoming-card">
+            <!-- <div class="upcoming-card">
                     <h4 class="upcoming-card__event-name">Event: Hacker Conference</h4>
                     <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
                     <h4 class="upcoming-card__length">Duration: 12:44 minutes</h4>
@@ -83,10 +94,10 @@
                         <h4>Status: </h4>
                         <h4 class="upcoming-card__status-pending">Pending</h4>
                     </div> -->
-                </div>
-            </div>
-
         </div>
+    </div>
+
+    </div>
 </body>
 
 <footer></footer>
