@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpeakerWire</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/speakerwire.css"/>
+    <link rel="stylesheet" href="../static/css/forms.css">
+    <link rel="stylesheet" href="/css/forms.css">
+
+</head>
+
+<body>
+    <article class="add-speaker-form">
+        <button><a href="#openAddSpeakerModal">Add Speaker</a></button>
+        <!-- This is the modal for adding a speaker-->
+        <div id="openAddSpeakerModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Add Speaker</h2>
+                <form class="addSpeaker" action="/add-speaker" method="POST">
+                    <fieldset>
+                        <div class="speakerName">
+                            <label for="speakerName" class="addSpeaker__form-field-label">Name:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerName" name="name" />
+                        </div><br>
+                        <div class="speakerLocation">
+                            <label for="speakerLocation" class="addSpeaker__form-field-label">Location:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerLocation"
+                                name="location" />
+                        </div><br>
+                        <div class="speakerBio">
+                            <label for="speakerBio" class="addSpeaker__form-field-label">Short Bio:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerBio" name="bio" />
+                        </div><br>
+                        <div class="speakerHeadShotUrl">
+                            <label for="speakerHeadShotUrl" class="addSpeaker__form-field-label">Headshot URL:</label>
+                            <input class="addSpeaker__form-field-input" type="text" id="speakerHeadShotUrl"
+                                name="headshotUrl" />
+                        </div><br>
+                        <div class="addSpeakerButtonContainer">
+                            <button class="addSpeakerButton" type="submit" name="submit"
+                                value="Add Speaker">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="add-host-form">
+        <button><a href="#openAddHostModal">Add Host</a></button>
+        <!-- This is the modal for adding a host-->
+        <div id="openAddHostModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Add Host</h2>
+                <form class="addHost" action="/add-host" method="POST">
+                    <fieldset>
+                        <div class="hostName">
+                            <label for="hostName" class="addHost__form-field-label">Name:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostName" name="name" />
+                        </div><br>
+                        <div class="hostLocation">
+                            <label for="hostLocation" class="addHost__form-field-label">Location:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostLocation" name="location" />
+                        </div><br>
+                        <div class="hostBio">
+                            <label for="hostBio" class="addHost__form-field-label">Short Bio:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostBio" name="bio" />
+                        </div><br>
+                        <div class="hostHeadShotUrl">
+                            <label for="hostHeadShotUrl" class="addHost__form-field-label">Headshot URL:</label>
+                            <input class="addHost__form-field-input" type="text" id="hostHeadShotUrl"
+                                name="headshotUrl" />
+                        </div><br>
+                        <div class="addHostButtonContainer">
+                            <button class="addHostButton" type="submit" name="submit" value="Add Host">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="edit-speaker-form">
+        <button><a href="#openEditSpeakerModal">Edit Speaker</a></button>
+        <!-- This is the modal for editting a speaker-->
+        <div id="openEditSpeakerModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Edit Speaker</h2>
+                <form class="editSpeaker" action="/edit-speaker" method="PATCH">
+                    <fieldset>
+                        <div class="speakerName">
+                            <label for="speakerName" class="editSpeaker__form-field-label">Name:</label>
+                            <input class="editSpeaker__form-field-input" type="text" id="speakerName" name="name"
+                                th:placeholder="#{speaker.name}" />
+                        </div><br>
+                        <div class="speakerLocation">
+                            <label for="speakerLocation" class="editSpeaker__form-field-label">Location:</label>
+                            <input class="editSpeaker__form-field-input" type="text" id="speakerLocation"
+                                name="location" th:placeholder="#{speaker.location}" />
+                        </div><br>
+                        <div class="speakerBio">
+                            <label for="speakerBio" class="editSpeaker__form-field-label">Short Bio:</label>
+                            <input class="editSpeaker__form-field-input" type="text" id="speakerBio" name="bio"
+                                th:placeholder="#{speaker.bio}" />
+                        </div><br>
+                        <div class="speakerHeadShotUrl">
+                            <label for="speakerHeadShotUrl" class="editSpeaker__form-field-label">Headshot URL:</label>
+                            <input class="editSpeaker__form-field-input" type="text" id="speakerHeadShotUrl"
+                                name="headshotUrl" th:placeholder="#{speaker.headshotUrl}" />
+                        </div><br>
+                        <div class="editSpeakerButtonContainer">
+                            <button class="editSpeakerButton" type="submit" name="submit"
+                                value="Edit Speaker">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="edit-host-form">
+        <button><a href="#openEditHostModal">Edit Host</a></button>
+        <!-- This is the modal for editting a host-->
+        <div id="openEditHostModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Edit Host</h2>
+                <form class="editHost" action="/edit-host" method="PATCH">
+                    <fieldset>
+                        <div class="hostName">
+                            <label for="hostName" class="editHost__form-field-label">Name:</label>
+                            <input class="editHost__form-field-input" type="text" id="hostName" name="name"
+                                th:placeholder="#{host.name}" />
+                        </div><br>
+                        <div class="hostLocation">
+                            <label for="hostLocation" class="editHost__form-field-label">Location:</label>
+                            <input class="editHost__form-field-input" type="text" id="hostLocation" name="location"
+                                th:placeholder="#{host.location}" />
+                        </div><br>
+                        <div class="hostBio">
+                            <label for="hostBio" class="editHost__form-field-label">Short Bio:</label>
+                            <input class="editHost__form-field-input" type="text" id="hostBio" name="bio"
+                                th:placeholder="#{host.bio}" />
+                        </div><br>
+                        <div class="hostHeadShotUrl">
+                            <label for="hostHeadShotUrl" class="editHost__form-field-label">Headshot URL:</label>
+                            <input class="editHost__form-field-input" type="text" id="hostHeadShotUrl"
+                                name="headshotUrl" th:placeholder="#{host.headshotUrl}" />
+                        </div><br>
+                        <div class="editHostButtonContainer">
+                            <button class="editHostButton" type="submit" name="submit" value="Edit Host">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="add-talk-form">
+        <button><a href="#openAddTalkModal">Add Talk</a></button>
+        <!-- This is the modal for adding a talk-->
+        <div id="openAddTalkModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Add Talk</h2>
+                <form class="addTalk" action="/add-talk" method="POST">
+                    <fieldset>
+                        <div class="talkTitle">
+                            <label for="talkTitle" class="addTalk__form-field-label">Title:</label>
+                            <input class="addTalk__form-field-input" type="text" id="talkTitle" name="title" />
+                        </div><br>
+                        <div class="talkSpeaker">
+                            <label for="talkSpeaker" class="addTalk__form-field-label">Speaker Name:</label>
+                            <input class="addTalk__form-field-input" type="text" id="talkSpeakerID" name="speaker"
+                                th:placeholder="#{speaker.name}" readonly />
+                        </div><br>
+                        <div class="talkDescription">
+                            <label for="talkDescription" class="addTalk__form-field-label">Short Description:</label>
+                            <input class="addTalk__form-field-input" type="text" id="talkDescription"
+                                name="description" />
+                        </div><br>
+                        <div class="talkDuration">
+                            <label for="talkDuration" class="addTalk__form-field-label">Duration:</label>
+                            <select class="addTalk__form-field-dropdown" name="talkDuration" id="duration">
+                                <option value=""></option>
+                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                            </select>
+                        </div><br>
+                        <div class="talkGenre">
+                            <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
+                            <select class="addTalk__form-field-dropdown" name="genreId" id="genreId">
+                                <option value=""></option>
+                                <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                                </option>
+                            </select>
+                        </div><br>
+                        <div class="talkTag">
+                            <label for="talkTag" class="addTalk__form-field-label">Tag:</label>
+                            <select class="addTalk__form-field-dropdown" name="tagId" id="tagId">
+                                <option value=""></option>
+                                <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}"></option>
+                            </select>
+                        </div><br>
+                        <div class="talkiFrame">
+                            <label for="talkiFrame" class="addTalk__form-field-label">Video URL:</label>
+                            <input class="addTalk__form-field-input" type="text" id="talkiFrame" name="iFrame" />
+                        </div><br>
+                        <div class="addTalkButtonContainer">
+                            <button class="addTalkButton" type="submit" name="submit" value="Add Talk">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="add-event-form">
+        <button><a href="#openAddEventModal">Add Event</a></button>
+        <!-- This is the modal for adding an event-->
+        <div id="openAddEventModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Add Event</h2>
+                <form class="addEvent" action="/add-event" method="POST">
+                    <fieldset>
+                        <div class="eventTitle">
+                            <label for="eventTitle" class="addEvent__form-field-label">Title:</label>
+                            <input class="addEvent__form-field-input" type="text" id="eventTitle" name="title" />
+                        </div><br>
+                        <div class="eventHost">
+                            <label for="eventHost" class="addEvent__form-field-label">Host Name:</label>
+                            <input class="addEvent__form-field-input" type="text" id="eventHostID" name="host"
+                                th:placeholder="#{host.name}" readonly />
+                        </div><br>
+                        <div class="eventDate">
+                            <label for="eventDate" class="addEvent__form-field-label">Date:</label>
+                            <input class="addEvent__form-field-input" type="text" id="eventDate" name="date" />
+                        </div><br>
+                        <div class="eventLocation">
+                            <label for="eventLocation" class="addEvent__form-field-label">Location:</label>
+                            <input class="addEvent__form-field-input" type="text" id="eventLocation" name="location" />
+                        </div><br>
+                        <div class="eventDuration">
+                            <label for="eventDuration" class="addEvent__form-field-label">Duration:</label>
+                            <select class="addEvent__form-field-dropdown" name="eventDuration" id="duration">
+                                <option value=""></option>
+                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                            </select>
+                        </div><br>
+                        <div class="eventGenre">
+                            <label for="eventGenre" class="addEvent__form-field-label">Genre:</label>
+                            <select class="addEvent__form-field-dropdown" name="genreId" id="genreId">
+                                <option value=""></option>
+                                <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                                </option>
+                            </select>
+                        </div><br>
+                        <div class="eventStatus">
+                            <label for="eventStatus" class="addEvent__form-field-label">Status:</label>
+                            <select class="addEvent__form-field-dropdown" name="eventStatus" id="status">
+                                <option value=""></option>
+                                <option th:each="status : ${T(Api.SpeakerWyr.models.Status).values()}"
+                                    th:value="${status}" th:text="${status.displayStatus}"></option>
+                            </select>
+                        </div><br>
+                        <div class="addEventButtonContainer">
+                            <button class="addEventButton" type="submit" name="submit" value="Add Event">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="edit-talk-form">
+        <button><a href="#openEditTalkModal">Edit Talk</a></button>
+        <!-- This is the modal for editing a talk-->
+        <div id="openEditTalkModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Edit Talk</h2>
+                <form class="editTalk" action="/edit-talk" method="PATCH">
+                    <fieldset>
+                        <div class="talkTitle">
+                            <label for="talkTitle" class="editTalk__form-field-label">Title:</label>
+                            <input class="editTalk__form-field-input" type="text" id="talkTitle" name="title"
+                                th:placeholder="#{talk.title}" />
+                        </div><br>
+                        <div class="talkSpeaker">
+                            <label for="talkSpeaker" class="editTalk__form-field-label">Speaker Name:</label>
+                            <input class="editTalk__form-field-input" type="text" id="talkSpeakerID" name="speaker"
+                                th:placeholder="#{speaker.name}" readonly />
+                        </div><br>
+                        <div class="talkDescription">
+                            <label for="talkDescription" class="editTalk__form-field-label">Short Description:</label>
+                            <input class="editTalk__form-field-input" type="text" id="talkDescription"
+                                name="description" th:placeholder="#{talk.description}" />
+                        </div><br>
+                        <div class="talkDuration">
+                            <label for="talkDuration" class="editTalk__form-field-label">Duration:</label>
+                            <select class="editTalk__form-field-dropdown" name="talkDuration" id="duration">
+                                <option value=""></option>
+                                <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                    th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                            </select>
+                        </div><br>
+                        <div class="talkGenre">
+                            <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
+                            <select class="addTalk__form-field-dropdown" name="genreId" id="genreId">
+                                <option value=""></option>
+                                <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                                </option>
+                            </select>
+                        </div><br>
+                        <div class="talkTag">
+                            <label for="talkTag" class="addTalk__form-field-label">Tag:</label>
+                            <select class="addTalk__form-field-dropdown" name="tagId" id="tagId">
+                                <option value=""></option>
+                                <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}"></option>
+                            </select>
+                        </div><br>
+                        <div class="talkiFrame">
+                            <label for="talkiFrame" class="addTalk__form-field-label">Video URL:</label>
+                            <input class="addTalk__form-field-input" type="text" id="talkiFrame" name="iFrame"
+                                th:placeholder="#{talk.iFrame}" />
+                        </div><br>
+                        <div class="addTalkButtonContainer">
+                            <button class="addTalkButton" type="submit" name="submit" value="Add Talk">SUBMIT</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <article class="edit-event-form">
+            <button><a href="#openEditEventModal">Edit Event</a></button>
+            <!-- This is the modal for editting an event-->
+            <div id="openEditEventModal" class="modalDialog">
+                <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h2>Edit Event</h2>
+                    <form class="editEvent" action="/edit-event" method="PATCH">
+                        <fieldset>
+                            <div class="eventTitle">
+                                <label for="eventTitle" class="editEvent__form-field-label">Title:</label>
+                                <input class="editEvent__form-field-input" type="text" id="eventTitle" name="title" th:placeholder="#{event.title}" />
+                            </div><br>
+                            <div class="eventHost">
+                                <label for="eventHost" class="editEvent__form-field-label">Host Name:</label>
+                                <input class="editEvent__form-field-input" type="text" id="eventHostID" name="host"
+                                    th:placeholder="#{host.name}" readonly />
+                            </div><br>
+                            <div class="eventDate">
+                                <label for="eventDate" class="editEvent__form-field-label">Date:</label>
+                                <input class="editEvent__form-field-input" type="text" id="eventDate" name="date" th:placeholder="#{event.date}"/>
+                            </div><br>
+                            <div class="eventLocation">
+                                <label for="eventLocation" class="editEvent__form-field-label">Location:</label>
+                                <input class="editEvent__form-field-input" type="text" id="eventLocation" name="location" th:placeholder="#{event.location}"/>
+                            </div><br>
+                            <div class="eventDuration">
+                                <label for="eventDuration" class="editEvent__form-field-label">Duration:</label>
+                                <select class="editEvent__form-field-dropdown" name="eventDuration" id="duration">
+                                    <option value=""></option>
+                                    <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                        th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                                </select>
+                            </div><br>
+                            <div class="eventGenre">
+                                <label for="eventGenre" class="editEvent__form-field-label">Genre:</label>
+                                <select class="editEvent__form-field-dropdown" name="genreId" id="genreId">
+                                    <option value=""></option>
+                                    <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                                    </option>
+                                </select>
+                            </div><br>
+                            <div class="eventStatus">
+                                <label for="eventStatus" class="editEvent__form-field-label">Status:</label>
+                                <select class="editEvent__form-field-dropdown" name="eventStatus" id="status">
+                                    <option value=""></option>
+                                    <option th:each="status : ${T(Api.SpeakerWyr.models.Status).values()}"
+                                        th:value="${status}" th:text="${status.displayStatus}"></option>
+                                </select>
+                            </div><br>
+                            <div class="editEventButtonContainer">
+                                <button class="editEventButton" type="submit" name="submit" value="Edit Event">SUBMIT</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </article>
+</body>
+
+<footer>
+
+</footer>
+
+</html>
