@@ -34,9 +34,8 @@ public class HostController {
 
 	@GetMapping("/{id}")
 	public String getHost(@PathVariable("id") long id, Model model) {
-		List<Event> eventsHosting = hostService.getEventsHostIsHosting(id);
 		model.addAttribute("host", hostService.fetchHost(id));
-		model.addAttribute("eventsHosting", eventsHosting);
+		model.addAttribute("eventsHosting", hostService.getEventsHostIsHosting(id));
 		return "host-page";
 	}
 	
