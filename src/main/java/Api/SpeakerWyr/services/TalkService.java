@@ -16,6 +16,10 @@ public class TalkService {
 	
 	@Autowired
 	TalkRepository talkRepo;
+	@Autowired
+	GenreService genreService;
+	@Autowired
+	TagService tagService;
 
 	public Talk addTalk(Talk talk) {
 		return talkRepo.save(talk);
@@ -39,6 +43,27 @@ public class TalkService {
 	public List<Talk> filterTalks(TalkFilter filter){
 		List<Talk> filteredTalks = new ArrayList<>();
 		List<Talk> allTalks = fetchTalks();
+		for(Talk talk : allTalks) {
+			if((isAMatchingGenre(filter, talk)) && (isAMatchingTag(filter, talk)) && (isAMatchingDuration(filter, talk)) && (isAMatchingSpeakerName(filter, talk))) {
+				filteredTalks.add(talk);
+			}
+		}
 		return filteredTalks;
+	}
+
+	private boolean isAMatchingSpeakerName(TalkFilter filter, Talk talk) {
+		return filter.getSpeakerName().equalsIgnoreCase("") || (talk.getSpeakerName().equalsIgnoreCase(filter.getSpeakerName()));
+	}
+
+	private boolean isAMatchingDuration(TalkFilter filter, Talk talk) {
+		return filter.getDurationID().equalsIgnoreCase("0") || (talk.getDurationString().equalsIgnoreCase(filter.getDurationID()));
+	}
+
+	private boolean isAMatchingTag(TalkFilter filter, Talk talk) {
+		return (filter.getTagId()==0) || (talk.getTags().contains(tagService.fetchTag(filter.getTagId())));
+	}
+
+	private boolean isAMatchingGenre(TalkFilter filter, Talk talk) {
+		return (filter.getGenreId()==0) || (talk.getGenres().contains(genreService.fetchGenre(filter.getGenreId())));
 	}
 }

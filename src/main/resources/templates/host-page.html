@@ -44,14 +44,14 @@
                 <!-- <fieldset> -->
                 <article class="filter__genre">
                     <select class="filter__genre-select" name="genreId" id="genreId">
-                        <option value=""></option>
+                        <option value="0">Select Genre</option>
                         <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">Genre
                         </option>
                     </select>
                 </article>
                 <article class="filter__tag">
                     <select class="filter__tag-select" name="tagId" id="tagId">
-                        <option value=""></option>
+                        <option value="0">Select Tag</option>
                         <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}">Tag</option>
                     </select>
                 </article>
@@ -61,7 +61,7 @@
                             th:value="${duration}" th:text="${duration.displayDuration}"></option>
                     </select> -->
                     <select class="filter__duration-select" name="durationId" id="durationId">
-                            <option value="">Select Duration</option>
+                            <option value="0">Select Duration</option>
                             <option value="LIGHTNING">Lightning (15 minutes or less)</option>
                             <option value="SHORT">Short (20-30 mins)</option>
                             <option value="MID">Mid (30-60 mins)</option>
@@ -70,7 +70,7 @@
                 </article>
                 <article class="filter__speaker-search">
                     <form>
-                        <input type="text" placeholder="Seach Speaker Name">
+                        <input type="text" name="speakerName" placeholder="Seach Speaker Name">
                     </form>
                 </article>
                 <article class="filter__submit-field">
