@@ -36,8 +36,8 @@
             <hr />
         </div>
 
-        <div class="talk-card-container" th:each="talk : ${speaker.talks}">
-            <div class="talk-card">
+        <div class="talk-card-container">
+            <div class="talk-card" th:each="talk : ${speaker.talks}">
                 <h1 class="title" th:text="${talk.title}">TalkTitle</h1>
                 <h2 class="description" th:text="${talk.description}">TalkDescription</h2>
                 <h3 class="length" th:text="${talk.duration.displayDuration}">TalkDuration</h3>
@@ -82,9 +82,9 @@
                 <h4 class="upcoming-card__host" th:text="${event.host.name}">Host name</h4>
                 <div class="upcoming-card__status-container">
                     <h4>Status: </h4>
-                    <h4 class="upcoming-card__status-booked" th:text="${event.status}">Status</h4> -->
+                    <h4 class="upcoming-card__status-booked" th:text="${event.status}">Status</h4>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="upcoming-card">
                     <h4 class="upcoming-card__event-name">Event: Hacker Conference</h4>
                     <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
