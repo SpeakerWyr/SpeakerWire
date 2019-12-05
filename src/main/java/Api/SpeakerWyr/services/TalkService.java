@@ -44,11 +44,15 @@ public class TalkService {
 		List<Talk> filteredTalks = new ArrayList<>();
 		List<Talk> allTalks = fetchTalks();
 		for(Talk talk : allTalks) {
-			if((isAMatchingGenre(filter, talk)) && (isAMatchingTag(filter, talk)) && (isAMatchingDuration(filter, talk)) && (isAMatchingSpeakerName(filter, talk))) {
+			if(talkMatchesFilter(filter, talk)) {
 				filteredTalks.add(talk);
 			}
 		}
 		return filteredTalks;
+	}
+
+	private boolean talkMatchesFilter(TalkFilter filter, Talk talk) {
+		return (isAMatchingGenre(filter, talk)) && (isAMatchingTag(filter, talk)) && (isAMatchingDuration(filter, talk)) && (isAMatchingSpeakerName(filter, talk));
 	}
 
 	private boolean isAMatchingSpeakerName(TalkFilter filter, Talk talk) {
