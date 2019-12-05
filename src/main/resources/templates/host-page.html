@@ -61,7 +61,7 @@
                             th:value="${duration}" th:text="${duration.displayDuration}"></option>
                     </select> -->
                     <select class="filter__duration-select" name="durationId" id="durationId">
-                            <option value="0">Select Duration</option>
+                            <option value="">Select Duration</option>
                             <option value="LIGHTNING">Lightning (15 minutes or less)</option>
                             <option value="SHORT">Short (20-30 mins)</option>
                             <option value="MID">Mid (30-60 mins)</option>
@@ -70,11 +70,11 @@
                 </article>
                 <article class="filter__speaker-search">
                     <form>
-                        <input type="text" name="speakerName" placeholder="Seach Speaker Name">
+                        <input class="filter__speakerName" type="text" name="speakerName" placeholder="Seach Speaker Name">
                     </form>
                 </article>
                 <article class="filter__submit-field">
-                    <button class="filter__submit-button" type="submit" name="submit"
+                    <button class="filter__submit-button" id="filterButton" type="submit" name="submit"
                         value="Filter Talks">Submit</button>
                 </article>
                 <!-- </fieldset> -->
@@ -134,6 +134,7 @@
     </div>
 
     </div>
+    <script src="/js/host-page.js"></script>
 </body>
 
 </html>

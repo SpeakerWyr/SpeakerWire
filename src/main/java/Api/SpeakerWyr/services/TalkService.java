@@ -60,7 +60,7 @@ public class TalkService {
 	}
 
 	private boolean isAMatchingDuration(TalkFilter filter, Talk talk) {
-		return filter.getDurationID().equalsIgnoreCase("0") || (talk.getDurationString().equalsIgnoreCase(filter.getDurationID()));
+		return filter.getDurationID().equalsIgnoreCase("") || (talk.getDurationString().equalsIgnoreCase(filter.getDurationID()));
 	}
 
 	private boolean isAMatchingTag(TalkFilter filter, Talk talk) {
