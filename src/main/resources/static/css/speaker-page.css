@@ -24,7 +24,7 @@
     grid-template-areas:"nameplate nameplate nameplate headshot headshot headshot"
                         "hrule hrule hrule hrule hrule hrule"
                         "talkcard talkcard talkcard talkcard schedule schedule"
-                        "result result result result result result";
+                        "talkcard talkcard talkcard talkcard schedule schedule";
     min-width: 90vw;
     min-height: 100vh;
     margin: 0px;
