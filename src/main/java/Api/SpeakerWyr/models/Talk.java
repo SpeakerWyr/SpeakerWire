@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Talk {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -31,56 +31,75 @@ public class Talk {
 	@JsonIgnore
 	@ManyToOne
 	private Event event;
-	
-	public Talk() {}
-	
-	public Talk(String title, String description, Duration duration, Speaker speaker) {	
+
+	public Talk() {
+	}
+
+	public Talk(String title, String description, Duration duration, Speaker speaker) {
 		this.title = title;
 		this.description = description;
 		this.duration = duration;
 		this.speaker = speaker;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
-	
+
 	public Duration getDuration() {
 		return duration;
 	}
-	
+
+	public String getDurationString() {
+		switch (duration) {
+		case LIGHTNING:
+			return "LIGHTNING";
+		case SHORT:
+			return "SHORT";
+		case MID:
+			return "MID";
+		case LONG:
+			return "LONG";
+		}
+		return "0";
+	}
+
 	public Speaker getSpeaker() {
 		return speaker;
 	}
 	
+	public String getSpeakerName() {
+		return speaker.getName();
+	}
+
 	public List<Genre> getGenres() {
 		return genres;
 	}
-	
+
 	public List<Tag> getTags() {
 		return tags;
 	}
-	
+
 	public String getiFrame() {
 		return iFrame;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
-	
+
 	public Event getEvent() {
 		return event;
 	}
-	
+
 	public void setEvent(Event eventToAdd) {
 		this.event = eventToAdd;
 	}
-	
+
 	public void setGenres(List<Genre> genreList) {
 		this.genres = genreList;
 	}
@@ -163,5 +182,6 @@ public class Talk {
 		this.event = event;
 	}
 
-}
+	
 
+}
