@@ -90,7 +90,7 @@ public class Populator implements CommandLineRunner {
 		
 		talkPoetryOfProgramming.setIFrame("https://www.youtube.com/embed/-jRREn6ifEQ");
 		talkSoftwareAndStorytelling.setIFrame("https://www.youtube.com/embed/-AcT34zDGVw");
-		talkADelightfulWayToTeachKids.setIFrame("https://www.ted.com/talks/linda_liukas_a_delightful_way_to_teach_kids_about_computers?utm_campaign=tedspread&utm_medium=referral&utm_source=tedcomshare");
+		talkADelightfulWayToTeachKids.setIFrame("https://www.youtube.com/embed/vcxwcWuq7KQ"};
 		
 		talkConveyingthePowerofAbstraction.setIFrame("https://www.youtube.com/embed/PvSpyhm6TUU");
 		talkTheArtOfLogic.setIFrame("https://www.youtube.com/embed/YHZKX0H6cUE");
