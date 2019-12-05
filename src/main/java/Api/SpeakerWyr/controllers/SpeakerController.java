@@ -83,11 +83,13 @@ public class SpeakerController {
 	}
 	
 	@PatchMapping("/{id}/add-talk")
-	public Speaker addTalk(@PathVariable Long id, @RequestBody Talk talk) {
+	public String addTalk(@PathVariable Long id, @RequestBody Talk talk) {
+		System.out.println("hit controller");
 		Speaker speaker = speakerService.fetchSpeaker(id);
 		List<Talk> existingTalks = speaker.getTalks();
 		existingTalks.add(talk);
-		return speakerService.addSpeaker(speaker);
+		speakerService.addSpeaker(speaker);
+		return "speaker-page";
 	}
 	
 	

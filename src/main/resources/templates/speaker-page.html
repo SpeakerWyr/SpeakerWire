@@ -17,6 +17,60 @@
 
 <body>
     <div class="wrapper">
+            <div id="openAddTalkModal" class="modalDialog">
+                    <div>
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>Add Talk</h2>
+                        <form class="addTalk" action="http://localhost8080/speaker/1/add-talk" method="PATCH">
+                            <fieldset>
+                                <div class="talkTitle">
+                                    <label for="talkTitle" class="addTalk__form-field-label">Title:</label>
+                                    <input class="addTalk__form-field-input" type="text" id="talkTitle" name="title" />
+                                </div><br>
+                                <div class="talkSpeaker">
+                                    <label for="talkSpeaker" class="addTalk__form-field-label">Speaker Name:</label>
+                                    <input class="addTalk__form-field-input" type="text" id="talkSpeakerID" name="speaker"
+                                        th:placeholder="#{speaker.name}" readonly />
+                                </div><br>
+                                <div class="talkDescription">
+                                    <label for="talkDescription" class="addTalk__form-field-label">Short Description:</label>
+                                    <input class="addTalk__form-field-input" type="text" id="talkDescription"
+                                        name="description" />
+                                </div><br>
+                                <div class="talkDuration">
+                                    <label for="talkDuration" class="addTalk__form-field-label">Duration:</label>
+                                    <select class="editTalk__form-field-dropdown" name="talkDuration" id="duration">
+                                            <option value=""></option>
+                                            <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                                th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                                        </select>
+                                </div><br>
+                                <div class="talkGenre">
+                                    <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
+                                    <select class="addTalk__form-field-dropdown" name="genreId" id="genreId">
+                                        <option value=""></option>
+                                        <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                                        </option>
+                                    </select>
+                                </div><br>
+                                <div class="talkTag">
+                                    <label for="talkTag" class="addTalk__form-field-label">Tag:</label>
+                                    <select class="addTalk__form-field-dropdown" name="tagId" id="tagId">
+                                        <option value=""></option>
+                                        <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}"></option>
+                                    </select>
+                                </div><br>
+                                <div class="talkiFrame">
+                                    <label for="talkiFrame" class="addTalk__form-field-label">Video URL:</label>
+                                    <input class="addTalk__form-field-input" type="text" id="talkiFrame" name="iFrame" />
+                                </div><br>
+                                <div class="addTalkButtonContainer">
+                                    <button class="addTalkButton" type="submit" name="submit">SUBMIT</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
         <article class="nameplate">
             <h1 class="nameplate__name" th:text="${speaker.name}">SpeakerName</h1>
             <h3 class="nameplate__location" th:text="${speaker.location}">SpeakerLocation</h3>
@@ -24,7 +78,7 @@
                 Bio
             </h2>
             <div class="button-container">
-                <button>Add Talk</button>
+                <button><a href="#openAddTalkModal">Add Talk</a></button>
                 <button>Search</button>
             </div>
         </article>
