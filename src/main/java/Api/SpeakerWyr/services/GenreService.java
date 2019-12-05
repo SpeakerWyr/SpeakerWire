@@ -34,13 +34,5 @@ public class GenreService {
 		genreRepo.delete(genre);
 		
 	}
-
-//	public List<Genre> fetchGenresForASpeaker(long id) {
-//		
-//		
-//		return null;
-//	}
-
-
 	
 }

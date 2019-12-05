@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -79,6 +80,15 @@ public class TalkController {
 		talkService.addTalk(thisTalk);
 	}
 	
+	@GetMapping("/{id}/get-genres")
+	public List<Genre> getGenresForOneTalk(@PathVariable long id, Model model) {
+		List<Genre> talkGenres = new ArrayList<>();
+		Talk retrievedTalk = talkService.fetchTalk(id);
+		talkGenres = retrievedTalk.getGenres();
+		model.addAttribute("genres", talkGenres);
+		return talkGenres;
+		
+	}
 	
 }
 		
