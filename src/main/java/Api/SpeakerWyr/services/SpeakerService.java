@@ -48,4 +48,11 @@ public class SpeakerService {
 		}
 		return eventsSpeaking;
 	}
+
+	public List<Talk> getTalksSpeakerHasListed(long id) {
+//		List<Talk> listOfTalks = new ArrayList<Talk>();
+		Speaker thisSpeaker = fetchSpeaker(id);
+		List<Talk> theseTalks = thisSpeaker.getTalks();
+		return theseTalks;
+	}
 }

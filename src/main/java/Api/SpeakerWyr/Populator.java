@@ -57,7 +57,6 @@ public class Populator implements CommandLineRunner {
 		Talk talkPoetryOfProgramming = new Talk("The Poetry of Programming",
 				"Linda Liukas wants to create a more diverse and colourful world of technology, starting with the poetry of code.",
 				Duration.LIGHTNING, speakerLindaLiukas);
-		//talkPoetryOfProgramming.setGenres(genreList1);
 		
 		Talk talkSoftwareAndStorytelling = new Talk("Software & Storytelling, One Nordic Childhood", 
 				"Linda Liukas, Founder of Rails Girls and Hello Ruby: Software & Storytelling: One Nordic Childhood at Slush 2014.",
@@ -90,7 +89,7 @@ public class Populator implements CommandLineRunner {
 		
 		talkPoetryOfProgramming.setIFrame("https://www.youtube.com/embed/-jRREn6ifEQ");
 		talkSoftwareAndStorytelling.setIFrame("https://www.youtube.com/embed/-AcT34zDGVw");
-		talkADelightfulWayToTeachKids.setIFrame("https://www.ted.com/talks/linda_liukas_a_delightful_way_to_teach_kids_about_computers?utm_campaign=tedspread&utm_medium=referral&utm_source=tedcomshare");
+		talkADelightfulWayToTeachKids.setIFrame("https://www.youtube.com/embed/vcxwcWuq7KQ");
 		
 		talkConveyingthePowerofAbstraction.setIFrame("https://www.youtube.com/embed/PvSpyhm6TUU");
 		talkTheArtOfLogic.setIFrame("https://www.youtube.com/embed/YHZKX0H6cUE");
@@ -156,6 +155,9 @@ public class Populator implements CommandLineRunner {
 		
 		genreList1.add(coding);
 		genreList1.add(literature);
+		
+		talkPoetryOfProgramming.setGenres(genreList1);
+		System.out.println(talkPoetryOfProgramming.getGenres());
 
 		genreList2.add(technology);
 		genreList2.add(math);

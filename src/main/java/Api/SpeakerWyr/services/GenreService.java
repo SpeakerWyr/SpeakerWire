@@ -35,6 +35,12 @@ public class GenreService {
 		
 	}
 
+//	public List<Genre> fetchGenresForASpeaker(long id) {
+//		
+//		
+//		return null;
+//	}
+
 
 	
 }

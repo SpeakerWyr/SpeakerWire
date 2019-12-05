@@ -31,7 +31,6 @@ public class TalkService {
 
 	public void removeTalk(Talk talk) {
 		talkRepo.delete(talk);
-		
 	}
 
 }
