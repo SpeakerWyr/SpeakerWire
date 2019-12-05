@@ -162,7 +162,7 @@ public class Populator implements CommandLineRunner {
 		genreList2.add(philosophy);
 		
 
-		Host hostArtInstituteofChicago = new Host("Art Institute of Chicago", "Chicago, IL",
+		Host hostArtInstituteOfChicago = new Host("Art Institute of Chicago", "Chicago, IL",
 				"A private university associated with the Art Institute of Chicago",
 				"https://news.artnet.com/app/news-upload/2019/04/GettyImages-661869994-1024x683.jpg");
 		Host hostWCCI = new Host("We Can Code IT", "Columbus, OH", "A bootcamp for full stack devolpers",
@@ -171,23 +171,48 @@ public class Populator implements CommandLineRunner {
 				"A public research university in Columbus, OH, founded in 1870 as a land-grant university",
 				"https://content.presspage.com/uploads/2170/1920_oval-aerial-1799-664882.jpg");
 
-		hostService.addHost(hostArtInstituteofChicago);
+		hostService.addHost(hostArtInstituteOfChicago);
 		hostService.addHost(hostWCCI);
 		hostService.addHost(hostTheOhioStateUniversity);
 
 		Event eventCodeAndCoffee = new Event("Code and Coffee", hostWCCI, "2 hours", coding,
 				"December 21, 2019", Status.BOOKED, "Columbus, OH");
-		Event eventPowerOfAbstraction = new Event("Art, Mathematics, and Logic", hostArtInstituteofChicago,
+		Event eventCodeJam = new Event("Code Jam", hostWCCI, "3 hours", coding, 
+				"January 10, 2020", Status.PENDING, "Columbus, OH");  
+		Event eventHackerX = new Event("Hacker X - Nexient", hostWCCI, "2 hours", technology, 
+				"January 9, 2020", Status.BOOKED, "Columbus, OH");
+		Event eventPowerOfAbstraction = new Event("Art, Mathematics, and Logic", hostArtInstituteOfChicago,
 				"3 hours", technology, "January 24, 2020", Status.BOOKED, "Chicago, IL");
+		Event eventChicagoTechMeetup = new Event("Chicago Tech", hostArtInstituteOfChicago, "3 hours", philosophy,
+				"February 1, 2020", Status.PENDING, "Chicago, IL");
+		Event eventChicagoMathEnthusiasts = new Event("Chicago Math Enthusiasts", hostArtInstituteOfChicago, "2 hours", math, 
+				"January 20, 2020", Status.BOOKED, "Chicago, IL");
+		Event eventOhioTechConference = new Event("Ohio Tech Conference", hostTheOhioStateUniversity, "2 hours", technology,
+				"January 21, 2020", Status.BOOKED, "Columbus, OH");
+		Event eventOhioFlutterGroup = new Event("Ohio Flutter Group", hostTheOhioStateUniversity, "3 hours", coding, 
+				"February 5, 2020", Status.PENDING, "Columbus, OH");
 		Event eventFlutterAndDart = new Event("Flutter and Dart: Developing Beautiful Mobile Apps",
 				hostTheOhioStateUniversity, "2 hours", mobileApps, "March 22, 2020", Status.BOOKED, "Columbus, OH");
-
+		
 		eventService.addEvent(eventCodeAndCoffee);
 		eventService.addEvent(eventPowerOfAbstraction);
 		eventService.addEvent(eventFlutterAndDart);
+		eventService.addEvent(eventCodeJam);
+		eventService.addEvent(eventHackerX);
+		eventService.addEvent(eventChicagoTechMeetup);
+		eventService.addEvent(eventChicagoMathEnthusiasts);
+		eventService.addEvent(eventOhioFlutterGroup);
+		eventService.addEvent(eventOhioTechConference);
 		
+		eventService.addTalkToEvent(eventCodeAndCoffee.getId(), talkSoftwareAndStorytelling);
 		eventService.addTalkToEvent(eventPowerOfAbstraction.getId(), talkPoetryOfProgramming);
-		
+		eventService.addTalkToEvent(eventFlutterAndDart.getId(),talkWhyUseFlutter);
+		eventService.addTalkToEvent(eventCodeJam.getId(),talkWhatIfMathematicsIsTheAnswer);
+		eventService.addTalkToEvent(eventHackerX.getId(), talkTheArtOfLogic);
+		eventService.addTalkToEvent(eventChicagoTechMeetup.getId(), talkADelightfulWayToTeachKids);
+		eventService.addTalkToEvent(eventChicagoMathEnthusiasts.getId(), talkConveyingthePowerofAbstraction);
+		eventService.addTalkToEvent(eventOhioFlutterGroup.getId(),talkDevelopNativeAppsWithFlutter);
+		eventService.addTalkToEvent(eventOhioTechConference.getId(),talkKeepItSimple);
 		
 
 	}
