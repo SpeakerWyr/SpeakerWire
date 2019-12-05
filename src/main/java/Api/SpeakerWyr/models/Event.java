@@ -1,5 +1,6 @@
 package Api.SpeakerWyr.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ public class Event {
 	private String title;
 	@ManyToOne
 	private Host host;
-	private Duration duration;
+	private String duration;
 	@ManyToOne
 	private Genre genre;
 	private String date;
@@ -26,12 +27,12 @@ public class Event {
 	private String location;
 	@JsonIgnore
 	@OneToMany(mappedBy = "event")
-	private List<Talk> talks;
+	private List<Talk> talks = new ArrayList<>();
 
 	public Event() {
 	}
 
-	public Event(String title, Host host, Duration duration, Genre genre, 
+	public Event(String title, Host host, String duration, Genre genre, 
 			String date, Status status, String location) {
 		this.title = title;
 		this.host = host;
@@ -54,7 +55,7 @@ public class Event {
 		return host;
 	}
 
-	public Duration getDuration() {
+	public String getDuration() {
 		return duration;
 	}
 
