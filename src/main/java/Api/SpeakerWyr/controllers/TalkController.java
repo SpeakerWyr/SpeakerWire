@@ -33,7 +33,7 @@ public class TalkController {
 	public List<Talk> getTalks() {
 		return talkService.fetchTalks();
 	}
-
+	
 	@GetMapping("/{id}")
 	public Talk getSingleTalk(@PathVariable Long id) {
 		return talkService.fetchTalk(id);
