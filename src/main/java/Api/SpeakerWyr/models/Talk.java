@@ -112,6 +112,10 @@ public class Talk {
 		this.iFrame = iFrameToAdd;
 	}
 
+	public void setTags(List<Tag> tagList) {
+		this.tags = tagList;
+		
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -185,6 +189,7 @@ public class Talk {
 	public void assignEvent(Event event) {
 		this.event = event;
 	}
+
 
 	
 

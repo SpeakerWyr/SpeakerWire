@@ -39,15 +39,5 @@ public class TagService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-//	public Tag addTagToTalk(long id, Tag tag) {
-//		Tag retrievedEvent = tagRepo.findById(id).get();
-//		Tag retrievedTag = tagService.fetchTag(tag.getId());
-//		retrievedTag.assignTalk(retrievedTag);
-//		tagService.addTag(retrievedTag);
-//		Tag retrievedEventAgain = tagRepo.findById(id).get();
-//		return retrievedEventAgain;
-//	}
-
 }
 
