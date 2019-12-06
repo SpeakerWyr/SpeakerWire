@@ -41,9 +41,7 @@
                 <h1 class="title" th:text="${talk.title}">TalkTitle</h1>
                 <h2 class="description" th:text="${talk.description}">TalkDescription</h2>
                 <h3 class="length" th:text="${talk.duration.displayDuration}">TalkDuration</h3>
-                <!-- <article class="speaker">
-                    <button th:text="${talk.speaker}">SpeakerName</button>
-                </article> -->
+
                 <div class="genres-container">
                     <div th:each="genre : ${talk.genres}">
                         <p class="genre" th:text="${genre.name}">genre</p>
@@ -53,9 +51,6 @@
                     <div th:each="tag : ${talk.tags}">
                         <p class="tag" th:text="${tag.name}">tag</p>
                     </div>
-                    <!-- <p class="tag">funny</p>
-                    <p class="tag">informational</p>
-                    <p class="tag">modern</p> -->
                 </div>
                 <div class="movie-container">
                     <iframe th:src="${talk.iFrame}" width="560" height="315" frameborder="0"
@@ -71,9 +66,9 @@
                     <label for="upcoming-card__event-name">Event: </label>
                     <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
                 </div>
-                <div class="aligner">
+                <div class="aligner" th:each="talk : ${event.talks}">
                     <label for="upcoming-card__talk-title">Title: </label>
-                    <!-- <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk</h4> -->
+                    <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk</h4>
                 </div>
                 <div class="aligner">
                     <label for="upcoming-card__duration">Duration: </label>
@@ -87,9 +82,9 @@
                     <label for="upcoming-card__date">Date: </label>
                     <h4 class="upcoming-card__date" th:text="${event.date}">Date</h4>
                 </div>
-                <div class="aligner">
+                <div class="aligner" th:each="host : ${event.host}">
                     <label for="upcoming-card__host">Host: </label>
-                    <!-- <h4 class="upcoming-card__host" th:text="${host.name}">Host</h4> -->
+                    <h4 class="upcoming-card__host" th:text="${host.name}">Host</h4>
                 </div>
                 <div class="upcoming-card__status-container">
                     <h4>Status: </h4>
