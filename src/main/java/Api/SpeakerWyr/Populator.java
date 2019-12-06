@@ -89,6 +89,18 @@ public class Populator implements CommandLineRunner {
 		tagService.addTag(educational);
 		tagService.addTag(informative);
 		tagService.addTag(uptodate);
+		
+		List<Tag> tagList1 = new ArrayList<Tag>();
+		List<Tag> tagList2 = new ArrayList<Tag>();
+		List<Tag> tagList3 = new ArrayList<Tag>();
+		List<Tag> tagList4 = new ArrayList<Tag>();
+		List<Tag> tagList5 = new ArrayList<Tag>();
+		List<Tag> tagList6 = new ArrayList<Tag>();
+		List<Tag> tagList7 = new ArrayList<Tag>();
+		List<Tag> tagList8 = new ArrayList<Tag>();
+		List<Tag> tagList9 = new ArrayList<Tag>();
+
+		
 
 		Speaker speakerLindaLiukas = new Speaker("Linda Liukas", "Columbus, Ohio",
 				"Linda is the author and illustrator of Hello Ruby, a children's picture book about the whimsical world of computers",
@@ -173,6 +185,43 @@ public class Populator implements CommandLineRunner {
 		talkKeepItSimple.setGenres(genreList8);
 		genreList9.add(mobileApps);
 		talkWhyUseFlutter.setGenres(genreList9);
+		
+		tagList1.add(funny);
+		tagList1.add(persuasive);
+		tagList1.add(local);
+		talkPoetryOfProgramming.setTags(tagList1);
+		tagList2.add(educational);
+		tagList2.add(informative);
+		tagList3.add(funny);
+		talkSoftwareAndStorytelling.setTags(tagList2);
+		tagList3.add(uptodate);
+		tagList3.add(informative);
+		tagList3.add(educational);
+		talkADelightfulWayToTeachKids.setTags(tagList3);
+		tagList4.add(informative);
+		tagList4.add(educational);
+		tagList4.add(funny);
+		talkConveyingthePowerofAbstraction.setTags(tagList4);
+		tagList5.add(educational);
+		tagList5.add(spiritual);
+		tagList5.add(funny);
+		talkTheArtOfLogic.setTags(tagList5);
+		tagList6.add(educational);
+		tagList6.add(uptodate);
+		tagList6.add(local);
+		talkWhatIfMathematicsIsTheAnswer.setTags(tagList6);
+		tagList7.add(selfhelp);
+		tagList7.add(educational);
+		tagList7.add(persuasive);
+		talkDevelopNativeAppsWithFlutter.setTags(tagList7);
+		tagList8.add(funny);
+		tagList8.add(informative);
+		tagList8.add(persuasive);
+		talkKeepItSimple.setTags(tagList8);
+		tagList9.add(uptodate);
+		tagList9.add(educational);
+		tagList9.add(funny);
+		talkWhyUseFlutter.setTags(tagList9);
 		
 		talkService.addTalk(talkPoetryOfProgramming);
 		talkService.addTalk(talkSoftwareAndStorytelling);

@@ -50,9 +50,12 @@
                     </div>
                 </div>
                 <div class="tags">
-                    <p class="tag">funny</p>
+                    <div th:each="tag : ${talk.tags}">
+                        <p class="tag" th:text="${tag.name}">tag</p>
+                    </div>
+                    <!-- <p class="tag">funny</p>
                     <p class="tag">informational</p>
-                    <p class="tag">modern</p>
+                    <p class="tag">modern</p> -->
                 </div>
                 <div class="movie-container">
                     <iframe th:src="${talk.iFrame}" width="560" height="315" frameborder="0"
@@ -93,31 +96,7 @@
                     <h4 class="upcoming-card__status-booked" th:text="${event.status}">Booked</h4>
                 </div>
             </div>
-            <!-- <div class="upcoming-card" th:each="event : ${events}">
-                <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
-                <div class="talk-title-iterator" th:each="talk : ${event.talks}">
-                    <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk title</h4>
-                </div>
-                <h4 class="upcoming-card__length" th:text="${event.duration}">Duration</h4>
-                <h4 class="upcoming-card__location" th:text="${event.location}">Location</h4>
-                <h4 class="upcoming-card__date" th:text="${event.date}">Date</h4>
-                <h4 class="upcoming-card__host" th:text="${event.host.name}">Host name</h4>
-                <div class="upcoming-card__status-container">
-                    <h4>Status: </h4>
-                    <h4 class="upcoming-card__status-booked" th:text="${event.status}">Status</h4>
-                </div>
-            </div> -->
-            <!-- <div class="upcoming-card">
-                    <h4 class="upcoming-card__event-name">Event: Hacker Conference</h4>
-                    <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
-                    <h4 class="upcoming-card__length">Duration: 12:44 minutes</h4>
-                    <h4 class="upcoming-card__location">Location: Billings, MT</h4>
-                    <h4 class="upcoming-card__date">Date: January 7, 2020</h4>
-                    <h4 class="upcoming-card__host">Host: Wayne Brady</h4>
-                    <div class="upcoming-card__status-container">
-                        <h4>Status: </h4>
-                        <h4 class="upcoming-card__status-pending">Pending</h4>
-                    </div> -->
+           
         </div>
     </div>
 
