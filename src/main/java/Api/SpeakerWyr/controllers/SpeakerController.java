@@ -50,11 +50,10 @@ public class SpeakerController {
 	public String getSingleSpeaker(@PathVariable Long id, Model model) {
 		model.addAttribute("speaker", speakerService.fetchSpeaker(id));
 		model.addAttribute("events", speakerService.getEventsSpeakerIsBooked(id));
+		model.addAttribute("talks", speakerService.getTalksSpeakerHasListed(id));
 		model.addAttribute("genres", genreService.fetchGenres());
 		model.addAttribute("tags", tagService.fetchTags());
-		return "speaker-page";
-
-			
+		return "speaker-page";		
 	}
 	
 	@PostMapping("/add-speaker") 

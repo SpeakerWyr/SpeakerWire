@@ -37,7 +37,6 @@ public class TalkService {
 
 	public void removeTalk(Talk talk) {
 		talkRepo.delete(talk);
-		
 	}
 
 	public List<Talk> filterTalks(TalkFilter filter){

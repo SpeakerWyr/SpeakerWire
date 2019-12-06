@@ -9,8 +9,9 @@ iframe {
     margin: 1rem;   
 }
 
-.genres {
+.genres-container {
     display: flex;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     text-align: left;

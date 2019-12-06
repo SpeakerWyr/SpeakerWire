@@ -34,7 +34,5 @@ public class GenreService {
 		genreRepo.delete(genre);
 		
 	}
-
-
 	
 }
