@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Api.SpeakerWyr.models.Event;
+import Api.SpeakerWyr.models.Host;
 import Api.SpeakerWyr.models.Speaker;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.repos.SpeakerRepository;
@@ -42,9 +43,10 @@ public class SpeakerService {
 		List<Event> eventsSpeaking = new ArrayList<Event>();
 		Speaker thisSpeaker = fetchSpeaker(id);
 		List<Talk> theseTalks = thisSpeaker.getTalks();
-		
 		for(Talk talk : theseTalks) {
-			eventsSpeaking.add(talk.getEvent());
+			Event anotherEvent = talk.getEvent();
+			Event eventToAdd = eventService.fetchEvent(talk.getEvent().getId());
+			eventsSpeaking.add(eventToAdd);
 		}
 		return eventsSpeaking;
 	}
