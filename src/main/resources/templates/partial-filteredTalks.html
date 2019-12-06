@@ -1,3 +1,4 @@
+
 <div class="talk-card" th:each="talk : ${filteredTalks}">
     <h1 class="title" th:text="${talk.title}">TalkTitle</h1>
     <h2 class="description" th:text="${talk.description}">TalkDescription</h2>
@@ -5,11 +6,15 @@
     <!-- <article class="speaker">
         <button th:text="${talk.speaker}">SpeakerName</button>
     </article> -->
-    <div class="genres" th:each="genre : ${talk.genres}">
-        <p class="genre" th:text="${genre.name}"></p>
+    <div class="genres-container">
+        <div class="genres" th:each="genre : ${talk.genres}">
+            <p class="genre" th:text="${genre.name}"></p>
+        </div>
     </div>
-    <div class="tags" th:each="tag : ${talk.tags}">
-        <p class="tag" th:text="${tag.name}"></p>
+    <div class="tags-container">
+        <div class="tags" th:each="tag : ${talk.tags}">
+            <p class="tag" th:text="${tag.name}"></p>
+        </div>
     </div>
     <div class="movie-container">
         <iframe th:src="${talk.iFrame}" width="560" height="315" frameborder="0"
