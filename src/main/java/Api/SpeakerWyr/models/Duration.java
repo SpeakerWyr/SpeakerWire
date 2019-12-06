@@ -8,8 +8,7 @@ public enum Duration {
 	MID (902, "30 to 60 minutes"),
 	LONG (903, "60 minutes or more");
 	
-//	private final Long id;
-//	private final String displayDuration;
+
 	
 	public final String displayDuration;
 	public final Integer id;
@@ -19,43 +18,17 @@ public enum Duration {
 		this.id = id;
 	}
 	
-//	private Duration (String displayDuration) {
-//		this.displayDuration = displayDuration;
-//	}
-	
+
 	public String getDisplayDuration() {
 		return displayDuration;
 	}
 	
 	public static Duration getDurationById(Integer id) {
-//		if(id == 900) {
-//			return Duration.LIGHTNING;
-//		}else if(id == 901) {
-//			return Duration.SHORT;
-//		}else if(id == 902) {
-//			return Duration.MID;
-//		}else if(id == 903) {
-//			return Duration.LONG;
-//		}else 
-//		
-		
-		//switch(id) {
-//		case 900:
-//			return Duration.LIGHTNING;
-//		case 901:
-//			return Duration.SHORT;
-//		case 902:
-//			return Duration.MID;
-//		case 903:
-//			return Duration.LONG;
-//		}
 		return Duration.MID;
 	}
 	
 	public Integer getDurationId() {
 		return id;
 	}
-	
-	
 	
 }

@@ -13,10 +13,6 @@
     margin-left: 1rem;
 }
 
-/* .current-connections {
-    border: 3px;
-} */
-
 .wrapper {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
