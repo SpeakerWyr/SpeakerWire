@@ -21,7 +21,7 @@
                     <div>
                         <a href="#close" title="Close" class="close">X</a>
                         <h2>Add Talk</h2>
-                        <form class="addTalk" action="/add-talk" method="POST">
+                        <form class="addTalk" th:action="'/speaker/'+ ${speaker.id} + '/add-talk'" method="POST">
                             <fieldset>
                                 <div class="talkTitle">
                                     <label for="talkTitle" class="addTalk__form-field-label">Title:</label>

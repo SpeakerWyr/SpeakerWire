@@ -23,6 +23,7 @@ import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.GenreService;
 import Api.SpeakerWyr.services.SpeakerService;
 import Api.SpeakerWyr.services.TagService;
+import Api.SpeakerWyr.services.TalkService;
 
 @CrossOrigin
 @Controller
@@ -35,6 +36,8 @@ public class SpeakerController {
 	private TagService tagService; 
 	@Autowired
 	private GenreService genreService;
+	@Autowired
+	private TalkService talkService;
 	
 	
 	@GetMapping("")
@@ -87,27 +90,27 @@ public class SpeakerController {
 	}
 	
 	@PostMapping("/{id}/add-talk")
-	public String addTalk(@PathVariable Long id, String talkTitle, String talkDescription, Duration talkDuration, Long genreId, Long tagId, String talkiFrame) {
+	public String addTalk(@PathVariable Long id, String title, String description, Duration duration, Long genreId, Long tagId, String iFrame) {
 		Speaker speaker = speakerService.fetchSpeaker(id);
 		System.out.println(genreId);
-		System.out.println(talkTitle);
+		System.out.println(title);
 		Genre genre = genreService.fetchGenre(genreId);
 		Tag tag = tagService.fetchTag(tagId);
-		List<Talk> existingTalks = speaker.getTalks();
 		List<Genre> genreToAdd = new ArrayList<Genre>();
 		genreToAdd.add(genreService.fetchGenre(genreId));
 		List<Tag> tagToAdd = new ArrayList<Tag>();
 		tagToAdd.add(tagService.fetchTag(tagId));
 		
-		Talk talkToAdd = new Talk(talkTitle, talkDescription, talkDuration, speaker);
+		Talk talkToAdd = new Talk(title, description, duration, speaker);
 		talkToAdd.setGenres(genreToAdd);
 		talkToAdd.setTags(tagToAdd);
-		talkToAdd.setIFrame(talkiFrame);
-		existingTalks.add(talkToAdd);
+		talkToAdd.setIFrame(iFrame);
+		talkService.addTalk(talkToAdd);
+		speaker.getTalks().add(talkToAdd);
 		
-		//speakerService.addSpeaker(speaker);
+		speakerService.addSpeaker(speaker);
 		//return "speaker-page";
-		return "redirect:/speaker" + id;
+		return "redirect:/speaker/" + id;
 	}
 	
 	
