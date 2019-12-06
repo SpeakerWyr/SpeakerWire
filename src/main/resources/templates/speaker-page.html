@@ -21,7 +21,7 @@
                     <div>
                         <a href="#close" title="Close" class="close">X</a>
                         <h2>Add Talk</h2>
-                        <form class="addTalk" action="http://localhost8080/speaker/1/add-talk" method="PATCH">
+                        <form class="addTalk" action="/add-talk" method="POST">
                             <fieldset>
                                 <div class="talkTitle">
                                     <label for="talkTitle" class="addTalk__form-field-label">Title:</label>
@@ -65,7 +65,7 @@
                                     <input class="addTalk__form-field-input" type="text" id="talkiFrame" name="iFrame" />
                                 </div><br>
                                 <div class="addTalkButtonContainer">
-                                    <button class="addTalkButton" type="submit" name="submit">SUBMIT</button>
+                                    <button class="addTalkButton primary_action" type="submit" name="submit">SUBMIT</button>
                                 </div>
                             </fieldset>
                         </form>

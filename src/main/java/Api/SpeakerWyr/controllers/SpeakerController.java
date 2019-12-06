@@ -1,5 +1,6 @@
 package Api.SpeakerWyr.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import Api.SpeakerWyr.models.Event;
+
+import Api.SpeakerWyr.models.Duration;
+import Api.SpeakerWyr.models.Genre;
 import Api.SpeakerWyr.models.Speaker;
+import Api.SpeakerWyr.models.Tag;
 import Api.SpeakerWyr.models.Talk;
 import Api.SpeakerWyr.services.GenreService;
 import Api.SpeakerWyr.services.SpeakerService;
@@ -82,14 +86,27 @@ public class SpeakerController {
 		return speakerService.addSpeaker(speaker);
 	}
 	
-	@PatchMapping("/{id}/add-talk")
-	public String addTalk(@PathVariable Long id, @RequestBody Talk talk) {
+	@PostMapping("/{id}/add-talk")
+	public String addTalk(@PathVariable Long id, String talkTitle, String talkDescription, Duration talkDuration, Long genreId, Long tagId, String talkiFrame) {
 		System.out.println("hit controller");
 		Speaker speaker = speakerService.fetchSpeaker(id);
+		Genre genre = genreService.fetchGenre(genreId);
+		Tag tag = tagService.fetchTag(tagId);
 		List<Talk> existingTalks = speaker.getTalks();
-		existingTalks.add(talk);
-		speakerService.addSpeaker(speaker);
-		return "speaker-page";
+		List<Genre> genreToAdd = new ArrayList<Genre>();
+		genreToAdd.add(genreService.fetchGenre(genreId));
+		List<Tag> tagToAdd = new ArrayList<Tag>();
+		tagToAdd.add(tagService.fetchTag(tagId));
+		
+		Talk talkToAdd = new Talk(talkTitle, talkDescription, talkDuration, speaker);
+		talkToAdd.setGenres(genreToAdd);
+		talkToAdd.setTags(tagToAdd);
+		talkToAdd.setIFrame(talkiFrame);
+		existingTalks.add(talkToAdd);
+		
+		//speakerService.addSpeaker(speaker);
+		//return "speaker-page";
+		return "redirect:/speaker" + id;
 	}
 	
 	
