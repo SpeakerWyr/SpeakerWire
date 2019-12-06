@@ -70,7 +70,7 @@ iframe {
     box-shadow: 3px 3px var(--mid-color);
 }
 
-.tags {
+.tags-container {
     display:flex;
     justify-content: flex-start;
     align-items: flex-start;
