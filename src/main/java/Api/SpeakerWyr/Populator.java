@@ -62,6 +62,34 @@ public class Populator implements CommandLineRunner {
 		genreService.addGenre(math);
 		genreService.addGenre(philosophy);
 
+		List<Genre> genreList1 = new ArrayList<Genre>();
+		List<Genre> genreList2 = new ArrayList<Genre>();
+		List<Genre> genreList3 = new ArrayList<Genre>();
+		List<Genre> genreList4 = new ArrayList<Genre>();
+		List<Genre> genreList5 = new ArrayList<Genre>();
+		List<Genre> genreList6 = new ArrayList<Genre>();
+		List<Genre> genreList7 = new ArrayList<Genre>();
+		List<Genre> genreList8 = new ArrayList<Genre>();
+		List<Genre> genreList9 = new ArrayList<Genre>();		
+		
+		Tag funny = new Tag("funny");
+		Tag persuasive = new Tag("persuasive");
+		Tag local = new Tag("local");
+		Tag spiritual = new Tag("spiritual");
+		Tag selfhelp = new Tag("self-help");
+		Tag educational = new Tag("educational");
+		Tag informative = new Tag("informative");
+		Tag uptodate = new Tag("up-to-date");
+		
+		tagService.addTag(funny);
+		tagService.addTag(persuasive);
+		tagService.addTag(local);
+		tagService.addTag(spiritual);
+		tagService.addTag(selfhelp);
+		tagService.addTag(educational);
+		tagService.addTag(informative);
+		tagService.addTag(uptodate);
+
 		Speaker speakerLindaLiukas = new Speaker("Linda Liukas", "Columbus, Ohio",
 				"Linda is the author and illustrator of Hello Ruby, a children's picture book about the whimsical world of computers",
 				"https://upload.wikimedia.org/wikipedia/commons/3/35/Linda_Liukas_at_the_Data_of_Tomorrow_Conference_2017_%2823496747288%29_%28cropped%29.jpg");
@@ -89,7 +117,6 @@ public class Populator implements CommandLineRunner {
 		Talk talkConveyingthePowerofAbstraction = new Talk("Conveying the Power of Abstraction",
 				"A look at our relationship with abstraction and its potential for dramatically improving how we think.",
 				Duration.MID, speakerDrEugeniaCheng);
-		//talkConveyingthePowerofAbstraction.setGenres(genreList2);
 		
 		Talk talkTheArtOfLogic = new Talk("The Art of Logic: How to Make Sense in a World that Doesn't", " Eugenia has set out to show how mathematical logic can help us see things more clearly - and know when politicians and companies are trying to mislead us.",
 				Duration.LONG, speakerDrEugeniaCheng);
@@ -106,28 +133,46 @@ public class Populator implements CommandLineRunner {
 		Talk talkDevelopNativeAppsWithFlutter = new Talk("Develop Native Apps with Flutter",
 				"Brian discusses Flutter, an open-source UI software development kit created by Google, which runs in the Dart virtual machine featuring a just-in-time execution engine.",
 				Duration.LIGHTNING, speakerBrianEgan);
-		//talkConveyingthePowerofAbstraction.setGenres(genreList3);
 		
 		talkPoetryOfProgramming.setIFrame("https://www.youtube.com/embed/-jRREn6ifEQ");
 		talkSoftwareAndStorytelling.setIFrame("https://www.youtube.com/embed/-AcT34zDGVw");
 		talkADelightfulWayToTeachKids.setIFrame("https://www.youtube.com/embed/vcxwcWuq7KQ");
-		
 		talkConveyingthePowerofAbstraction.setIFrame("https://www.youtube.com/embed/PvSpyhm6TUU");
 		talkTheArtOfLogic.setIFrame("https://www.youtube.com/embed/YHZKX0H6cUE");
 		talkWhatIfMathematicsIsTheAnswer.setIFrame("https://www.youtube.com/embed/CfdFw3hXkf0");
-		
 		talkDevelopNativeAppsWithFlutter.setIFrame("https://www.youtube.com/embed/e7GWuWjBrm0");
 		talkKeepItSimple.setIFrame("https://www.youtube.com/embed/zKXz3pUkw9A");
 		talkWhyUseFlutter.setIFrame("https://www.youtube.com/embed/UD5uF5-w_fw");
 		
-		List<Genre> genreList1 = new ArrayList<Genre>();
-		List<Genre> genreList2 = new ArrayList<Genre>();
-		List<Genre> genreList3 = new ArrayList<Genre>();
-		
 		genreList1.add(coding);
 		genreList1.add(literature);
-		
+		genreList1.add(art);
 		talkPoetryOfProgramming.setGenres(genreList1);
+		genreList2.add(coding);
+		genreList2.add(literature);
+		genreList2.add(philosophy);
+		talkSoftwareAndStorytelling.setGenres(genreList2);
+		genreList3.add(technology);
+		genreList3.add(art);
+		genreList3.add(literature);
+		talkADelightfulWayToTeachKids.setGenres(genreList3);
+		genreList4.add(technology);
+		genreList4.add(philosophy);
+		talkConveyingthePowerofAbstraction.setGenres(genreList4);
+		genreList5.add(art);
+		genreList5.add(philosophy);
+		talkTheArtOfLogic.setGenres(genreList5);
+		genreList6.add(music);
+		genreList6.add(math);
+		talkWhatIfMathematicsIsTheAnswer.setGenres(genreList6);
+		genreList7.add(mobileApps);
+		genreList7.add(coding);
+		talkDevelopNativeAppsWithFlutter.setGenres(genreList7);
+		genreList8.add(technology);
+		genreList8.add(mobileApps);
+		talkKeepItSimple.setGenres(genreList8);
+		genreList9.add(mobileApps);
+		talkWhyUseFlutter.setGenres(genreList9);
 		
 		talkService.addTalk(talkPoetryOfProgramming);
 		talkService.addTalk(talkSoftwareAndStorytelling);
@@ -139,31 +184,6 @@ public class Populator implements CommandLineRunner {
 		talkService.addTalk(talkKeepItSimple);
 		talkService.addTalk(talkWhyUseFlutter);
 		
-		
-		Tag funny = new Tag("funny");
-		Tag persuasive = new Tag("persuasive");
-		Tag local = new Tag("local");
-		Tag spiritual = new Tag("spiritual");
-		Tag selfhelp = new Tag("self-help");
-		Tag educational = new Tag("educational");
-		Tag informative = new Tag("informative");
-		Tag uptodate = new Tag("up-to-date");
-		
-		tagService.addTag(funny);
-		tagService.addTag(persuasive);
-		tagService.addTag(local);
-		tagService.addTag(spiritual);
-		tagService.addTag(selfhelp);
-		tagService.addTag(educational);
-		tagService.addTag(informative);
-		tagService.addTag(uptodate);
-		
-		
-		genreList2.add(technology);
-		genreList2.add(math);
-		genreList2.add(philosophy);
-		
-
 		Host hostArtInstituteOfChicago = new Host("Art Institute of Chicago", "Chicago, IL",
 				"A private university associated with the Art Institute of Chicago",
 				"https://news.artnet.com/app/news-upload/2019/04/GettyImages-661869994-1024x683.jpg");
@@ -215,8 +235,5 @@ public class Populator implements CommandLineRunner {
 		eventService.addTalkToEvent(eventChicagoMathEnthusiasts.getId(), talkConveyingthePowerofAbstraction);
 		eventService.addTalkToEvent(eventOhioFlutterGroup.getId(),talkDevelopNativeAppsWithFlutter);
 		eventService.addTalkToEvent(eventOhioTechConference.getId(),talkKeepItSimple);
-		
-
 	}
-
 }
