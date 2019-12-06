@@ -101,7 +101,7 @@
                         <p class="genre" th:text="${genre.name}">genre</p>
                     </div>
                 </div>
-                <div class="tags">
+                <div class="tags-container">
                     <div th:each="tag : ${talk.tags}">
                         <p class="tag" th:text="${tag.name}">tag</p>
                     </div>
