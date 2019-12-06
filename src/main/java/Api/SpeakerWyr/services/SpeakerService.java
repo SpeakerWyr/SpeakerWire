@@ -45,8 +45,7 @@ public class SpeakerService {
 		List<Talk> theseTalks = thisSpeaker.getTalks();
 		for(Talk talk : theseTalks) {
 			Event anotherEvent = talk.getEvent();
-			Event eventToAdd = eventService.fetchEvent(talk.getEvent().getId());
-			eventsSpeaking.add(eventToAdd);
+			eventsSpeaking.add(anotherEvent);
 		}
 		return eventsSpeaking;
 	}

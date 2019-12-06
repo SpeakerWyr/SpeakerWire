@@ -40,6 +40,7 @@ public class Populator implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
 		Genre java = new Genre("Java");
 		Genre technology = new Genre("Technology");
 		Genre mobileApps = new Genre("Mobile Apps");
@@ -100,8 +101,6 @@ public class Populator implements CommandLineRunner {
 		List<Tag> tagList8 = new ArrayList<Tag>();
 		List<Tag> tagList9 = new ArrayList<Tag>();
 
-		
-
 		Speaker speakerLindaLiukas = new Speaker("Linda Liukas", "Columbus, Ohio",
 				"Linda is the author and illustrator of Hello Ruby, a children's picture book about the whimsical world of computers",
 				"https://upload.wikimedia.org/wikipedia/commons/3/35/Linda_Liukas_at_the_Data_of_Tomorrow_Conference_2017_%2823496747288%29_%28cropped%29.jpg");
@@ -160,13 +159,13 @@ public class Populator implements CommandLineRunner {
 		genreList1.add(literature);
 		genreList1.add(art);
 		talkPoetryOfProgramming.setGenres(genreList1);
-		genreList2.add(coding);
+		genreList2.add(technology);
 		genreList2.add(literature);
 		genreList2.add(philosophy);
 		talkSoftwareAndStorytelling.setGenres(genreList2);
 		genreList3.add(technology);
-		genreList3.add(art);
-		genreList3.add(literature);
+		genreList3.add(mobileApps);
+		genreList3.add(philosophy);
 		talkADelightfulWayToTeachKids.setGenres(genreList3);
 		genreList4.add(technology);
 		genreList4.add(philosophy);
@@ -189,13 +188,13 @@ public class Populator implements CommandLineRunner {
 		tagList1.add(funny);
 		tagList1.add(persuasive);
 		tagList1.add(local);
+		tagList1.add(educational);
 		talkPoetryOfProgramming.setTags(tagList1);
-		tagList2.add(educational);
+		tagList2.add(funny);
 		tagList2.add(informative);
-		tagList3.add(funny);
+		tagList2.add(spiritual);
 		talkSoftwareAndStorytelling.setTags(tagList2);
 		tagList3.add(uptodate);
-		tagList3.add(informative);
 		tagList3.add(educational);
 		talkADelightfulWayToTeachKids.setTags(tagList3);
 		tagList4.add(informative);
