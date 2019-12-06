@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="/css/speakerwire.css" />
     <link rel="stylesheet" href="/css/talk-card.css" />
     <link rel="stylesheet" href="/css/event-card.css" />
-    <link rel="stylesheet" href="/css/event-card.css"/>
-    <link rel="stylesheet" href="../static/css/forms.css"> 
+    <link rel="stylesheet" href="/css/event-card.css" />
+    <link rel="stylesheet" href="../static/css/forms.css">
     <link rel="stylesheet" href="/css/forms.css">
 
 </head>
@@ -44,13 +44,11 @@
                 <!-- <article class="speaker">
                     <button th:text="${talk.speaker}">SpeakerName</button>
                 </article> -->
-                <div class="genres" th:each="genre : ${talk.genres}">
-                    <p class="genre" th:text="${genre.name}">gEnRe</p>
+                <div class="genres-container">
+                    <div th:each="genre : ${talk.genres}">
+                        <p class="genre" th:text="${genre.name}">genre</p>
+                    </div>
                 </div>
-                <!-- <div class="genres" th:each="genre : ${talk.genres}">
-                    <p class="talk-card__genre" th:text="${talk.genre.name}">Genre</p>
-                </div> -->
-
                 <div class="tags">
                     <p class="tag">funny</p>
                     <p class="tag">informational</p>
@@ -61,43 +59,40 @@
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe> -->
             </div>
         </div>
         <div class="upcoming-events-container">
             <h2 class="upcoming-title">Upcoming Events</h2>
             <div class="upcoming-card" th:each="event: ${events}">
-                    <div class="aligner">
-                        <label for="upcoming-card__event-name">Event: </label>
-                        <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
-                    </div>
-                    <div class="aligner">
-                        <label for="upcoming-card__talk-title">Title: </label>
-                        <!-- <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk</h4> -->
-                    </div>
-                    <div class="aligner">
-                        <label for="upcoming-card__duration">Duration: </label>
-                        <h4 class="upcoming-card__duration" th:text="${event.duration}">Duration</h4>
-                    </div>
-                    <div class="aligner">
-                        <label for="upcoming-card__location">Location: </label>
-                        <h4 class="upcoming-card__location" th:text="${event.location}">Location</h4>
-                    </div>
-                    <div class="aligner">
-                        <label for="upcoming-card__date">Date: </label>
-                        <h4 class="upcoming-card__date" th:text="${event.date}">Date</h4>
-                    </div>
-                    <div class="aligner">
-                        <label for="upcoming-card__host">Host: </label>
-                        <!-- <h4 class="upcoming-card__host" th:text="${host.name}">Host</h4> -->
-                    </div>
-                    <div class="upcoming-card__status-container">
-                        <h4>Status: </h4>
-                        <h4 class="upcoming-card__status-booked" th:text="${event.status}">Booked</h4>
-                    </div>
+                <div class="aligner">
+                    <label for="upcoming-card__event-name">Event: </label>
+                    <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
                 </div>
+                <div class="aligner">
+                    <label for="upcoming-card__talk-title">Title: </label>
+                    <!-- <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk</h4> -->
+                </div>
+                <div class="aligner">
+                    <label for="upcoming-card__duration">Duration: </label>
+                    <h4 class="upcoming-card__duration" th:text="${event.duration}">Duration</h4>
+                </div>
+                <div class="aligner">
+                    <label for="upcoming-card__location">Location: </label>
+                    <h4 class="upcoming-card__location" th:text="${event.location}">Location</h4>
+                </div>
+                <div class="aligner">
+                    <label for="upcoming-card__date">Date: </label>
+                    <h4 class="upcoming-card__date" th:text="${event.date}">Date</h4>
+                </div>
+                <div class="aligner">
+                    <label for="upcoming-card__host">Host: </label>
+                    <!-- <h4 class="upcoming-card__host" th:text="${host.name}">Host</h4> -->
+                </div>
+                <div class="upcoming-card__status-container">
+                    <h4>Status: </h4>
+                    <h4 class="upcoming-card__status-booked" th:text="${event.status}">Booked</h4>
+                </div>
+            </div>
             <!-- <div class="upcoming-card" th:each="event : ${events}">
                 <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
                 <div class="talk-title-iterator" th:each="talk : ${event.talks}">
