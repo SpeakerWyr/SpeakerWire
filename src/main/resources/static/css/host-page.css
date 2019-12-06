@@ -86,7 +86,7 @@
     min-width: 90vw;
     min-height: 100vh;
     margin: 0px;
-    background-color: var(--light-color);
+    background-color: var(--lighter-color);
 }
 
 .headshot-container {
