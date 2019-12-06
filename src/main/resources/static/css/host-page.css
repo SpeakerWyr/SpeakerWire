@@ -8,43 +8,6 @@
     margin: 1rem;
 }
 
-/* .current-connections {
-    display: grid;
-    grid-template-rows: 3rem 6rem;
-    grid-template-columns: 20% 80%;
-    grid-template-areas: "header header"
-                         "subject body";
-    border: 2px solid var(--dark-color);
-    margin: 1rem;
-    box-shadow: 3px 3px var(--mid-color);
-}
-
-.current-connections__header {
-    grid-area: header;
-    grid-column: 1 / span 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: double;
-    color: var(--light-color);
-    background-color: var(--mid-color);
-}
-
-.current-connections__body {
-    grid-area: body;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.current-connections__subject {
-    grid-area: subject;
-    display: flex;
-    align-items: flex-start;
-    justify-content: right;
-    border-right: 3px solid black;
-} */
-
 .filter {
     display: grid;
     grid-template-rows: repeat(5, 3rem);

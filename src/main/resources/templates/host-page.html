@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpeakerWire - Host</title>
-    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet"> -->
     
     <link rel="stylesheet" href="/css/host-page.css" />
     <link rel="stylesheet" href="/css/speakerwire.css" />
@@ -32,15 +31,11 @@
 
         <div class="action">
 
-            <!-- <section class="current-connections">
-                <h2 class="current-connections__header">Current Connections</h2>
-                <article class="current-connections__subject">Subject</article>
-                <article class="current-connections__body">Container holding talk cards, maybe?</article>
-            </section> -->
+
 
             <section class="filter">
                 <h2 class="filter__header">Search and Filter for Talks</h2>
-                <!-- <fieldset> -->
+            
                 <article class="filter__genre">
                     <select class="filter__genre-select" name="genreId" id="genreId">
                         <option value="0">Select Genre</option>
@@ -55,10 +50,6 @@
                     </select>
                 </article>
                 <article class="filter__duration">
-                    <!-- <select class="filter__duration-select" name="durationId" id="durationId">
-                        <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
-                            th:value="${duration}" th:text="${duration.displayDuration}"></option>
-                    </select> -->
                     <select class="filter__duration-select" name="durationId" id="durationId">
                             <option value="">Select Duration</option>
                             <option value="LIGHTNING">Lightning (15 minutes or less)</option>
@@ -76,7 +67,6 @@
                     <button class="filter__submit-button" id="filterButton" type="submit" name="submit"
                         value="Filter Talks">Submit</button>
                 </article>
-                <!-- </fieldset> -->
             </section>
         </div>
         <div class="upcoming-events-container">

@@ -96,9 +96,6 @@ public class TalkController {
 		talkTags = retrievedTalk.getTags();
 		model.addAttribute("tags", talkTags);
 		return talkTags;
-
-
-		
 	}
 	
 }
