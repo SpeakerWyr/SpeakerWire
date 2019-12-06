@@ -88,8 +88,9 @@ public class SpeakerController {
 	
 	@PostMapping("/{id}/add-talk")
 	public String addTalk(@PathVariable Long id, String talkTitle, String talkDescription, Duration talkDuration, Long genreId, Long tagId, String talkiFrame) {
-		System.out.println("hit controller");
 		Speaker speaker = speakerService.fetchSpeaker(id);
+		System.out.println(genreId);
+		System.out.println(talkTitle);
 		Genre genre = genreService.fetchGenre(genreId);
 		Tag tag = tagService.fetchTag(tagId);
 		List<Talk> existingTalks = speaker.getTalks();
