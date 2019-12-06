@@ -85,17 +85,14 @@
         <article class="headshot-container">
             <img th:src="${speaker.headshotUrl}" th:alt="${speaker.name}" />
         </article>
-
         <div class="hrule">
             <hr />
         </div>
-
         <div class="talk-card-container">
             <div class="talk-card" th:each="talk : ${talks}">
                 <h1 class="title" th:text="${talk.title}">TalkTitle</h1>
                 <h2 class="description" th:text="${talk.description}">TalkDescription</h2>
                 <h3 class="length" th:text="${talk.duration.displayDuration}">TalkDuration</h3>
-
                 <div class="genres-container">
                     <div th:each="genre : ${talk.genres}">
                         <p class="genre" th:text="${genre.name}">genre</p>
@@ -145,13 +142,9 @@
                     <h4 class="upcoming-card__status-booked" th:text="${event.status}">Booked</h4>
                 </div>
             </div>
-           
         </div>
     </div>
-
     </div>
 </body>
-
 <footer></footer>
-
 </html>
