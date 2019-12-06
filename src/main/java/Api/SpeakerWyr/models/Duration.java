@@ -11,8 +11,8 @@ public enum Duration {
 //	private final Long id;
 //	private final String displayDuration;
 	
-	public String displayDuration;
-	public Integer id;
+	public final String displayDuration;
+	public final Integer id;
 	
 	private Duration(Integer id, String displayDuration){
 		this.displayDuration = displayDuration;
@@ -28,7 +28,18 @@ public enum Duration {
 	}
 	
 	public static Duration getDurationById(Integer id) {
-//		switch(id) {
+//		if(id == 900) {
+//			return Duration.LIGHTNING;
+//		}else if(id == 901) {
+//			return Duration.SHORT;
+//		}else if(id == 902) {
+//			return Duration.MID;
+//		}else if(id == 903) {
+//			return Duration.LONG;
+//		}else 
+//		
+		
+		//switch(id) {
 //		case 900:
 //			return Duration.LIGHTNING;
 //		case 901:
@@ -38,7 +49,7 @@ public enum Duration {
 //		case 903:
 //			return Duration.LONG;
 //		}
-		return Duration.LONG;
+		return Duration.MID;
 	}
 	
 	public Integer getDurationId() {
