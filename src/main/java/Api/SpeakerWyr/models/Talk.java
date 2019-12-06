@@ -103,6 +103,10 @@ public class Talk {
 	public void setGenres(List<Genre> genreList) {
 		this.genres = genreList;
 	}
+	
+	public void setTags(List<Tag> tagList) {
+		this.tags = tagList;
+	}
 
 	public void setIFrame(String iFrameToAdd) {
 		this.iFrame = iFrameToAdd;
