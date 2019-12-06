@@ -39,10 +39,10 @@
                                 </div><br>
                                 <div class="talkDuration">
                                     <label for="talkDuration" class="addTalk__form-field-label">Duration:</label>
-                                    <select class="editTalk__form-field-dropdown" name="talkDuration" id="duration">
+                                    <select class="editTalk__form-field-dropdown" name="talkDuration" id="durationId">
                                             <option value=""></option>
                                             <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
-                                                th:value="${duration}" th:text="${duration.displayDuration}"></option>
+                                                th:value="${duration.id}" th:text="${duration.displayDuration}"></option>
                                         </select>
                                 </div><br>
                                 <div class="talkGenre">
