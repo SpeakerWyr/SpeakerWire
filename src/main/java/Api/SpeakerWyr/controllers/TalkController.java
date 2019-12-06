@@ -87,6 +87,17 @@ public class TalkController {
 		talkGenres = retrievedTalk.getGenres();
 		model.addAttribute("genres", talkGenres);
 		return talkGenres;
+	}
+	
+	@GetMapping("/{id}/get-tags")
+	public List<Tag> getTagsForOneTalk(@PathVariable long id, Model model) {
+		List<Tag> talkTags = new ArrayList<>();
+		Talk retrievedTalk = talkService.fetchTalk(id);
+		talkTags = retrievedTalk.getTags();
+		model.addAttribute("tags", talkTags);
+		return talkTags;
+
+
 		
 	}
 	
