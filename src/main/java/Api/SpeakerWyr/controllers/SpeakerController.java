@@ -44,7 +44,7 @@ public class SpeakerController {
 		model.addAttribute("speaker", speakerService.fetchSpeaker(id));
 		model.addAttribute("events", speakerService.getEventsSpeakerIsBooked(id));
 		model.addAttribute("talks", speakerService.getTalksSpeakerHasListed(id));
-//		model.addAttribute("genres", genreService.fetchGenres());
+		model.addAttribute("genres", genreService.fetchGenres());
 		model.addAttribute("tags", tagService.fetchTags());
 		return "speaker-page";		
 	}

@@ -45,14 +45,11 @@
                     <button th:text="${talk.speaker}">SpeakerName</button>
                 </article> -->
                 <div class="genres" th:each="genre : ${talk.genres}">
-                    <p class="genre" th:text="${genre.name}"></p>
+                    <p class="genre" th:text="${genre.name}">gEnRe</p>
                 </div>
-
-                <!-- <div class="genres">
-                    <p class="genre">Coding</p>
-                    <p class="genre">Philosophy</p>
+                <!-- <div class="genres" th:each="genre : ${talk.genres}">
+                    <p class="talk-card__genre" th:text="${talk.genre.name}">Genre</p>
                 </div> -->
-
 
                 <div class="tags">
                     <p class="tag">funny</p>

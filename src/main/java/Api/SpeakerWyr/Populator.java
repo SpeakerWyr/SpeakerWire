@@ -40,6 +40,27 @@ public class Populator implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		Genre java = new Genre("Java");
+		Genre technology = new Genre("Technology");
+		Genre mobileApps = new Genre("Mobile Apps");
+		Genre coding = new Genre("Coding");
+		Genre art = new Genre("Art");
+		Genre music = new Genre("Music");
+		Genre literature = new Genre("Literature");
+		Genre diet = new Genre("Diet");
+		Genre math = new Genre("Math");
+		Genre philosophy = new Genre("Philosophy");
+		
+		genreService.addGenre(java);
+		genreService.addGenre(technology);
+		genreService.addGenre(mobileApps);
+		genreService.addGenre(coding);
+		genreService.addGenre(art);
+		genreService.addGenre(music);
+		genreService.addGenre(literature);
+		genreService.addGenre(diet);
+		genreService.addGenre(math);
+		genreService.addGenre(philosophy);
 
 		Speaker speakerLindaLiukas = new Speaker("Linda Liukas", "Columbus, Ohio",
 				"Linda is the author and illustrator of Hello Ruby, a children's picture book about the whimsical world of computers",
@@ -99,6 +120,15 @@ public class Populator implements CommandLineRunner {
 		talkKeepItSimple.setIFrame("https://www.youtube.com/embed/zKXz3pUkw9A");
 		talkWhyUseFlutter.setIFrame("https://www.youtube.com/embed/UD5uF5-w_fw");
 		
+		List<Genre> genreList1 = new ArrayList<Genre>();
+		List<Genre> genreList2 = new ArrayList<Genre>();
+		List<Genre> genreList3 = new ArrayList<Genre>();
+		
+		genreList1.add(coding);
+		genreList1.add(literature);
+		
+		talkPoetryOfProgramming.setGenres(genreList1);
+		
 		talkService.addTalk(talkPoetryOfProgramming);
 		talkService.addTalk(talkSoftwareAndStorytelling);
 		talkService.addTalk(talkADelightfulWayToTeachKids);
@@ -109,27 +139,6 @@ public class Populator implements CommandLineRunner {
 		talkService.addTalk(talkKeepItSimple);
 		talkService.addTalk(talkWhyUseFlutter);
 		
-		Genre java = new Genre("Java");
-		Genre technology = new Genre("Technology");
-		Genre mobileApps = new Genre("Mobile Apps");
-		Genre coding = new Genre("Coding");
-		Genre art = new Genre("Art");
-		Genre music = new Genre("Music");
-		Genre literature = new Genre("Literature");
-		Genre diet = new Genre("Diet");
-		Genre math = new Genre("Math");
-		Genre philosophy = new Genre("Philosophy");
-
-		genreService.addGenre(java);
-		genreService.addGenre(technology);
-		genreService.addGenre(mobileApps);
-		genreService.addGenre(coding);
-		genreService.addGenre(art);
-		genreService.addGenre(music);
-		genreService.addGenre(literature);
-		genreService.addGenre(diet);
-		genreService.addGenre(math);
-		genreService.addGenre(philosophy);
 		
 		Tag funny = new Tag("funny");
 		Tag persuasive = new Tag("persuasive");
@@ -149,16 +158,7 @@ public class Populator implements CommandLineRunner {
 		tagService.addTag(informative);
 		tagService.addTag(uptodate);
 		
-		List<Genre> genreList1 = new ArrayList<Genre>();
-		List<Genre> genreList2 = new ArrayList<Genre>();
-		List<Genre> genreList3 = new ArrayList<Genre>();
 		
-		genreList1.add(coding);
-		genreList1.add(literature);
-		
-		talkPoetryOfProgramming.setGenres(genreList1);
-		System.out.println(talkPoetryOfProgramming.getGenres());
-
 		genreList2.add(technology);
 		genreList2.add(math);
 		genreList2.add(philosophy);
