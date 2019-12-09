@@ -9,14 +9,68 @@
     <link rel="stylesheet" href="/css/speakerwire.css" />
     <link rel="stylesheet" href="/css/talk-card.css" />
     <link rel="stylesheet" href="/css/event-card.css" />
-    <link rel="stylesheet" href="/css/event-card.css"/>
-    <link rel="stylesheet" href="../static/css/forms.css"> 
+    <link rel="stylesheet" href="/css/event-card.css" />
+    <link rel="stylesheet" href="../static/css/forms.css">
     <link rel="stylesheet" href="/css/forms.css">
 
 </head>
 
 <body>
     <div class="wrapper">
+            <div id="openAddTalkModal" class="modalDialog">
+                    <div>
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>Add Talk</h2>
+                        <form class="addTalk" th:action="'/speaker/'+ ${speaker.id} + '/add-talk'" method="POST">
+                            <fieldset>
+                                <div class="talkTitle">
+                                    <label for="talkTitle" class="addTalk__form-field-label">Title:</label>
+                                    <input class="addTalk__form-field-input" type="text" id="talkTitle" name="title" />
+                                </div><br>
+                                <div class="talkSpeaker">
+                                    <label for="talkSpeaker" class="addTalk__form-field-label">Speaker Name:</label>
+                                    <input class="addTalk__form-field-input" type="text" id="talkSpeakerID" name="speaker"
+                                        th:placeholder="${speaker.name}" readonly />
+                                </div><br>
+                                <div class="talkDescription">
+                                    <label for="talkDescription" class="addTalk__form-field-label">Short Description:</label>
+                                    <input class="addTalk__form-field-input" type="text" id="talkDescription"
+                                        name="description" />
+                                </div><br>
+                                <div class="talkDuration">
+                                    <label for="talkDuration" class="addTalk__form-field-label">Duration:</label>
+                                    <select class="editTalk__form-field-dropdown" name="talkDuration" id="durationId">
+                                            <option value=""></option>
+                                            <option th:each="duration : ${T(Api.SpeakerWyr.models.Duration).values()}"
+                                                th:value="${duration.id}" th:text="${duration.displayDuration}"></option>
+                                        </select>
+                                </div><br>
+                                <div class="talkGenre">
+                                    <label for="talkGenre" class="addTalk__form-field-label">Genre:</label>
+                                    <select class="addTalk__form-field-dropdown" name="genreId" id="genreId">
+                                        <option value=""></option>
+                                        <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                                        </option>
+                                    </select>
+                                </div><br>
+                                <div class="talkTag">
+                                    <label for="talkTag" class="addTalk__form-field-label">Tag:</label>
+                                    <select class="addTalk__form-field-dropdown" name="tagId" id="tagId">
+                                        <option value=""></option>
+                                        <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}"></option>
+                                    </select>
+                                </div><br>
+                                <div class="talkiFrame">
+                                    <label for="talkiFrame" class="addTalk__form-field-label">Video URL:</label>
+                                    <input class="addTalk__form-field-input" type="text" id="talkiFrame" name="iFrame" />
+                                </div><br>
+                                <div class="addTalkButtonContainer">
+                                    <button class="addTalkButton primary_action" type="submit" name="submit">SUBMIT</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
         <article class="nameplate">
             <h1 class="nameplate__name" th:text="${speaker.name}">SpeakerName</h1>
             <h3 class="nameplate__location" th:text="${speaker.location}">SpeakerLocation</h3>
@@ -24,82 +78,73 @@
                 Bio
             </h2>
             <div class="button-container">
-                <button>Add Talk</button>
+                <button><a href="#openAddTalkModal">Add Talk</a></button>
                 <button>Search</button>
             </div>
         </article>
         <article class="headshot-container">
             <img th:src="${speaker.headshotUrl}" th:alt="${speaker.name}" />
         </article>
-
         <div class="hrule">
             <hr />
         </div>
-
-        <div class="talk-card-container" th:each="talk : ${speaker.talks}">
-            <div class="talk-card">
+        <div class="talk-card-container">
+            <div class="talk-card" th:each="talk : ${talks}">
                 <h1 class="title" th:text="${talk.title}">TalkTitle</h1>
                 <h2 class="description" th:text="${talk.description}">TalkDescription</h2>
                 <h3 class="length" th:text="${talk.duration.displayDuration}">TalkDuration</h3>
-                <!-- <article class="speaker">
-                    <button th:text="${talk.speaker}">SpeakerName</button>
-                </article> -->
-                <div class="genres" th:each="genre : ${genres}">
-                    <p class="genre" th:text="${genre.name}"></p>
+                <div class="genres-container">
+                    <div th:each="genre : ${talk.genres}">
+                        <p class="genre" th:text="${genre.name}">genre</p>
+                    </div>
                 </div>
-
-                <!-- <div class="genres">
-                    <p class="genre">Coding</p>
-                    <p class="genre">Philosophy</p>
-                </div> -->
-
-
-                <div class="tags">
-                    <p class="tag">funny</p>
-                    <p class="tag">informational</p>
-                    <p class="tag">modern</p>
+                <div class="tags-container">
+                    <div th:each="tag : ${talk.tags}">
+                        <p class="tag" th:text="${tag.name}">tag</p>
+                    </div>
                 </div>
                 <div class="movie-container">
                     <iframe th:src="${talk.iFrame}" width="560" height="315" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/-jRREn6ifEQ" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe> -->
             </div>
         </div>
         <div class="upcoming-events-container">
             <h2 class="upcoming-title">Upcoming Events</h2>
-            <div class="upcoming-card" th:each="event : ${eventsSpeaking}">
-                <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
-                <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk title</h4>
-                <h4 class="upcoming-card__length" th:text="${event.duration}">Duration</h4>
-                <h4 class="upcoming-card__location" th:text="${event.location}">Location</h4>
-                <h4 class="upcoming-card__date" th:text="${event.date}">Date</h4>
-                <h4 class="upcoming-card__host" th:text="${host.name}">Host name</h4>
+            <div class="upcoming-card" th:each="event: ${events}">
+                <div class="aligner">
+                    <label for="upcoming-card__event-name">Event: </label>
+                    <h4 class="upcoming-card__event-name" th:text="${event.title}">Event</h4>
+                </div>
+                <div class="aligner" th:each="talk : ${event.talks}">
+                    <label for="upcoming-card__talk-title">Title: </label>
+                    <h4 class="upcoming-card__talk-title" th:text="${talk.title}">Talk</h4>
+                </div>
+                <div class="aligner">
+                    <label for="upcoming-card__duration">Duration: </label>
+                    <h4 class="upcoming-card__duration" th:text="${event.duration}">Duration</h4>
+                </div>
+                <div class="aligner">
+                    <label for="upcoming-card__location">Location: </label>
+                    <h4 class="upcoming-card__location" th:text="${event.location}">Location</h4>
+                </div>
+                <div class="aligner">
+                    <label for="upcoming-card__date">Date: </label>
+                    <h4 class="upcoming-card__date" th:text="${event.date}">Date</h4>
+                </div>
+                <div class="aligner" th:each="host : ${event.host}">
+                    <label for="upcoming-card__host">Host: </label>
+                    <h4 class="upcoming-card__host" th:text="${host.name}">Host</h4>
+                </div>
                 <div class="upcoming-card__status-container">
                     <h4>Status: </h4>
-                    <h4 class="upcoming-card__status-booked" th:text="${event.status}">Status</h4> -->
+                    <h4 class="upcoming-card__status-booked" th:text="${event.status}">Booked</h4>
                 </div>
             </div>
-            <!-- <div class="upcoming-card">
-                    <h4 class="upcoming-card__event-name">Event: Hacker Conference</h4>
-                    <h4 class="upcoming-card__talk-title">Talk: The Poetry of Programming</h4>
-                    <h4 class="upcoming-card__length">Duration: 12:44 minutes</h4>
-                    <h4 class="upcoming-card__location">Location: Billings, MT</h4>
-                    <h4 class="upcoming-card__date">Date: January 7, 2020</h4>
-                    <h4 class="upcoming-card__host">Host: Wayne Brady</h4>
-                    <div class="upcoming-card__status-container">
-                        <h4>Status: </h4>
-                        <h4 class="upcoming-card__status-pending">Pending</h4>
-                    </div> -->
         </div>
     </div>
-
     </div>
 </body>
-
 <footer></footer>
-
 </html>

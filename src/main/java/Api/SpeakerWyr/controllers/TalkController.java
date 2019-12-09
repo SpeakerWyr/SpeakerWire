@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +33,7 @@ public class TalkController {
 	public List<Talk> getTalks() {
 		return talkService.fetchTalks();
 	}
-
+	
 	@GetMapping("/{id}")
 	public Talk getSingleTalk(@PathVariable Long id) {
 		return talkService.fetchTalk(id);
@@ -79,6 +80,23 @@ public class TalkController {
 		talkService.addTalk(thisTalk);
 	}
 	
+	@GetMapping("/{id}/get-genres")
+	public List<Genre> getGenresForOneTalk(@PathVariable long id, Model model) {
+		List<Genre> talkGenres = new ArrayList<>();
+		Talk retrievedTalk = talkService.fetchTalk(id);
+		talkGenres = retrievedTalk.getGenres();
+		model.addAttribute("genres", talkGenres);
+		return talkGenres;
+	}
+	
+	@GetMapping("/{id}/get-tags")
+	public List<Tag> getTagsForOneTalk(@PathVariable long id, Model model) {
+		List<Tag> talkTags = new ArrayList<>();
+		Talk retrievedTalk = talkService.fetchTalk(id);
+		talkTags = retrievedTalk.getTags();
+		model.addAttribute("tags", talkTags);
+		return talkTags;
+	}
 	
 }
 		

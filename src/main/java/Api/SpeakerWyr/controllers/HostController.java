@@ -1,5 +1,6 @@
 package Api.SpeakerWyr.controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import Api.SpeakerWyr.models.Event;
 import Api.SpeakerWyr.models.Host;
+import Api.SpeakerWyr.models.TalkFilter;
+import Api.SpeakerWyr.services.GenreService;
 import Api.SpeakerWyr.services.HostService;
+import Api.SpeakerWyr.services.TagService;
 
 @CrossOrigin
 @Controller
@@ -25,6 +29,10 @@ public class HostController {
 
 	@Autowired
 	private HostService hostService;
+	@Autowired
+	private GenreService genreService;
+	@Autowired
+	private TagService tagService;
 	
 	@GetMapping("")
 	public String getHosts(Model model) {
@@ -33,9 +41,17 @@ public class HostController {
 	}
 
 	@GetMapping("/{id}")
-	public String getHost(@PathVariable("id") long id, Model model) {
+	public String getHost(@PathVariable long id, Model model) {
 		model.addAttribute("host", hostService.fetchHost(id));
 		model.addAttribute("eventsHosting", hostService.getEventsHostIsHosting(id));
+		model.addAttribute("genres", genreService.fetchGenres());
+		model.addAttribute("tags", tagService.fetchTags());
+		model.addAttribute("filterResults", Collections.EMPTY_LIST);
+		return "host-page";
+	}
+	
+	@GetMapping("/{id}/filter")
+	public String hostWithFilteredTalks(@PathVariable Long id, Model model, @RequestBody TalkFilter filter) {
 		return "host-page";
 	}
 	
@@ -80,11 +96,5 @@ public class HostController {
 		existingEvents.add(event);
 		return hostService.addHost(host);
 	}
-	//remove event happens in event controller?
-//	@DeleteMapping("/{id}/delete-event")
-//	public void deleteEvent(@PathVariable long id) {
-//		Event event = eventService.fetchEvent(id);
-//		
-//	}
 	
 }
