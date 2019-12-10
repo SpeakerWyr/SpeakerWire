@@ -235,7 +235,7 @@ public class Populator implements CommandLineRunner {
 		Host hostArtInstituteOfChicago = new Host("Art Institute of Chicago", "Chicago, IL",
 				"A private university associated with the Art Institute of Chicago",
 				"https://news.artnet.com/app/news-upload/2019/04/GettyImages-661869994-1024x683.jpg");
-		Host hostWCCI = new Host("We Can Code IT", "Columbus, OH", "A bootcamp for full stack devolpers",
+		Host hostWCCI = new Host("We Can Code IT", "Columbus, OH", "A bootcamp for full stack developers",
 				"https://wecancodeit.org/wp-content/uploads/2018/07/hire-coding-bootcamp-students.jpg");
 		Host hostTheOhioStateUniversity = new Host("The Ohio State University", "Columbus, OH",
 				"A public research university in Columbus, OH, founded in 1870 as a land-grant university",
